@@ -2,11 +2,11 @@
 
 # Basic Tools
 ## 1. Text Editor
-    * VSCode
-    Linux Shortcuts:
-    * abc
-    * dec
-        * dfsf
+* VSCode
+Linux Shortcuts:
+* abc
+* dec
+    * dfsf
 
 ## 2. Browser
 
