@@ -14,13 +14,12 @@
 
 ## 4. Terminals
 
----
+
 # Front-End Developer
 
----
+
 # Full-Stack Badass!
 
----
+
 # Beyond Stack
 
----
