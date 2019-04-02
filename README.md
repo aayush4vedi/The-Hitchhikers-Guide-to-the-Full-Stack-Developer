@@ -1,1 +1,1 @@
-![picture alt](http://sfwallpaper.com/images/don-t-panic-wallpaper-16.jpg)
+![picture alt](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Media/wallpaper.jpg)
