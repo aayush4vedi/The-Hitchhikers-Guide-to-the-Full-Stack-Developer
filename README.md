@@ -4,9 +4,14 @@
 ## 1. Text Editor
 * **VSCode**<br/>
     * Linux Shortcuts
-        * <kbd>shift</kbd> + <kbd>command</kbd> + <kbd>3</kbd>
-        * dec
-            * dfsf
+        * Show Command Palette <kbd>control</kbd> + <kbd>shift</kbd> + <kbd>P</kbd>
+        * Open New Window      <kbd>control</kbd> + <kbd>shift</kbd> + <kbd>N</kbd>
+        * Close Window         <kbd>control</kbd> + <kbd>W</kbd>
+        * Show Command Palette <kbd>control</kbd> + <kbd>shift</kbd> + <kbd>P</kbd>
+        * Show Command Palette <kbd>control</kbd> + <kbd>shift</kbd> + <kbd>P</kbd>
+        * Show Command Palette <kbd>control</kbd> + <kbd>shift</kbd> + <kbd>P</kbd>
+        * Show Command Palette <kbd>control</kbd> + <kbd>shift</kbd> + <kbd>P</kbd>
+        * Shortcuts            <kbd>control</kbd> + <kbd>K</kbd>
 
     * Useful Extensions
         * abc
