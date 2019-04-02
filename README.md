@@ -3,12 +3,12 @@
 # Basic Tools
 ## 1. Text Editor
 * **VSCode**<br/>
-    * **>>** Linux Shortcuts
-        * abc
+    * Linux Shortcuts
+        * <kbd>shift</kbd> + <kbd>command</kbd> + <kbd>3</kbd>
         * dec
             * dfsf
 
-    * **>>** Useful Extensions
+    * Useful Extensions
         * abc
         * dec
             * dfsf    
