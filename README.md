@@ -3,15 +3,15 @@
 # Basic Tools
 ## 1. Text Editor
 * **VSCode**<br/>
-**>>**Linux Shortcuts
-    * abc
-    * dec
-        * dfsf
-    <br/>
-**>>**Useful Extensions
-* abc
-* dec
-    * dfsf    
+    * **>>** Linux Shortcuts
+        * abc
+        * dec
+            * dfsf
+
+    * **>>** Useful Extensions
+        * abc
+        * dec
+            * dfsf    
 
 ## 2. Browser
 
