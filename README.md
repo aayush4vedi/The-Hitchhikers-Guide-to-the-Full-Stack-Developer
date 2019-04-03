@@ -38,7 +38,7 @@
 
 ## 3. Design
 
-   * Creation: Photoshop
+   * Creation: Adobe Photoshop, XD(not in Linux yet :grimacing: )
    * Tickling: [photopia](https://www.photopea.com/) 
 
 
