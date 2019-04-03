@@ -21,16 +21,30 @@
         * Shortcuts            <kbd>control</kbd> + <kbd>K</kbd>
 
     * Useful Extensions
-        * abc
-        * dec
-            * dfsf    
 
-## 2. Browser
+        **>> Style:**
+        * My fav theme: Gruvbox Dark(medium)
+        * Material Icon Theme
+        * vscode-pdf
+
+        **>> HTML/CSS:**
+        * HTML Boilerplate
+        * Beautify css/sacss
+        * Color Highlight
+        * CSS Peek
+        * IntelliSense for CSS class names
+            
+
 
 ## 3. Design
 
+   * Creation: Photoshop
+   * Tickling: [photopia](https://www.photopea.com/) 
+
+
 ## 4. Terminals
 
+## 2. Browser
 
 # Front-End Developer
 
@@ -39,4 +53,61 @@
 
 
 # Beyond Stack
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
