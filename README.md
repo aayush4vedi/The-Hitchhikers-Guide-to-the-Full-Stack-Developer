@@ -1,6 +1,6 @@
 ![picture alt](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Media/wallpaper.jpg)
 
-# Basic Tools
+# I. Basic Tools
 ## 1. Text Editor
 * **VSCode**<br/>
     * Linux Shortcuts
@@ -33,26 +33,42 @@
         * Color Highlight
         * CSS Peek
         * IntelliSense for CSS class names
+
+        **>> Others**
+        * Live Server
             
 
 
-## 3. Design
+## 2. Design
 
    * Creation: Adobe Photoshop, XD(not in Linux yet :grimacing: )
    * Tickling: [photopia](https://www.photopea.com/) 
 
 
-## 4. Terminals
+## 3. Terminals
 
-## 2. Browser
+* **Linux** >> Guake
+* **MacOS** >> iTerm2
+* **Windows** >> :thumbsup:
 
-# Front-End Developer
+## 4. Browser Tools
+
+* HTTP response status codes: [MDN doc](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+* **Chrome Dev Tools**
+    * [Google Doc](https://developers.google.com/web/tools/chrome-devtools/beginners/html)
+    * [Crash Course @Youtube](https://www.youtube.com/watch?v=x4q86IjJFag) :Kafi cool intro to all tabs
+    * [for CSS @Youtube](https://www.youtube.com/watch?v=Z3HGJsNLQ1E): Steal other website's styles
 
 
-# Full-Stack Badass!
 
 
-# Beyond Stack
+# II. Front-End Developer
+
+
+# III.  Full-Stack Badass!
+
+
+# IV. Beyond Stack
 
 
 
