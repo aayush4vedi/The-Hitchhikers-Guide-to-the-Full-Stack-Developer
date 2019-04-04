@@ -60,19 +60,121 @@
     * [for CSS @Youtube](https://www.youtube.com/watch?v=Z3HGJsNLQ1E): Steal other website's styles
 
 
+## 5. Git
+## 5. Postman
+
+---
+
+# II. Front-End 
+
+## 1. HTML & CSS
+
+* Semantic HTML5 elements
+* Basic CSS
+* CSS3: flexbox, grid, variables
+* Responsive Layout
+* CSS Preprocessor: SASS
+
+## 3. Frameworks
+
+### 1. **Bootstrap**
+### 2. **Materialize**
+### 3. **Bulma**
+
+## 4. Basic Deployment
 
 
-# II. Front-End Developer
+## 5. JS
+### 1. Basic syntax
+### 2. DOM manipulation
+### 3. API, AJAX(XHR)
+### 4. ES6+
 
 
-# III.  Full-Stack Badass!
+## 6. JS Front-End Frameworks
+
+### 1. React
+### 2. Angular
+### 3. Vue
+
+## 7. JS-State Management
+### 1.1. Redux
+### 1.2. State API
+### 2.1. NgRx
+### 3.1. VueX
+
+--- 
+
+# III.  Back-End
+
+## 1. NodeJS
+
+## 2. Frameworks
+### 1. **Express**
+### 2. **Koa**
+
+## 3. Server Rendered Pages
+## 3.1. React: Next.JS
+## 3.2. Vue: Nuxt.JS
+## 3.3. Angular: Angular Universal
+
+## 3. CMS
+### 3.1. Ghost
+### 3.2. Keystome
+
+---
+
+# IV. DataBase
+
+## 1. Relational
+
+### 1.1. MySQL
+### 1.2. PostgreSQL
+### 1.3. MS SQL
+
+## 2. NoSQL
+
+### 2.1. MongoDB
+### 2.2. Memcached
+
+## 3. Cloud
+### 3.1. AWS
+### 3.2. GCD
+### 3.3. Firebase
+
+## 4. Lightweight
+### 4.1. SQLite
+### 4.2. Redis
 
 
-# IV. Beyond Stack
+---
+
+# V. DevOps
+## 1. Deployment:linux,ssh,gitlab, server-software(Ngnix,Apache)
+## 2. Platforms: AWS,Azure,Google cloud,Heroku
+## 3. Virtualization: docker
+## 4. Testing
+---
 
 
+# VI. Beyond Stack
+
+## 0. GraphQL
+## 0. TypeScript
+## 0. App Dev: react-native, flutter,ionic
+## 0. Desktop apps: electron
+## 0. Progressive Web Aps(PWA)
+## 0. AI, ML, Data Science
+## 1. Caching
+## 2. Security
+## 3. ElasticSearch
+## 4. CDN
 
 
+![Intro](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Media/intro.png)
+![FrontEnd](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Media/frontend.png)
+![BackEnd](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Media/backend.png)
+![Devops](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Media/devops.png)
 
 
 
