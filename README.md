@@ -72,8 +72,14 @@
 * Semantic HTML5 elements
 * Basic CSS
 * CSS3: 
-    * flexbox: [@youtube](https://www.youtube.com/watch?v=JJSoEo8JSnc&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=23)
-    * grid, variables
+    * box-model: [doc](https://cssreference.io/box-model/)
+    * flexbox: [@youtube](https://www.youtube.com/watch?v=JJSoEo8JSnc&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=23), [doc](https://cssreference.io/flexbox/)
+    * grid: [@youtube](https://www.youtube.com/watch?v=jV8B24rSN5o), [doc](https://cssreference.io/css-grid/)
+    * positioning: [doc](https://cssreference.io/positioning/)
+    * transitions: [@youtube](https://www.youtube.com/watch?v=zHUpx90NerM&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=40), [doc](https://cssreference.io/transitions/)
+    * typography: [doc](https://cssreference.io/typography/)
+    * background: [doc](https://cssreference.io/backgrounds/)
+    * animations: [doc](https://cssreference.io/animations/)
 * Responsive Layout
 * CSS Preprocessor: SASS
 
