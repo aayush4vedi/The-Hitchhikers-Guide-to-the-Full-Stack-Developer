@@ -28,6 +28,7 @@
         * vscode-pdf
 
         **>> HTML/CSS:**
+        * Emmet( ``` + life-savior```): [cheatsheet](https://docs.emmet.io/cheat-sheet/)
         * HTML Boilerplate
         * Beautify css/sacss
         * Color Highlight
@@ -73,13 +74,14 @@
 * Basic CSS
 * CSS3: 
     * box-model: [doc](https://cssreference.io/box-model/)
-    * flexbox: [@youtube](https://www.youtube.com/watch?v=JJSoEo8JSnc&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=23), [doc](https://cssreference.io/flexbox/)
-    * grid: [@youtube](https://www.youtube.com/watch?v=jV8B24rSN5o), [doc](https://cssreference.io/css-grid/)
-    * positioning: [doc](https://cssreference.io/positioning/)
-    * transitions: [@youtube](https://www.youtube.com/watch?v=zHUpx90NerM&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=40), [doc](https://cssreference.io/transitions/)
-    * typography: [doc](https://cssreference.io/typography/)
-    * background: [doc](https://cssreference.io/backgrounds/)
-    * animations: [doc](https://cssreference.io/animations/)
+    * **flexbox**(1D): [@youtube](https://www.youtube.com/watch?v=JJSoEo8JSnc&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=23), [doc](https://cssreference.io/flexbox/)
+    * **grid**(2D): [@youtube](https://www.youtube.com/watch?v=jV8B24rSN5o), [doc](https://cssreference.io/css-grid/)
+    * **Other**
+        * positioning: [doc](https://cssreference.io/positioning/)
+        * transitions: [@youtube](https://www.youtube.com/watch?v=zHUpx90NerM&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=40), [doc](https://cssreference.io/transitions/)
+        * typography: [doc](https://cssreference.io/typography/)
+        * background: [doc](https://cssreference.io/backgrounds/)
+        * animations: [doc](https://cssreference.io/animations/)
 * Responsive Layout
 * CSS Preprocessor: SASS
 
