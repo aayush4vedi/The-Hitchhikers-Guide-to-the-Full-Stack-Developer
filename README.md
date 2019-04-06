@@ -71,7 +71,9 @@
 
 * Semantic HTML5 elements
 * Basic CSS
-* CSS3: flexbox, grid, variables
+* CSS3: 
+    * flexbox: [@youtube](https://www.youtube.com/watch?v=JJSoEo8JSnc&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=23)
+    * grid, variables
 * Responsive Layout
 * CSS Preprocessor: SASS
 
