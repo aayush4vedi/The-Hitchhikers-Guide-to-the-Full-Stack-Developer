@@ -84,6 +84,8 @@
         * animations: [doc](https://cssreference.io/animations/)
 * Responsive Layout: [article1](https://learn.shayhowe.com/advanced-html-css/responsive-web-design/), [article2](https://internetingishard.com/html-and-css/responsive-design/)
 * CSS Preprocessor: SASS
+    * Kaaafi cool [article](https://www.creativebloq.com/web-design/what-is-sass-111517618)
+    * [@youtube: sass using gulp](https://www.youtube.com/watch?v=rmXVmfx3rNo)
 * **Frameworks**
     * Bootstrap: {most popular}
         * [&youtube](https://www.youtube.com/watch?v=5GcQtLDGXy8&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=29), [doc](https://getbootstrap.com/docs/4.3/layout/overview/)
@@ -101,6 +103,8 @@
     * Bulma:{Flexbox based CSS}
         * [@youtube](https://www.youtube.com/watch?v=IiPQYQT2-wg&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=31), [@doc](https://bulma.io/documentation/)
         * [cheatsheet](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Files/bulmasandbox.zip)
+
+* **Project:** Build responsive-portfolio website(sass, jQ,JS): [@youtube septology](https://www.youtube.com/watch?v=gYzHS-n2gqU&list=PLillGF-RfqbYoGoCjKoMOkVznV6aSXKzU)
 
 ## 2. JQuery
 ## 4. Basic Deployment
