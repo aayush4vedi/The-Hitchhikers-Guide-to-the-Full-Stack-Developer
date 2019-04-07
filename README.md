@@ -88,18 +88,19 @@
     * Bootstrap: {most popular}
         * [&youtube](https://www.youtube.com/watch?v=5GcQtLDGXy8&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=29), [doc](https://getbootstrap.com/docs/4.3/layout/overview/)
         * most popular, easier syntax, quicker
-        * [cheatsheet]()
+        * [cheatsheet](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Files/bootstrap_cheatsheet.zip)
+    * Materialize: {based on google's material design}
+        * looks better than all :wink:
+        * [@youtube](https://www.youtube.com/watch?v=nqT8c5OFjEQ&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=32), [@doc](https://materializecss.com/)
+        * [cheatsheet-CSS](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Files/materialize_sandbox.zip),[cheatsheet:jQ+JS](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Files/materialize_sandbox-JS.zip)
     * Foundation: {mobile first}
         * [@youtube](https://www.youtube.com/watch?v=DEu5xYEZx18&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=30), [@doc](https://foundation.zurb.com/)
         * @Foundation: [Building blocks](https://foundation.zurb.com/building-blocks/): already coded UI components for plug-n-play
         * more for advanced programming, more customizable, flatter=> easily recognizable
-        * [cheatsheet]()
-    * Materialize: {based on google's material design}
-        * looks better than all :wink:
-        * [@youtube](https://www.youtube.com/watch?v=nqT8c5OFjEQ&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=32), [@doc](https://materializecss.com/)
+        * [cheatsheet](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Files/foundation_sandbox.zip)
     * Bulma:{Flexbox based CSS}
         * [@youtube](https://www.youtube.com/watch?v=IiPQYQT2-wg&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=31), [@doc](https://bulma.io/documentation/)
-        * [cheatsheet-CSS](),[cheatsheet:jQ+JS]()
+        * [cheatsheet](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Files/bulmasandbox.zip)
 
 ## 2. JQuery
 ## 4. Basic Deployment
