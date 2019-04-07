@@ -28,7 +28,7 @@
         * vscode-pdf
 
         **>> HTML/CSS:**
-        * Emmet( ``` + life-savior```): [cheatsheet](https://docs.emmet.io/cheat-sheet/)
+        * Emmet( ```life-savior```): [cheatsheet](https://docs.emmet.io/cheat-sheet/), lorem30
         * HTML Boilerplate
         * Beautify css/sacss
         * Color Highlight
@@ -74,23 +74,34 @@
 * Basic CSS
 * CSS3: 
     * box-model: [doc](https://cssreference.io/box-model/)
+    * **grid**(2D & preferred): [@youtube](https://www.youtube.com/watch?v=jV8B24rSN5o), [doc](https://cssreference.io/css-grid/), [css-tricks:doc](https://css-tricks.com/snippets/css/complete-guide-grid/)
     * **flexbox**(1D): [@youtube](https://www.youtube.com/watch?v=JJSoEo8JSnc&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=23), [doc](https://cssreference.io/flexbox/)
-    * **grid**(2D): [@youtube](https://www.youtube.com/watch?v=jV8B24rSN5o), [doc](https://cssreference.io/css-grid/)
     * **Other**
         * positioning: [doc](https://cssreference.io/positioning/)
         * transitions: [@youtube](https://www.youtube.com/watch?v=zHUpx90NerM&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=40), [doc](https://cssreference.io/transitions/)
         * typography: [doc](https://cssreference.io/typography/)
         * background: [doc](https://cssreference.io/backgrounds/)
         * animations: [doc](https://cssreference.io/animations/)
-* Responsive Layout
+* Responsive Layout: [article1](https://learn.shayhowe.com/advanced-html-css/responsive-web-design/), [article2](https://internetingishard.com/html-and-css/responsive-design/)
 * CSS Preprocessor: SASS
+* **Frameworks**
+    * Bootstrap: {most popular}
+        * [&youtube](https://www.youtube.com/watch?v=5GcQtLDGXy8&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=29), [doc](https://getbootstrap.com/docs/4.3/layout/overview/)
+        * most popular, easier syntax, quicker
+        * [cheatsheet]()
+    * Foundation: {mobile first}
+        * [@youtube](https://www.youtube.com/watch?v=DEu5xYEZx18&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=30), [@doc](https://foundation.zurb.com/)
+        * @Foundation: [Building blocks](https://foundation.zurb.com/building-blocks/): already coded UI components for plug-n-play
+        * more for advanced programming, more customizable, flatter=> easily recognizable
+        * [cheatsheet]()
+    * Materialize: {based on google's material design}
+        * looks better than all :wink:
+        * [@youtube](https://www.youtube.com/watch?v=nqT8c5OFjEQ&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=32), [@doc](https://materializecss.com/)
+    * Bulma:{Flexbox based CSS}
+        * [@youtube](https://www.youtube.com/watch?v=IiPQYQT2-wg&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=31), [@doc](https://bulma.io/documentation/)
+        * [cheatsheet-CSS](),[cheatsheet:jQ+JS]()
 
-## 3. Frameworks
-
-### 1. **Bootstrap**
-### 2. **Materialize**
-### 3. **Bulma**
-
+## 2. JQuery
 ## 4. Basic Deployment
 
 
