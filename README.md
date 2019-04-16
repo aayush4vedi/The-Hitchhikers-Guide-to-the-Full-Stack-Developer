@@ -107,6 +107,10 @@
 * **Project:** Build responsive-portfolio website(sass, jQ,JS): [@youtube septology](https://www.youtube.com/watch?v=gYzHS-n2gqU&list=PLillGF-RfqbYoGoCjKoMOkVznV6aSXKzU)
 
 ## 2. JQuery
+* Kaafi sahi(& exhaustive) tut-serise: [tutorialRepublic](https://www.tutorialrepublic.com/jquery-tutorial/) 
+* [@youtube](https://www.youtube.com/watch?v=2OMzGhlIZpg) 
+* from *css-tricks* : [tut](https://css-tricks.com/lodge/learn-jquery/)
+
 ## 4. Basic Deployment
 
 
