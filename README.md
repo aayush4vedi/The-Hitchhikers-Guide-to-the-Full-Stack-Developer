@@ -111,8 +111,10 @@
 * [@youtube](https://www.youtube.com/watch?v=2OMzGhlIZpg) 
 * from *css-tricks* : [tut](https://css-tricks.com/lodge/learn-jquery/)
 
-## 4. Basic Deployment
-
+## 4. Basic Deployment(small scale)
+* web-hosting for small websites: [@youtueb](https://www.youtube.com/watch?v=UN7S4zd8h-k): CPanel,inmotion, filezilla, wordpress
+* netify(from github, gitlab), also free, comes with *npm-cli* : [@youtube](https://www.youtube.com/watch?v=bjVUqvcCnxM)
+* github(**gh-pages**): [@youtube](https://www.youtube.com/watch?v=SKXkC4SqtRk)
 
 ## 5. JS
 ### 1. Basic syntax
