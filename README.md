@@ -1,10 +1,16 @@
 ![picture alt](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Media/wallpaper.jpg)
 
+* Motivation for Side project: [TraversyMedia](https://www.youtube.com/watch?v=eCAj3mWFpNM)
 # I. Basic Tools
-## 1. Text Editor
+## 1. IDE
 * **VSCode**<br/>
-    * Linux Shortcuts
+    * [Tips-n-tricks](https://code.visualstudio.com/docs/getstarted/tips-and-tricks) 
+    * [Basic Editing Shortcuts](https://code.visualstudio.com/docs/editor/codebasics) >>Multiple cursors
+    * Linux/Mac Shortcuts:
+        * Search for files <kbd>command</kbd> + <kbd>P</kbd>
         * Show Command Palette <kbd>control</kbd> + <kbd>shift</kbd> + <kbd>P</kbd>
+        * Move to End of Line <kbd>control</kbd> + <kbd>right</kbd>
+        * Move to End of Word <kbd>control</kbd> + <kbd>option</kbd> + <kbd>right</kbd>/<kbd>left</kbd>
         * Open New Window      <kbd>control</kbd> + <kbd>shift</kbd> + <kbd>N</kbd>
         * Close Window         <kbd>control</kbd> + <kbd>W</kbd>
         * Move Line Up/Down     <kbd>alt</kbd> + <kbd>up</kbd>/<kbd>down</kbd>
@@ -19,13 +25,22 @@
         * Open Previous <kbd>control</kbd> +<kbd>shift</kbd>+ <kbd>tab</kbd>
         * Show integrated terminal <kbd>control</kbd> + <kbd>`</kbd> 
         * Shortcuts            <kbd>control</kbd> + <kbd>K</kbd>
+        * Multiple cursor <kbd>option/alt</kbd> + `click`
+            * Move: <kbd>command</kbd> + <kbd>option</kbd> + <kbd>Up/Down</kbd>
+        * Duplicate a line <kbd>shift</kbd> +<kbd>option</kbd>+ <kbd>Up/Down</kbd>
+         * Rename all instances: <kbd>command</kbd> +<kbd>F2</kbd>
+        * Reverse Search?
 
     * Useful Extensions
 
         **>> Style:**
-        * My fav theme: Gruvbox Dark(medium)
+        * My fav theme: `One Dark Pro` > `Gruvbox Dark(medium)` > `Material Dark(with high contrast)`
         * Material Icon Theme
         * vscode-pdf
+        * Markdown Emoji [cheat-sheet](https://gist.github.com/rxaviers/7360908)
+        * Bracket Pair Colorizer 2
+        * Indenticator
+        * Auto close tag
 
         **>> HTML/CSS:**
         * Emmet( ```life-savior```): [cheatsheet](https://docs.emmet.io/cheat-sheet/), lorem30
@@ -33,49 +48,199 @@
         * Beautify css/sacss
         * Color Highlight
         * CSS Peek
-        * IntelliSense for CSS class names
+        * IntelliSense for CSS class names 
+        
+        **>> REST:**
+        * REST Client(inbuilt Postman)
 
         **>> Others**
         * Live Server
+        * Live Share(git)
+        * [Fira Code](https://medium.com/@qjli/daily-dev-tips-96-visual-studio-code-how-to-enable-this-new-sexy-fira-code-font-89bafbfa245f) : fonts with ligatures
+        * Git Lense
+        * Multiple clipboards for VSCode: TODO: learn it's commands 
+
+
+
+    * Other Tricks
+        * Paste 'JSON as Code' in search bar
+        * Compare two files with each other: on terminal: `code -d --diff <file1> <file2>`    
+        * Type `icons` in command pallate for icon-themes: current-Material     
+        * Open a file in split mode(**Zen** mode): <kbd>command</kbd> + `click`
+       
             
 
 
-## 2. Design
+## 2. Cloud IDE
+
+   * Amazon's `cloud9` shut down
+   * Alternative: **GoormIDE**
+    * [Setup](https://www.youtube.com/watch?v=iJtOoeM_fS8&list=PL86ehqHzxhy4oHmZoMMJPEKuryOk287oU&index=2)
+    * Coupon(from Udemy): cfWQaYAAlkSh
+
+## 3. Design
 
    * Creation: Adobe Photoshop, XD(not in Linux yet :grimacing: )
    * Tickling: [photopia](https://www.photopea.com/) 
+   * [Colorzilla](https://chrome.google.com/webstore/detail/colorzilla/bhlhnicpbhignbdhedgjhgdocnmhomnp/related?hl=en): Chrome Ext. to pic colors from web pages
 
 
-## 3. Terminals
+## 4. Terminals
 
 * **Linux** >> Guake
-* **MacOS** >> iTerm2
+* **MacOS** >> iTerm2+ zsh
+    * [Medium's extensive article](https://www.freecodecamp.org/news/jazz-up-your-zsh-terminal-in-seven-steps-a-visual-guide-e81a8fd59a38/)
+    * [Few great plugins](https://opensource.com/article/18/9/tips-productivity-zsh)
+    * zsh's Powerlevel10k: [many packages into one](https://gist.github.com/kevin-smets/8568070)
 * **Windows** >> :thumbsup:
+* **Useful Commands:**
+    * **tar :**(tape archive)
+        * Compress: `cvf`    : tar cvf newName.tar folderToBeCompressed
+        * Extracting: `xvf`  : tar xvf compressedFile.tar
+    * **grep**(Globally search for REgular expression and Print-out)
+        * Search for the given string in a filename begining with file: `grep "string" file*`
+        * `grep -x`, where `x` is :
+            * `i` : case insensitive
+            * `w` : matches the whole word
+            * `r` : recursive(searches in all sub-directories)
+    * **find**: Findes file
+        * `find -iname "filename.txt"` : case-insensitive search
+        * `find ~ -empty` : find all empty files in home directory
+    * **ssh**: (Secure Shell)
+        * securely connect to a remote server/system: `ssh user_name@host(IP/Domain_name)`
+        * `ssh-keygen`
+        * [More](https://www.thegeekstuff.com/2008/05/5-basic-linux-ssh-client-commands/)
+    * **kill**
+        * Get the process id: `ps -ef | grep process_name`
+        * Kill it: `kill -9 process_id`
+    * **rm** : remove
+        * Recursive removal(delete all what's inside): `rm -r folder`
+    * **cp** : copy 
+        * `cp Src_file Dest_file`
+        * `cp - Src_directory Dest_directory` : recursive
+    * **mv** : move
+        * `mv src dest`
+        * `mv oldName newName` : renaming a folder/file
+    * **chmod** :(change mode)
+        * `chmod ug+rwx file.txt` -Give full access to user and group (i.e read, write and execute ) on a specific file
+        * `chmod g-rwx file.txt` -Revoke all access for the group (i.e read, write and execute ) on a specific file
+        * `chmod -R ug+rwx file.txt` -Apply the file permissions recursively to all the files
+    * **chown** : change ownership
+    * **ping** : ping a host `ping -c google.com`
+    * **wget** : download something from internet 
+        * `wget -O fileName.mp3 url`
+    * **ln** : soft-link  `ln -s {source-filename} {symbolic-filename}`
+    * **[netstat](https://www.tecmint.com/20-netstat-commands-for-linux-network-management/)**
+    * `history` :lists all prev commands
+    * **reverse-i-search**: Reverse Incremental Search. <kbd>control</kbd>+ <kbd>r</kbd> 
+* Notes:
+    * `-` is for letter, `--` for words : `la -a`, `ls --all
+    * Rename folder: `mv old new`
+    * Run B only if A works: `A && B`
+    * `*` if sort-of auto-complete
+    * You might already know that Ubuntu is derived from Debian Linux. And Debian uses dpkg packaging system. A packaging system is a way to provide programs and applications for installation. This way, you don’t have to build a program from the source code which, trust me, is not a pretty way to handle packages.**APT** (Advanced Package Tool) is the command line tool to interact with the packaging system. There is already dpkg commands to manage it. But APT is a more friendly way to handle packaging. You can use it to find and install new packages, upgrade packages, remove the packages etc.
+    * `sudo apt update` :apt actually works on a database of available packages. If the database is not updated, the system won’t know if there are any newer packages available. This is why updating the repository should be the first thing to do in in any Linux system after a fresh install.
+    * `sudo apt remove <package_name>` OR `sudo apt purge <package_name>` : Uninstall a package.**Diff:**
+        * `apt remove` just removes the binaries of a package. It leaves residue configuration files.
+        * `apt purge` removes everything related to a package including the configuration files.
+    * `sudo apt autoremove`: This command removes libs and packages that were installed automatically to satisfy the dependencies of an installed package.
 
-## 4. Browser Tools
+## 5. Browser Tools
 
 * HTTP response status codes: [MDN doc](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
 * **Chrome Dev Tools**
     * [Google Doc](https://developers.google.com/web/tools/chrome-devtools/beginners/html)
     * [Crash Course @Youtube](https://www.youtube.com/watch?v=x4q86IjJFag) :Kafi cool intro to all tabs
     * [for CSS @Youtube](https://www.youtube.com/watch?v=Z3HGJsNLQ1E): Steal other website's styles
+    * ~~crossed~~ styles are disabled because of lower priority
 
 
-## 5. Git
-## 5. Postman
+## 6. Git
+* **Handy Commands:**
+    * `git log` : entire history of logs + `--oneline` + `--graph` + `--decorate` + `--all`
+    * `git show`: logs history + all changes in files
+    * `git status`
+    * `git branch` : to see which branch I'm on rn + `-a ` : to  see all branches 
+    * `git checkout -b <new_branch_name>` 
+    * `git branch -d <new_branch>` : to delete a branch
+    * `git reset HEAD <fileName>` : brings file to staging area => `git checkout -- <FileName>` : brings back file to last commit
+    * `git add -A`: for all type of changes
+    * `git hist` : get `ids` of commits
+    * `git diff <commit1> <commit2>` : to see the diff b/w 2 commits or branches
+    * Express Commit: `git commit -am "message"`
+    * ` tags`
+* **Other Things:**
+    * `.gitignore`: use `*.filetype` to ignore all files with this extension
+    * `HEAD` points to the last commit of the current branch.(could be changed)
+    * **Merging Branches:**
+        1. `git checkout -b <new_branch>` 
+        2. finish working on `<new_branch>` => commit&push
+        3. `git checkout master` (can see history & HEAD location with `git hist`)
+        4.  `git merge <new_branch >` (can use  `git hist` to see all heads are at same place)
+        5. conflict ressolution
+        6. Delete that branch `git branch -d <new_branch>`
+    * **`git stash`** TODO:
+    * **`git reset & reflog`**: soft & hard TODO:
+ ## 7. Postman
 
 ---
 
 # II. Front-End 
 
-## 1. HTML & CSS
+## 1. HTML & CSS  :white_check_mark:	
 
 * Semantic HTML5 elements
+    * [MDN elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) : An exhaustive list of 100+ elements
+    * [MDN HTML Attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes)
+    * [MDN-CDNs](https://mdbootstrap.com/md-bootstrap-cdn/) one place for everything
 * Basic CSS
+    * **Selectors:**
+        * [Article](https://code.tutsplus.com/tutorials/the-30-css-selectors-you-must-memorize--net-16048) listing all CSS Selectors
+        * element
+        * #id
+        * .class
+        * `descendent` X Y Z {...}
+        * X:hover
+        * *Forget not the multiple classes concept*
+    * Closest inheritence wins in deciding the style
+    * Animation:
+        * `transition: all 0.25s;`
+    * Styles:
+        * `box-shadow: 11px 13px 15px 0px rgba(65, 64, 64, 0.52);`
+        * [UiGradients](https://uigradients.com/#RoseWater): auto generated **beautiful color gradients**
+    * **Fonts**
+        * [Web Safe Fonts](https://www.cssfontstack.com/) : pre-installed in OS
+        * [Web Fonts](https://www.cssfontstack.com/Web-Fonts) : not pre-installed 
+        * [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/font) - font properties
+            * `font-family:` "X"
+            * `span` -to tweek with a sub-string
+        * [Google Fonts](https://fonts.google.com/) ->select fonts -> see load time ->copy the `<link>` -> use! 
+    * **Text**
+        * [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Text) -text properties
+        * `text-transform:`uppercase
+        * `text-shadow` iskool!
+    * **[Box Model](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model)**
+        * Element->Padding->Border->Margin :: *"Epaah!-bor-maar raha hai!"*
+    * **Float** - like gravity shift, allowing text and inline elements to wrap around it. [@MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/float)
+    * **Icons** : Font Awesome
+        * [CDN](https://mdbootstrap.com/md-bootstrap-cdn/)
+        * [Resizing](https://fontawesome.com/how-to-use/on-the-web/styling/sizing-icons)
+    <hr>
+
+     * **Notes:** 
+        * `background-color` is for background & `color` is for text.
+        * Make alternate `li`'s color different:<br> 
+            `li{background: white;}`<br>
+            `li:nth-child(2n){background: black;}`
+        * `box-sizing: border-box;`
+        * `margin: 10% auto;` is a life-savor: puts the div/id/class in centre
+        * `::placeholder { color: blue;}`
+
+
 * CSS3: 
     * box-model: [doc](https://cssreference.io/box-model/)
     * **grid**(2D & preferred): [@youtube](https://www.youtube.com/watch?v=jV8B24rSN5o), [doc](https://cssreference.io/css-grid/), [css-tricks:doc](https://css-tricks.com/snippets/css/complete-guide-grid/)
-    * **flexbox**(1D): [@youtube](https://www.youtube.com/watch?v=JJSoEo8JSnc&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=23), [doc](https://cssreference.io/flexbox/)
+    * **flexbox**(1D): [@youtube](https://www.youtube.com/watch?v=JJSoEo8JSnc&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=23), [doc](https://cssreference.io/flexbox/)  >> aligh items man-makfik inside a div
     * **Other**
         * positioning: [doc](https://cssreference.io/positioning/)
         * transitions: [@youtube](https://www.youtube.com/watch?v=zHUpx90NerM&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=40), [doc](https://cssreference.io/transitions/)
@@ -88,9 +253,71 @@
     * [@youtube: sass using gulp](https://www.youtube.com/watch?v=rmXVmfx3rNo)
 * **Frameworks**
     * Bootstrap: {most popular}
-        * [&youtube](https://www.youtube.com/watch?v=5GcQtLDGXy8&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=29), [doc](https://getbootstrap.com/docs/4.3/layout/overview/)
+        * [DOC](https://getbootstrap.com/docs/4.3/layout/overview/)
+        * [Cheatsheet1](https://hackerthemes.com/bootstrap-cheatsheet/),[cheatsheet2](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Files/bootstrap_cheatsheet.zip)
+        * [&youtube](https://www.youtube.com/watch?v=5GcQtLDGXy8&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=29)
         * most popular, easier syntax, quicker
-        * [cheatsheet](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Files/bootstrap_cheatsheet.zip)
+        * CDN's :: [bootstrap,js,jq](https://getbootstrap.com/docs/4.1/getting-started/introduction/) + [Google Font](https://fonts.google.com/) + [Font Awesome](https://mdbootstrap.com/md-bootstrap-cdn/)
+        * Use **Flexbox** with bootstrap for easy implementation
+        * Notes:
+            * **Trick:** `margin: 0 auto;` //fill the screen(top, bottom), auto readjust on sides
+            * Multiple columns for responsive layout across all sizes `<div class="col-6 col-md-4">.col-6 .col-md-4</div>`
+            * You can edit the default bootstrap classes as well(color,height etc)
+            * order of linking bootstrap & own style.css: bootrstrap > style.css
+            * Do `class= "container"` to use the magic of `Grids`
+            * How not to make background image tiling on resizing the browser, use `html{ height: 100%;}`
+            * [Spacing](https://getbootstrap.com/docs/4.3/utilities/spacing/) is very easy here! `class="mr-3` for right margin of 3%
+            * `class="text-center"` , `class="justify-content-center"`and BOOM! *Man there is a class for evrything in bootstrap, just google it w/p even trying CSS.*
+            * first include bootstrap link then your css
+        * All the things:(**bold** ones are used more freq)
+            * Layout
+                * **Grid** : `.container` `.row` `.col`
+                * Media
+                * **Display** : notation, visibility
+                * **Spacing** : margin(`m`), padding(`p`), Width (`w-25`)
+            * Content:
+                * **Typography**
+                * images: `.img-fluid` makes images responsive(it's magic!)
+                * figures
+                * Tables
+            * Components:
+                * Alert
+                * Badge
+                * Breadcrumbs :show navigation path
+                * **Buttons**, Button-groups
+                * Card
+                * Carousel
+                * Collapse :show content when button click
+                * Dropdowns
+                * Forms
+                * Jumbotron
+                * Modal : click on button to open dialogue-box
+                * **Nav**s & **Navbar**
+                * Pagination
+                * Popovers : click to show info on side
+                * Progress bar
+            * Utilities:
+                * Background color: `bg-color`
+                * Display : `.inline`, `.flex`
+                * Embed: insert video/slideshow
+                * Flex
+                * Float
+                * Shadows
+                * **Text** : 
+                    * Alignment: `.text-center`
+                    * Transform: `.text-lowercase`
+                    * Bold/Italics: `.font-weight-bold`
+                    * Text Wraping
+                * Vertical Alignment : `.align-baseline`
+                * Visibility: `.visible` or `.invisible`
+        
+        * Icons: [FontAwesome](https://fontawesome.com/)
+
+
+        > **TinyProject**: `@LandingPage` - for a Social Media app(Bootstrap:beginner)<br>
+        > **TinyProject**: `@Bugsy` -(Bootstrap:medium)<br>
+        > **MediumProject**: `@CakeWorld` -(Bootstrap:master)
+
     * Materialize: {based on google's material design}
         * looks better than all :wink:
         * [@youtube](https://www.youtube.com/watch?v=nqT8c5OFjEQ&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=32), [@doc](https://materializecss.com/)
@@ -106,35 +333,170 @@
 
 * **Project:** Build responsive-portfolio website(sass, jQ,JS): [@youtube septology](https://www.youtube.com/watch?v=gYzHS-n2gqU&list=PLillGF-RfqbYoGoCjKoMOkVznV6aSXKzU)
 
-## 2. JQuery
-* Kaafi sahi(& exhaustive) tut-serise: [tutorialRepublic](https://www.tutorialrepublic.com/jquery-tutorial/) 
-* [@youtube](https://www.youtube.com/watch?v=2OMzGhlIZpg) 
-* from *css-tricks* : [tut](https://css-tricks.com/lodge/learn-jquery/)
 
-## 4. Basic Deployment(small scale)
+## 2. Basic Deployment(small scale)
 * web-hosting for small websites: [@youtueb](https://www.youtube.com/watch?v=UN7S4zd8h-k): CPanel,inmotion, filezilla, wordpress
 * netify(from github, gitlab), also free, comes with *npm-cli* : [@youtube](https://www.youtube.com/watch?v=bjVUqvcCnxM)
 * github(**gh-pages**): [@youtube](https://www.youtube.com/watch?v=SKXkC4SqtRk)
 
-## 5. JS
-### 1. Basic syntax
-### 2. DOM manipulation
-### 3. API, AJAX(XHR)
-### 4. ES6+
+## 3. JS (Vanilla JS)
+### 3.1. Basic syntax :ballot_box_with_check:
+* `slice()`
+* `splice()`
+* `forEach()`
+* `map()`
+* `var` v/s `let`
+* `this`
+### 3.2. DOM manipulation :white_check_mark:	
+* [MDN doc](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
+* DOM Selection:
+    * `var ele = document.getElementById('')`
+    * `var ele = document.querySelector('`#id`/`.class`/`ele`')`
+    * `var ele = document.querySelectorAll('')`
+    * `var ele = document.getElementByClassName('')`
+    * `var ele = document.getElementByTagName('')`
+* DOM Manipulation: 
+    * changing/adding/removing element's style ::
+        * Single class: `ele.style.xxx` (color,border,margin etc)
+        * Multiple classes: <br>
+        `.new-class{color:red;size:10px;} //define the new class`<br>
+        `ele.classList.add("new-class");  //apply it`
+        * similarly `classList.remove()` & `classLsit.toggle()`
+        
+    * changing content of a tag
+        * `ele.textContent = "blah";` //works only on **span**
+        * `etc.innerHtml` //returns the whole element
+    * changing attributes(src, href etc)
+        * `img.setAttribute("src", "new uri")`
+        * `img.getAttribute()`
+* DOM Events :
+    * `ele.addEventListener(type, functionToCall)` //don't write `()` if calling an already declared funtion
+    * type: `click`, `change`, `mouseover` [MDN](https://developer.mozilla.org/en-US/docs/Web/Events)
+* Notes
+    * `var x = document.querySelector(h1);` returns an object
+    * `x.style.color = "red;"`
+    * `querySelector` vs `getElementById` :: prefer `querySelector` always as it can select anything(element/class/id)    
+
+> **MiniProject:** Score Keeper `@ScoreKeeper` <br>
+> **Project:** `@ColorGame` ::BOOOYEAAAAAAAHH! Did myself mostly.Proud of me right now , :satisfied: :satisfied: 
+### 3.3. API, AJAX(XHR)
+### 3.4. ES6+
+### 3.5 VanillaJS (=== JavaScript)
+Using "VanillaJS" means **using plain JavaScript without any additional libraries like jQuery**.
+
+People use it as a **joke** to remind other developers that many things can be done nowadays without the need for additional JavaScript libraries.
+
+Here's a funny site that jokingly talks about this: http://vanilla-js.com/
+* Vanilla in slang means: unexciting, normal, conventional, boring
+* So VanillaJS is the same as pure Javascript.
+
+## 4. JQuery
+* [CDN](https://code.jquery.com/) to be included in **header**. Include your **`.js`** file in **body**
+* **About**
+    * is a JS lib to make DOM manipulation, event handeling, animation, AJAX(http requests) etc easier.
+    * Why Use jQuery:
+        * Fixes broken DOM API(`querySelector()` & etc didn't exist at it's inception)
+        * Brevity & Clearlty
+        * Ease of use
+        * cross browser support(even on IE)
+        * AJAX
+        * A lot of people use it!
+    * Why [YOU MIGHT NOT NEED JQUERY.com](http://youmightnotneedjquery.com/)
+        * DOM API is no longer broken(`querySelector()` & etc exist now)
+        * It doesn't do anything you can't do w/o it
+        * It's an unnecessary dependecny
+        * Performance
+        * A lot of people are moving away from it!
+* **Resources**
+    * [DOC](https://api.jquery.com/)
+    * Kaafi sahi(& exhaustive) tut-serise: [tutorialRepublic](https://www.tutorialrepublic.com/jquery-tutorial/) 
+    * [@youtube](https://www.youtube.com/watch?v=2OMzGhlIZpg) 
+    * from *css-tricks* : [tut](https://css-tricks.com/lodge/learn-jquery/)
+* **Methods**
+    * Selection: `$(selector)` : similar to `querySelectorAll()` // e.g. `$('#boobs')`
+        * Specefic selection: `$(li ul .class-name)`
+        * Select first of type: 
+            * `$("div:first-of-type").css(styles)` //css style
+            * `$("div:first").css(styles)` //jQuery style. Similar `-last`
+        * [All Other Selectors](https://api.jquery.com/category/selectors/)
+    * **[css()](https://api.jquery.com/css/)** 
+        * gives style: `$(this).css('color')` gives color
+        * manipulating Style: `$
+        (selector).css(property, value)`
+        * Multiple styles:<br> `var styles = {color: 'red', font: 'bold'};`<br> `$(#textie).css(styles);`
+    * Common Methods/APIs: [complete list](https://api.jquery.com/) : all are both- get&set 
+        * **[text()](https://api.jquery.com/text/)**: Get/Set
+            * Stripes all html & gives complete text of selector
+            * Updating: `$('h1').text("New Text!");`
+        * **[html()](https://api.jquery.com/html/)**
+        Get/ Set the HTML contents 
+            * Updating: `$('ul').html('<li>I hacked into your system</li>')`
+        * **[attr()](https://api.jquery.com/attr/)**  Get/Set the value of an attribute 
+            * `$(#image).attr('src','new url');`
+        * **[val()](https://api.jquery.com/val/)**  Get/Set the current value 
+        * **addClass()**
+        * **removeClass()**
+        * **toggleClass()** : Never under-estimate me!
+    * **[Events](https://api.jquery.com/category/events/)**
+        * **click()**: 
+            `$(#id).click(function(){alert("clicked");});`
+        * **keypress()**:
+            * **.which()** gives the keyCode
+            * `$(#id).keypress(function(e){
+                if(e.which === 13){
+                    alert("You pressed Enter");
+                    }
+                });`
+            * [Javascript **Key Codes**](https://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes)
+            * `Enter = 13` (keycode)
+        * **on()** :
+            `$(#id).on('click', function(){})`
+            * 'on()' v/s `click()`: 
+                * `click()` adds listeners for exixting elements//wont function for the dynamically created `li`s:
+                `$("li").click(function(){
+                    $(this).toggleClass('completed');
+                    });`
+                * `on()` will add listeners for all potential future elements//add on parents(existing elements)
+                `$("ul").on('click', 'li', function(){
+                    $(this).toggleClass('completed');
+                });`
+        * Bubbling up : for a `div>ul>li>span`, when you click on `span`, all others are also get clicked.
+            * To Prevent: `$("span").click(function(event){event.stopPropagation()l});` //Doesnt work on ES6 style function
+        * Deleting someone's parent: `$(this).parent().remove();` 
+            * `$(this).parent().fadeOut(500, ()=>{$(this ).remove();});`
+    * **[Effects](https://api.jquery.com/category/effects/)**
+        * fadeOut(timeInMillisec)
+            * Passing Callback:
+                 `$(#button).on('click', ()={` <br>
+                    `$(.div).fadeout(1000, ()={`<br>
+                                  `console.log('I'll be logged when fading out is complete.');`<br>
+                                  `$(this).remove();` <br>
+                    `});`<br>
+                `});`
+        * fadeToggle()
+        * slideDown()/ slideUp() / slideToggle()
+    * **[Manipulation](https://api.jquery.com/category/manipulation/)**
+> **Project:** `@ToDoList`, a beautiful thing made with css, jq & love
+<br>
+> **Project:** `@KeyDJ` a [patatap](https://patatap.com/) clone, built using [PaperJS](http://paperjs.org) & [HowlerJS](https://howlerjs.com/), sounds taken from [here](https://github.com/jonobr1/Neuronal-Synchrony). <br>
+    --->> TODO: add animations & more sounds like [patatap](https://patatap.com/)
+
+
+
 
 ---
-**Basic Front-End Developer**
+**ACHIEVED:: Basic Front-End Developer**
 
 ---
 
 
-## 6. JS Front-End Frameworks
+## 5. JS Front-End Frameworks
 
 ### 1. React
 ### 2. Angular
 ### 3. Vue
 
-## 7. JS-State Management
+## 6. JS-State Management
 ### 1.1. Redux
 ### 1.2. State API
 ### 2.1. NgRx
@@ -199,6 +561,7 @@
 ## 0. GraphQL
 ## 0. TypeScript
 ## 0. App Dev: react-native, flutter,ionic
+    >>Project-idea: unity app for auto daily booking cab/ordering food(Hackathon@Rzp)
 ## 0. Desktop apps: electron
 ## 0. Progressive Web Aps(PWA)
 ## 0. AI, ML, Data Science
@@ -206,6 +569,9 @@
 ## 2. Security
 ## 3. ElasticSearch
 ## 4. CDN
+---
+# VII. Concepts & Principles
+* Design Principle:: **Separation of Concerns([SoC](https://softwareengineering.stackexchange.com/questions/32581/how-do-you-explain-separation-of-concerns-to-others)) :** Every separate(& changable) thing should be at separate place.To allow single point of change in entire code.
 
 
 ![Intro](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Media/intro.png)
