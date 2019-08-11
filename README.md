@@ -1,6 +1,10 @@
 ![picture alt](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Media/wallpaper.jpg)
 
+# Useful Links:
 * Motivation for Side project: [TraversyMedia](https://www.youtube.com/watch?v=eCAj3mWFpNM)
+* Status of popular language on github: [github](https://github.blog/2018-11-15-state-of-the-octoverse-top-programming-languages/)
+* Stackshare: Why do people like [NodeJs](https://stackshare.io/nodejs) | [Php](https://stackshare.io/php) | [Python](https://stackshare.io/python) | [Golang](https://stackshare.io/go)
+* Framework vs Library vs Toolkit: [stackoverflow](https://stackoverflow.com/questions/3057526/framework-vs-toolkit-vs-library)
 # I. Basic Tools
 ## 1. IDE
 * **VSCode**<br/>
@@ -314,9 +318,9 @@
         * Icons: [FontAwesome](https://fontawesome.com/)
 
 
-        > **TinyProject**: `@LandingPage` - for a Social Media app(Bootstrap:beginner)<br>
-        > **TinyProject**: `@Bugsy` -(Bootstrap:medium)<br>
-        > **MediumProject**: `@CakeWorld` -(Bootstrap:master)
+        > **TinyProject**: [@LandingPage](https://github.com/aayush4vedi/TinyProject-LandingPage) - for a Social Media app(Bootstrap:beginner)<br>
+        > **TinyProject**: [@Bugsy](https://github.com/aayush4vedi/Bugsy) -(Bootstrap:medium)<br>
+        > **MediumProject**: [@CakeWorld](https://github.com/aayush4vedi/Cake-World) -(Bootstrap:master)
 
     * Materialize: {based on google's material design}
         * looks better than all :wink:
@@ -377,8 +381,8 @@
     * `x.style.color = "red;"`
     * `querySelector` vs `getElementById` :: prefer `querySelector` always as it can select anything(element/class/id)    
 
-> **MiniProject:** Score Keeper `@ScoreKeeper` <br>
-> **Project:** `@ColorGame` ::BOOOYEAAAAAAAHH! Did myself mostly.Proud of me right now , :satisfied: :satisfied: 
+> **MiniProject:** Score Keeper [@ScoreKeeper](https://github.com/aayush4vedi/ScoreKeeper) <br>
+> **Project:** [@ColorGame](https://github.com/aayush4vedi/Color-Game) ::BOOOYEAAAAAAAHH! Did myself mostly.Proud of me right now , :satisfied: :satisfied: 
 ### 3.3. API, AJAX(XHR)
 ### 3.4. ES6+
 ### 3.5 VanillaJS (=== JavaScript)
@@ -476,7 +480,7 @@ Here's a funny site that jokingly talks about this: http://vanilla-js.com/
         * fadeToggle()
         * slideDown()/ slideUp() / slideToggle()
     * **[Manipulation](https://api.jquery.com/category/manipulation/)**
-> **Project:** `@ToDoList`, a beautiful thing made with css, jq & love
+> **Project:** [@ToDoList](https://github.com/aayush4vedi/To-Do-list), a beautiful thing made with css, jq & love
 <br>
 > **Project:** `@KeyDJ` a [patatap](https://patatap.com/) clone, built using [PaperJS](http://paperjs.org) & [HowlerJS](https://howlerjs.com/), sounds taken from [here](https://github.com/jonobr1/Neuronal-Synchrony). <br>
     --->> TODO: add animations & more sounds like [patatap](https://patatap.com/)
@@ -507,9 +511,12 @@ Here's a funny site that jokingly talks about this: http://vanilla-js.com/
 # III.  Back-End
 
 ## 1. NodeJS
-
+To run JS on server-side(up until now, we were running JS on browser only).
+* Install a package: `npm install <package_name>`
+* Include a pacakge: `var pkg = require('package_name');`
 ## 2. Frameworks
 ### 1. **Express**
+A light, most popular NodeJS Web Development framework.
 ### 2. **Koa**
 
 ## 3. Server Rendered Pages
