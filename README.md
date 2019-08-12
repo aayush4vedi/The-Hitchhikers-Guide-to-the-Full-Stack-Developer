@@ -1,10 +1,17 @@
 ![picture alt](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Media/wallpaper.jpg)
 
-# Useful Links:
+# Self-Project Ideas:
+* [Personal Management System](https://github.com/Volmarg/personal-management-system): make recurrent/auto-tracking
+* unity app for auto daily booking cab/ordering food
+
+# Useful Things:
+* **DRY**: Don't Repeat Yourself
+* 16k APIs [ProgrammableWeb](https://www.programmableweb.com/category/all/news?articletypes=howto&source_code=0)
 * Motivation for Side project: [TraversyMedia](https://www.youtube.com/watch?v=eCAj3mWFpNM)
 * Status of popular language on github: [github](https://github.blog/2018-11-15-state-of-the-octoverse-top-programming-languages/)
 * Stackshare: Why do people like [NodeJs](https://stackshare.io/nodejs) | [Php](https://stackshare.io/php) | [Python](https://stackshare.io/python) | [Golang](https://stackshare.io/go)
 * Framework vs Library vs Toolkit: [stackoverflow](https://stackoverflow.com/questions/3057526/framework-vs-toolkit-vs-library)
+* Cool IoT-APIs [IFTTT](https://ifttt.com/discover)
 # I. Basic Tools
 ## 1. IDE
 * **VSCode**<br/>
@@ -514,19 +521,96 @@ Here's a funny site that jokingly talks about this: http://vanilla-js.com/
 To run JS on server-side(up until now, we were running JS on browser only).
 * Install a package: `npm install <package_name>`
 * Include a pacakge: `var pkg = require('package_name');`
+* Start a project: `mkdir <project_name>` -> `cd->` -> `npm init`
 ## 2. Frameworks
 ### 1. **Express**
 A light, most popular NodeJS Web Development framework.
+* Installing: `npm install express --save`
+* Using: <br>
+    `var express = require('express');`<br>
+    `var app = express();`<br>
+    `app.get('/route', (req,res)=>{
+        res.send('yo!');
+    });`<br>
+    `app.listen(3000,()=>{console.log('I love you 3000');});`
+* Auto server restart: **Nodemon**   (*no-demon*)
+    * Installing: `npm i -g nodemon`
+    * Set ` 'main': 'index.js'` in `package.json`
+    * Run: Use `nodemon` in-place of good ol' `node index.js`
+* EJS(Embedded JavaScript)
+    * `npm install ejs --save`
+    * **HTML**:
+        * Make views in `/views`
+        * Rendering view: `res.render('file.ejs');`  (don't write `/views` here)
+        * OR if you don't want to write `.ejs` : simply write `app.set('view engine','ejs');` at the top & render files like: `res.render('file');`
+    * **CSS**:
+        * Make `/public/app.css`
+        * Include into views as: `<link rel='stylesheet' href='`**/**`app.css'>` (don't write `/public` here, **`/`** important hai babu: as it says to look in root dir)
+    * **Dynamic routing**: <br>
+        `app.get('/route/:x', (req,res)=>{`<br>
+            `var x = req.params.x;`<br>
+            `var data = [a,b,c];`<br>
+            `res.render('file.ejs', {routeTyped: x , data:data });`<br>
+        });`<br>
+        where in `file.ejs:<h1 You typed: <%= routeTyped %>h1>`
+    * `<%= %>`: to render HTML
+    * `<% %>` : to write logical JS
+    * **Partials** :(html snippets like header/footer) as separate `ejs` files:
+        * write them inside `/views/partials`
+        * include them in other ejs files: `<%  include partials/header %>` (no need to write `/view` or add `.ejs` to filename)
+    * **Body Parser**: Use npm package `body-parser` while dealing with forms(POST ).Use:
+        * `var bodyParser = require('body-parser');`
+        * `app.use(bodyParser.urlencoded({extended: true})); `
+    * **Redirecting**: `res.redirect('/route');`
+
 ### 2. **Koa**
 
-## 3. Server Rendered Pages
-## 3.1. React: Next.JS
-## 3.2. Vue: Nuxt.JS
-## 3.3. Angular: Angular Universal
+### 3. APIs
+## Data Formats
+### A. XML
+* Extended Markup Language
+* Syntactically similar to HTML
+* Doesn't describel presentation like HTML does
+```
+<person>
+    <name>Me</name>
+    <age>21</age>
+    <gender>Male</gender>
+</person>
+```
+### B. JSON
+* Looks like Javascript objects
+* Everything is a string
+```
+{
+    'person': {
+        'name': 'Me',
+        'age':'21',
+        'gender':'Male'
+    }
+}
+```
+## 3.2
+* Making Request in node: Install package: `npm install request`, then:
+```
+var request = require('request');
+request('http://www.google.com', function (error, response, body) {
+  console.log('error:', error); // Print the error if one occurred
+  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+  if(!error && response.statusCode==200){
+    console.log('body:', body); // Print the HTML for the Google homepage.
+  }
+});
+```
 
-## 3. CMS
-### 3.1. Ghost
-### 3.2. Keystome
+## 4. Server Rendered Pages
+## 4.1. React: Next.JS
+## 4.2. Vue: Nuxt.JS
+## 4.3. Angular: Angular Universal
+
+## 5. CMS
+### 5.1. Ghost
+### 5.2. Keystome
 
 ---
 
@@ -540,7 +624,49 @@ A light, most popular NodeJS Web Development framework.
 
 ## 2. NoSQL
 
-### 2.1. MongoDB
+### 2.1. Mongo
+* Most pouplar db with node.
+* **MEAN**  Stack(**M:** mongo **E:** express **A:** angular **N: ** node)
+* **Installation**: 
+[here](https://treehouse.github.io/installation-guides/mac/mongo-mac.html)
+* **Commands**:
+    * `mongod` -Run mongo-deamon/server : Keep running in a separate tab
+    * `mongo` -Run the shell
+    * `quit()` -Exit shell
+    * <kbd>command</kbd> + <kbd>c</kbd> -Stop deamon
+    * `help`
+    * `use <db-name>`: create a new db & switch to it
+    * **Insert**  `db.<db-name>.insert({key:'value',...})`  //no `'` in key-name
+    * `show collections` -display all dbs
+    * **Find** `db.<db-bname>.find()` -view all entries in `<db-name>`
+        * `db.<db-name>.find({name: 'sam', ...})` -finds specefic entries in `<db-name>`
+    * **Update**  `db.<db-bname>.update({..find..},{..update..})`  
+        * Just Update:` db.<db-bname>.update({name: 'sam'},{status: 'committed'})` //updates Sam's status but *deletes the name* 
+        * Add New Property :`db.<db-bname>.update({name: 'sam'},{$set: {name: 'Mark',status: 'committed'}})` //Updates name & Adds a new property
+    * **Delete**  `db.<db-name>.remove({name: 'sam', ...})` 
+        * Delete first n entries: `db.<db-name>.find({name: 'sam', ...}).limit(n)` 
+* **Mongoose** <br>
+    is a npm package to interact with mongo inside node.
+    * Import & Connect:<br> 
+        `var mongoose = require('mongoose');`<br>
+       `mongoose.connect('mongodb://localhost/car_db');` // if car_db doesn't exist, it makes  
+    * Declare schema: // for new-commers <br>
+        `var carSchema = new mongoose.Schema({`<br>
+            `brand: String`,<br>
+            `year: Number`<br>
+        `});`<br>
+    * Make model:<br>
+        `var Car = mongoose.model('Car', carSchema);`
+    * Use the model:<br>
+        `var cross = new Car({brand: 'Toyota', year: 2016});`
+    * Save it to make an entry:<br> 
+        `cross.save();`
+        * **Callback** to confirm:<br>
+            `cross.save((err, car)=>{`<br>
+                `if(err){console.log(""ERROR!);}`<br>
+                `else{cosole.log(car);}`<br>
+            `})`
+
 ### 2.2. Memcached
 
 ## 3. Cloud
