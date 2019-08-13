@@ -12,6 +12,7 @@
 * Stackshare: Why do people like [NodeJs](https://stackshare.io/nodejs) | [Php](https://stackshare.io/php) | [Python](https://stackshare.io/python) | [Golang](https://stackshare.io/go)
 * Framework vs Library vs Toolkit: [stackoverflow](https://stackoverflow.com/questions/3057526/framework-vs-toolkit-vs-library)
 * Cool IoT-APIs [IFTTT](https://ifttt.com/discover)
+* A $100 freelanced portfolio-website [@youtube](https://www.youtube.com/watch?v=k152ovSOR74)
 # I. Basic Tools
 ## 1. IDE
 * **VSCode**<br/>
@@ -635,16 +636,19 @@ request('http://www.google.com', function (error, response, body) {
     * `quit()` -Exit shell
     * <kbd>command</kbd> + <kbd>c</kbd> -Stop deamon
     * `help`
-    * `use <db-name>`: create a new db & switch to it
+    * (1)`show dbs` -display all dbs
+    * (2)`use <db-name>`: create a new db &/OR switch to it
+    * (3)`show collections` : see the details of "that db"
     * **Insert**  `db.<db-name>.insert({key:'value',...})`  //no `'` in key-name
-    * `show collections` -display all dbs
     * **Find** `db.<db-bname>.find()` -view all entries in `<db-name>`
         * `db.<db-name>.find({name: 'sam', ...})` -finds specefic entries in `<db-name>`
     * **Update**  `db.<db-bname>.update({..find..},{..update..})`  
         * Just Update:` db.<db-bname>.update({name: 'sam'},{status: 'committed'})` //updates Sam's status but *deletes the name* 
         * Add New Property :`db.<db-bname>.update({name: 'sam'},{$set: {name: 'Mark',status: 'committed'}})` //Updates name & Adds a new property
     * **Delete**  `db.<db-name>.remove({name: 'sam', ...})` 
-        * Delete first n entries: `db.<db-name>.find({name: 'sam', ...}).limit(n)` 
+        * Delete first n entries: `db.<db-name>.remove({name: 'sam', ...}).limit(n)` 
+         * Drop entire db: `db.<db-name>.drop()`
+    * **Find By ID**(inside code): `<ModelName>.findByID(req.params.id, (err,found)=>{if(!err){res.render("template", {data:found})}})`
 * **Mongoose** <br>
     is a npm package to interact with mongo inside node.
     * Import & Connect:<br> 
