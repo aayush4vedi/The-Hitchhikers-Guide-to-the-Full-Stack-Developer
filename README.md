@@ -13,6 +13,7 @@
 * Framework vs Library vs Toolkit: [stackoverflow](https://stackoverflow.com/questions/3057526/framework-vs-toolkit-vs-library)
 * Cool IoT-APIs [IFTTT](https://ifttt.com/discover)
 * A $100 freelanced portfolio-website [@youtube](https://www.youtube.com/watch?v=k152ovSOR74)
+* **REST** is an useful convention/architecture for mapping http routes to CRUD functionalities 
 # I. Basic Tools
 ## 1. IDE
 * **VSCode**<br/>
@@ -330,6 +331,9 @@
         > **TinyProject**: [@Bugsy](https://github.com/aayush4vedi/Bugsy) -(Bootstrap:medium)<br>
         > **MediumProject**: [@CakeWorld](https://github.com/aayush4vedi/Cake-World) -(Bootstrap:master)
 
+    * Semantic UI:
+        * **Very lighweight:** If you just want to syle a button, just include CDN for a button 
+        > **Project:** Restful Blog App
     * Materialize: {based on google's material design}
         * looks better than all :wink:
         * [@youtube](https://www.youtube.com/watch?v=nqT8c5OFjEQ&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=32), [@doc](https://materializecss.com/)
@@ -682,6 +686,37 @@ request('http://www.google.com', function (error, response, body) {
 ### 4.1. SQLite
 ### 4.2. Redis
 
+---
+# V. REST
+
+The Seven Deadly Routes every CRUD app has to have(in the same url fashion):
+
+| Name    |   API                 |   Purpose                                    | Mongoose Method          |
+| :----   | :-------------------: | :-------------                               |:---------------:         |
+| Index   |  GET /blogs           | List all entries                             |      Blog.find()         |                          
+| New     |  GET /blogs/new       | Show a new blog form                         |          N/A             |
+| Create  |  POST /blogs          |  Create a new blog & redirect somewhere      |      Blog.create()       |
+| Show    |  GET /blogs/:id       |  Show details of a specefic blog             |     Blog.findById()      |
+| Edit    |  GET /blogs/:id/edit  |  Show edit form for one blog                 |     Blog.findById()      |
+| Update  |  PUT /blogs/:id       |  Update a specefic blog & redirect somewhere |  Blog.findByIdAndUpdate()|
+| Destroy |  DELETE /blogs/:id    |  Delete a specefic blog & redirect somewhere |  Blog.findByIdAndRemove()|
+
+## Exemplary Implementation
+
+[RESTful Blog](https://github.com/aayush4vedi/RESTfulBlog)
+**Learnings**
+* `<p><%= blog.body.substring(0,10) %>... </p>` to display like `this is a bo...` 
+* Date: `created:{type: Date,default: Date.now}`
+* Simplify the date: `blog.created.toDateString()`
+* Allow write HTML inside input(use `dash -`): `<p><%- blog.body %>... </p>` **Don't do it at all** for hackers `<script>alert('I hacked you!')</script>`
+* npm install `express-sanitizer` => Allows good HTML(`<h1>`,`<p>`...) and removes bad HTML(`<script>`...) from input
+* HTML forms just support GET & POST req.No PUT/DELETE.
+    * (1) `npm install method-override`
+    * (2) `var methodOverrid = require('method-override'); app.use(methodOverrid('_method'));`
+    * (3) `<form action="/blogs/<%= blog._id %>?_method=PUT" method="post" class="ui form">`
+
+
+
 
 ---
 
@@ -715,14 +750,6 @@ request('http://www.google.com', function (error, response, body) {
 ![FrontEnd](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Media/frontend.png)
 ![BackEnd](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Media/backend.png)
 ![Devops](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Media/devops.png)
-
-
-
-
-
-
-
-
 
 
 
