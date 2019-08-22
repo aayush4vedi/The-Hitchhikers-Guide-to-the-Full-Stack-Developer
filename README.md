@@ -720,7 +720,7 @@ The Seven Deadly Routes every CRUD app has to have(in the same url fashion):
 
 ---
 
-# V. DevOps
+# VI. DevOps
 ## 1. Deployment:linux,ssh,gitlab, server-software(Ngnix,Apache)
 ## 2. Platforms: AWS,Azure,Google cloud,Heroku
 ## 3. Virtualization: docker
@@ -728,7 +728,7 @@ The Seven Deadly Routes every CRUD app has to have(in the same url fashion):
 ---
 
 
-# VI. Beyond Stack
+# VII. Beyond Stack
 
 ## 0. GraphQL
 ## 0. TypeScript
@@ -742,7 +742,7 @@ The Seven Deadly Routes every CRUD app has to have(in the same url fashion):
 ## 3. ElasticSearch
 ## 4. CDN
 ---
-# VII. Concepts & Principles
+# VIII. Concepts & Principles
 * Design Principle:: **Separation of Concerns([SoC](https://softwareengineering.stackexchange.com/questions/32581/how-do-you-explain-separation-of-concerns-to-others)) :** Every separate(& changable) thing should be at separate place.To allow single point of change in entire code.
 
 
