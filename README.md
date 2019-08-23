@@ -527,6 +527,8 @@ To run JS on server-side(up until now, we were running JS on browser only).
 * Install a package: `npm install <package_name>`
 * Include a pacakge: `var pkg = require('package_name');`
 * Start a project: `mkdir <project_name>` -> `cd->` -> `npm init`
+* Export a variable: `module.exports = x;`
+* Import a variable: `var x = require('./models/file_containing_x')`
 ## 2. Frameworks
 ### 1. **Express**
 A light, most popular NodeJS Web Development framework.
@@ -549,8 +551,9 @@ A light, most popular NodeJS Web Development framework.
         * Rendering view: `res.render('file.ejs');`  (don't write `/views` here)
         * OR if you don't want to write `.ejs` : simply write `app.set('view engine','ejs');` at the top & render files like: `res.render('file');`
     * **CSS**:
-        * Make `/public/app.css`
-        * Include into views as: `<link rel='stylesheet' href='`**/**`app.css'>` (don't write `/public` here, **`/`** important hai babu: as it says to look in root dir)
+        * Make `/public/stylesheets/main.css`
+        * In `index.js` use: `app.use(express.static(__dirname+ '/public'));` 
+        * Include into views as: `<link rel='stylesheet' type="text/css" href='stylesheets/main.css'>` (don't write `/public` here, **`/`** important hai babu: as it says to look in root dir)
     * **Dynamic routing**: <br>
         `app.get('/route/:x', (req,res)=>{`<br>
             `var x = req.params.x;`<br>
@@ -674,6 +677,7 @@ request('http://www.google.com', function (error, response, body) {
                 `if(err){console.log(""ERROR!);}`<br>
                 `else{cosole.log(car);}`<br>
             `})`
+* **Seeding** : See [here](https://github.com/aayush4vedi/YelpHotel/blob/master/seeds.js) in my **YelpHotel** project
 
 ### 2.2. Memcached
 
@@ -715,7 +719,55 @@ The Seven Deadly Routes every CRUD app has to have(in the same url fashion):
     * (2) `var methodOverrid = require('method-override'); app.use(methodOverrid('_method'));`
     * (3) `<form action="/blogs/<%= blog._id %>?_method=PUT" method="post" class="ui form">`
 
-
+# VI. Models & Data Association:
+Add comments to a post:
+1. Make `comments` model:
+```
+var commentSchema = mongoose.Schema({
+    text   : String,
+    author : String,
+});
+```
+2. Connect with post:
+```
+var hotelSchema = new mongoose.Schema({
+    name          : String,
+    image         : String,
+    description   : String,
+    comments      : [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref : "Comment"
+        }
+    ]
+});
+```
+3. In `index.js`
+```
+app.post('/posts/:id/comments',(req,res)=>{
+    //lookup for post using id
+    //create new comment
+    //connect comment to post
+    //redirect to show page
+    Hotel.findById(req.params.id, (err, post)=>{
+        if(err){
+            console.log(err);
+            res.redirect('/posts/'+req.params.id);
+        }else{
+            Comment.create(req.body.comment, (err, comment)=>{
+                if(err){
+                    console.log(err);
+                }else{
+                    post.comments.push(comment);
+                    post.save();
+                    console.log('Created comment!',comment);
+                    res.redirect('/posts/' + post._id);
+                }
+            });
+        }
+    });
+}); 
+```
 
 
 ---
