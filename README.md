@@ -1,8 +1,5 @@
 ![picture alt](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Media/wallpaper.jpg)
 
-# Self-Project Ideas:
-* [Personal Management System](https://github.com/Volmarg/personal-management-system): make recurrent/auto-tracking
-* unity app for auto daily booking cab/ordering food
 
 # Useful Things:
 * **DRY**: Don't Repeat Yourself
@@ -727,6 +724,7 @@ var commentSchema = mongoose.Schema({
     text   : String,
     author : String,
 });
+module.exports = mongoose.model('Comment', commentSchema);
 ```
 2. Connect with post:
 ```
@@ -768,11 +766,175 @@ app.post('/posts/:id/comments',(req,res)=>{
     });
 }); 
 ```
+---
+# VII. Authentication & Authorization
+* ## Learn from here: [article](https://scotch.io/tutorials/easy-node-authentication-setup-and-local)
+* PassportJS 
+   * [doc](http://www.passportjs.org/)
+   * Passport is authentication **middleware** for Node.js, can be used in any **Express-based** web application. 
+   * **Authentication Strategies**: using local, Facebook, Twitter, and more.
+   * How to Use: [doc](http://www.passportjs.org/docs/authenticate/)
+* **Project** : @YelpHotel
+    * Packages:
+        * `express`
+        * `ejs`
+        * `body-parser`
+        * `mongoose`
+        * `passport`
+        * `passport-local`
+        * `passport-local-mongoose`
+        * `express-session`
+        * `password-hash`
+    * Handeling REGISTRATION:
+        1.  In User-model:
+        ```
+        var mongoose = require('mongoose');
+            bcrypt   = require('bcrypt-nodejs');
 
+        // define the schema for our user model
+        var userSchema = mongoose.Schema({
+            local            : {
+                username        : String,
+                password     : String,
+            },
+            facebook         : {
+                id           : String,
+                token        : String,
+                name         : String,
+                email        : String
+            },
+            google           : {
+                id           : String,
+                token        : String,
+                email        : String,
+                name         : String
+            }
+
+        });
+
+        // methods ======================
+        // generating a hash
+        userSchema.methods.generateHash = function(password) {
+            return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+        };
+
+        // checking if password is valid
+        userSchema.methods.validPassword = function(password) {
+            return bcrypt.compareSync(password, this.local.password);
+        };
+
+        module.exports =  mongoose.model('User', userSchema)
+        ```
+        2. Imports in `./config/passport.js`
+        ```
+       var LocalStrategy   = require('passport-local').Strategy;
+            User            = require('../models/User');
+
+        module.exports = function(passport) {
+            // used to serialize the user for the session
+            passport.serializeUser(function(user, done) {
+                done(null, user.id);
+            });
+            // used to deserialize the user
+            passport.deserializeUser(function(id, done) {
+                User.findById(id, function(err, user) {
+                    done(err, user);
+                });
+            });
+            // LOCAL SIGNUP ============================================================
+            passport.use('local-signup', new LocalStrategy({
+                // by default, local strategy uses username and password, we will override with username
+                usernameField : 'username',
+                passwordField : 'password',
+                passReqToCallback : true // allows us to pass back the entire request to the callback
+            },
+            function(req,username, password, done) {
+                // asynchronous
+                // User.findOne wont fire unless data is sent back
+                process.nextTick(function() {
+                // find a user whose username is the same as the forms username
+                // we are checking to see if the user trying to login already exists
+                User.findOne({ 'local.username' :  username }, function(err, user) {
+                    if (err)
+                        return done(err);
+                    if (user) {
+                        return done(null, false, req.flash('signupMessage', 'That username is already taken.'));
+                    } else {
+                        var newUser            = new User();
+                        newUser.local.sername    = username;
+                        newUser.local.password = newUser.generateHash(password);
+                        newUser.save(function(err) {
+                            if (err)
+                                throw err;
+                            return done(null, newUser);
+                        });
+                    }
+                });    
+
+                });
+
+            }));
+            // LOCAL LOGIN =============================================================
+            passport.use('local-login', new LocalStrategy({
+                usernameField : 'username',
+                passwordField : 'password',
+                passReqToCallback : true // allows us to pass back the entire request to the callback
+            },
+            function(req, username, password, done) { // callback with username and password from our form
+                User.findOne({ 'local.username' :  username }, function(err, user) {
+                    if (err)
+                        return done(err);
+                    if (!user)
+                        return done(null, false, req.flash('loginMessage', 'No user found.')); // req.flash is the way to set flashdata using connect-flash
+                    if (!user.validPassword(password))
+                        return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); // create the loginMessage and save it to session as flashdata
+                    return done(null, user);
+                });
+
+            }));
+
+        };
+
+
+        ``` 
+        3. AUTH ROUTES & MIDDLEWARE in `index.js`:
+        ```
+        //REGISTER
+        app.get('/register',(req,res)=>{
+            res.render('auth/register');
+        });
+        //SIGN-UP
+        app.post('/register', passport.authenticate('local-signup', {
+            successRedirect : '/hotels', 
+            failureRedirect : '/register', 
+            failureFlash : true 
+        }));
+        //LOGIN
+        app.get('/login',(req,res)=>{
+            res.render('auth/login');
+        });
+        app.post('/login', passport.authenticate('local-login', {
+            successRedirect : '/hotels', 
+            failureRedirect : '/login', 
+            failureFlash : true 
+        }));
+        //LOGOUT
+        app.get('/logout', function(req, res) {
+            req.logout();
+            res.redirect('/');
+        });
+
+        // ROUTE MIDDLEWARE to make sure a user is logged in
+        function isLoggedIn(req, res, next) {
+            if (req.isAuthenticated())
+                return next();
+            res.redirect('/');
+        }
+        ```
 
 ---
 
-# VI. DevOps
+# VII. DevOps
 ## 1. Deployment:linux,ssh,gitlab, server-software(Ngnix,Apache)
 ## 2. Platforms: AWS,Azure,Google cloud,Heroku
 ## 3. Virtualization: docker
@@ -780,7 +942,7 @@ app.post('/posts/:id/comments',(req,res)=>{
 ---
 
 
-# VII. Beyond Stack
+# VIII. Beyond Stack
 
 ## 0. GraphQL
 ## 0. TypeScript
@@ -794,7 +956,7 @@ app.post('/posts/:id/comments',(req,res)=>{
 ## 3. ElasticSearch
 ## 4. CDN
 ---
-# VIII. Concepts & Principles
+# IX. Concepts & Principles
 * Design Principle:: **Separation of Concerns([SoC](https://softwareengineering.stackexchange.com/questions/32581/how-do-you-explain-separation-of-concerns-to-others)) :** Every separate(& changable) thing should be at separate place.To allow single point of change in entire code.
 
 
@@ -804,7 +966,10 @@ app.post('/posts/:id/comments',(req,res)=>{
 ![Devops](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Media/devops.png)
 
 
-
+# Self-Project Ideas:
+* [Personal Management System](https://github.com/Volmarg/personal-management-system): make recurrent/auto-tracking
+* unity app for auto daily booking cab/ordering food
+* Do Something about unsorted-but-important knowledge I'm gaining from HN, Quora etc.I don't know how & where to store it, but I'd sure as hell don't want it to go wasted.
 
 
 
