@@ -191,6 +191,10 @@
         6. Delete that branch `git branch -d <new_branch>`
     * **`git stash`** TODO:
     * **`git reset & reflog`**: soft & hard TODO:
+* Anatomy of Good Commit Messages:
+    * when you write a commit message you are writing it as if it’s **about to be applied**, rather than *about what you just did*.
+    * Provide as much context as you can: the 6 months rule-will you get it after 6 months? If no, it's not a good commit message.
+    * For long commits: use [templates](https://medium.com/sitewards/git-tips-template-your-commit-messages-187d8a2051b8)
  ## 7. Postman
 
 ---
@@ -567,6 +571,7 @@ A light, most popular NodeJS Web Development framework.
         * `var bodyParser = require('body-parser');`
         * `app.use(bodyParser.urlencoded({extended: true})); `
     * **Redirecting**: `res.redirect('/route');`
+    * **Error Handling:** `connect-flash `
 
 ### 2. **Koa**
 
