@@ -28,11 +28,11 @@
         * Jump to matching bracket <kbd>control</kbd> + <kbd>shift</kbd> + <kbd>\</kbd>
         * Comment/Uncomment a line <kbd>control</kbd> + <kbd>/</kbd> 
         * Toggle Full Screen <kbd>F11</kbd>
-        * Open Markdown Preview <kbd>control</kbd> + <kbd>shift</kbd> + <kbd>V</kbd>
+        * Markdown Preview <kbd>command</kbd> + <kbd>shift</kbd> + <kbd>V</kbd>
         * Find/Replace <kbd>control</kbd> + <kbd>F</kbd>/<kbd>H</kbd>
         * Split Editor <kbd>control</kbd> + <kbd>Front-\Slash</kbd>
         * Open Next <kbd>control</kbd> + <kbd>tab</kbd>
-        * Open Previous <kbd>control</kbd> +<kbd>shift</kbd>+ <kbd>tab</kbd>
+        * Previous <kbd>control</kbd> +<kbd>shift</kbd>+ <kbd>tab</kbd>
         * Show integrated terminal <kbd>control</kbd> + <kbd>`</kbd> 
         * Shortcuts            <kbd>control</kbd> + <kbd>K</kbd>
         * Multiple cursor <kbd>option/alt</kbd> + `click`
@@ -191,6 +191,9 @@
         6. Delete that branch `git branch -d <new_branch>`
     * **`git stash`** TODO:
     * **`git reset & reflog`**: soft & hard TODO:
+* **.gitignore**
+    * `/folder-name` : `/node_modules'    '/build`
+    * `.filename`    : `.test.js`
 * Anatomy of Good Commit Messages:
     * when you write a commit message you are writing it as if it’s **about to be applied**, rather than *about what you just did*.
     * Provide as much context as you can: the 6 months rule-will you get it after 6 months? If no, it's not a good commit message.
@@ -396,9 +399,273 @@
 
 > **MiniProject:** Score Keeper [@ScoreKeeper](https://github.com/aayush4vedi/ScoreKeeper) <br>
 > **Project:** [@ColorGame](https://github.com/aayush4vedi/Color-Game) ::BOOOYEAAAAAAAHH! Did myself mostly.Proud of me right now , :satisfied: :satisfied: 
-### 3.3. API, AJAX(XHR)
-### 3.4. ES6+
-### 3.5 VanillaJS (=== JavaScript)
+
+### 3.3. ES5++
+## ES5(2015)
+* **BABEL:** ES6+  => older ES(supported by all browsers)
+* **~~var~~ let+const:**
+    * `let`    : declares a local variable in a block scope(between `{ }`)(even in `if`)
+    * `const`  :  values can be assigned once and they cannot be reassigned<br>
+               : const `obj`'s values can be reassigned, but now the obj.
+    * ~~`var`~~: is now the weakest signal available when you define a variable in JavaScript. The variable may or may not be reassigned, and the variable may or may not be used for an entire function, or just for the purpose of a block or loop.
+* **Destructuring**
+    * simply implies breaking down a complex structure into simpler parts. 
+    * allows you to assign the properties of an array or object to variables using syntax that looks similar to array or object literals
+    * [Nice Article](https://codeburst.io/es6-destructuring-the-complete-guide-7f842d08b98f)
+    * Obj Destructuring: 
+    ```js
+        const obj = {
+            name        : "John Show",
+            pet         : "ghost",
+            firstName   : "Targaryen"
+        }
+        const {name, pet} = obj;
+        let {firstName} = obj;
+
+        const student = {
+            name: 'John Doe',
+            age: 16,
+            scores: {
+                maths: 74,
+                english: 63
+            }
+        };
+        // We define 3 local variables: name, maths, science
+        const { name, scores: {maths, science = 50} } = student;
+        console.log(`${name} scored ${maths} in Maths and ${science} in Elementary Science.`);
+        // John Doe scored 74 in Maths and 50 in Elementary Science.
+    ```
+    * Array Destructuring:
+    ```js
+        let f1 = a[0], f2 = a[1], f3 = a[2];
+        let {f1,f2,f3} = a;
+
+        var [foo, [[bar], baz]] = [1, [[2], 3]];
+        console.log(foo);// 1
+        console.log(bar);// 2
+        console.log(baz);// 3
+
+        const rgb = [200, 255, 100];
+        const [,, blue] = rgb;
+        console.log(`Blue: ${blue}`); // Blue: 100
+
+        var [head, ...tail] = [1, 2, 3, 4];
+        console.log(tail);// [2, 3, 4]
+    ```
+* **String**
+    * ~~`const msg = "hello "+name+", you are "+ age+ "years old."`~~
+    * Template String: ```const msgBetter = `hello $(name), you'll be $(age+10) after 10 years.`   ```
+* Data Type: **Symbol()**
+    * Every symbol value returned from Symbol() is **unique**. 
+    * A symbol value may be used as an *identifier* for object properties.
+    * ```js
+        var sym1 = Symbol();
+        var sym2 = Symbol('foo');
+        var sym3 = Symbol('foo');
+        Symbol('foo') === Symbol('foo'); // false
+        ```
+* **Advance Functions:** 
+    * New way of writing: `const c = (a,b)=> a+b`
+    * **Closure:** 
+        * A function ran.The function executed.It's never going to execute again.
+        * BUT it's never going to remember that there are refrences to those variables.
+        * SO, the child scope always has access to the parent scope.
+    ```js
+        const first() => {
+            const greet = 'hi';
+            const second() => {
+                console.log(greet);
+            }
+            return second;
+        }
+        const newFunc = first();
+        newFunc(); //'hi'
+    ```
+    * **Currying Fn:**
+    ```js
+    curryedMultiply = (n) => (m) => n * m
+    curryedMultiply(3)(4) === 12 // true
+    ```
+    * **Compose Fn:**
+    ```js
+    const fOg = (f,g) => (a) =>f(g(a));
+    const sum = (num) => num+1;
+    fOg(sum, num)(5); //7
+    ```
+
+* **Advance Arrays:**
+    * **`forEach`** iterates & just performs some action 
+    ```js
+    const arr = [1,2,3];
+    const arr2;
+    const tmp = arr.forEach((num)=>{
+        arr2.push(num*2);
+    });
+    console.log(arr2); //(3)[2,4,6]
+    ```
+    * **`map`** iterates through an array & **returns** a value each time, which gets stored in the Map-Array i.e. creates a new array
+    ```js
+    const mapArray = arr.map((num)=>{
+        return num*2;
+    })
+    ORRRR(shorter syntex)
+    const mapArray = arr.map(num => num*2;)
+    console.log(mapArray);//(3)[2,4,6]
+    ```
+    * **`filter`** iterates, filter elements & pushes them to a new(ly created array).
+    ```js
+    const filterArray = arr.filter( num =>{ return num<=2});
+    ORRRR(shorter syntex)
+    const mapArray = arr.filter(num => num<=2;)
+    console.log(filterArray); //(2)[1,2];
+    ```
+    * **`reduce`** is map+accumulater(`i`):
+    ```js
+    const reduceArray = arr.reduce((i,num)=>{
+        return i+num;
+    },0);//0 is starting value of i
+    console.log(i);//6
+    ```
+* **Advance Objects:**
+    * Context: `this`
+        * In browser: `console.log(this)` => `Window` object , `this.alert('hello')` => pops an alert because attribute of Window obj
+        * ```js
+            const ob = {
+                a: ()={console.log(this);}
+            }
+            ob.a() //returns object {a}
+    * Instantiation:
+        * `Constructor` is the first thing to run when you make a copy
+        ```js
+            class Player{
+                constructor(name, game){
+                    this.name = name;
+                    this.game = game;
+                }
+                introduce(){
+                    console.log(`hello, I'm $(this.name) playing $(this.game)`)
+                }
+            }
+        ```
+        * `Extends`: when use it, need to call `super()` with the properties we want to pass to constructor 
+        ```js
+        class Wizard extends Player{
+            constructor(name,game){
+                super(name, game)
+            }
+            play(){
+                console.log(`WEEEE, I'm a $(this.game)`);
+            }
+        }
+        const wizard1 = new Wizard('Harry', 'Seeker');
+        wizard1.introduce();
+        const wizard2 = new Wizard('Cedric', 'Chaser');
+        ```
+* **Passed by value v/s Reference**
+    * Primitve data types(*string, number, boolean, null, undefined, symbol*) are passed by value.
+    * Objects are passed by reference.
+        ```js
+        let obj1 = { name: "Dwight Kurt Shrute"};
+        let obj2 = obj1;
+        obj2.name = "Dwight Fart Shrute";
+        console.log(obj1);//{name: "Dwight Fart Shrute"}
+        ```
+    * Since **arrays are objects**, they are passed by reference TOO.
+* **Type Coercion:**
+    * when comparing two things of diff data types using `==`, one of them will be converted to the other's type by JS engine.
+        * ```js 1 == '1'; //true;```
+        * `1=== '1'; //false`
+    * Nice JS Equality table: [website](https://dorey.github.io/JavaScript-Equality-Table/) | [MDN Sameness Comparisons](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness)
+## ES7(2016)
+* `.includes()`
+    * `'hello.includes('o')' ;//true`
+* Exponantial Operator: `x**2 //x*x `
+
+## ES8(2017)
+* String Padding:`.padStart()` , `.padEnd()`
+    * `'aayush'.padStart(4);  // "    aayush"` => appends 4 spaces in start of string
+* Iterating Objects like arrays: `Object.values`  , `Object.entries`:
+    * Before ES8, we had `Object.keys`
+    ```js
+    let obj ={
+        a: 'aa',
+        b: 'bb'
+    }
+    Object.keys(obj).forEach((key,index)=>{
+        console.log(key,obj[key]); 
+        // a aa
+        // b bb
+    })
+    Object.values(obj).forEach(value =>{
+        console.log(value);
+        // aa
+        // bb 
+    })
+    Object.entries(obj).forEach(value =>{
+        console.log(value);
+        // (2)['a' : 'aa')]
+        // (2)['b' : 'bb')]
+    })
+    ```
+## ES9(2018)
+* **Promises:**
+    * Just like no Spider-man movie is complete without the dialogue With great power comes great responsibility. No article based on Promise is complete without stating that Promises save you from **callback hell**.
+    * JavaScript is a synchronous programming language, but because of callback functions we can make it work like an Asynchronous Programming language.
+    * **Def:** The Promise object represents the eventual completion (or failure) of an asynchronous operation, and its resulting value.
+    * Playing with promises has 2 parts-
+        1. Creation of Promises
+            ```js
+            let promise = new Promise(function(resolve, reject) {
+                if(promise_kept)
+                resolve("done");
+                else
+                reject(new Error("…"));
+            });
+            ```
+        2. Handling of Promises
+        ```js
+         const isDone = new Promise()
+            const checkIfDone = () => {
+            isDone
+                .then(ok => {
+                console.log(ok)
+                })
+                .catch(err => {
+                console.error(error)
+                })
+            }
+        ```
+* **Async Await**
+    * Async
+        * enable us to write promise based code as if it were synchronous, but without blocking the execution thread. 
+        * It operates asynchronously via the event-loop. 
+        * Async functions will always return a value. 
+        ```js
+        async function firstAsync() {
+        return 27;
+        }
+        firstAsync().then(alert); // 27
+        ```
+
+    * Await
+        * The await operator is used to wait for a Promise. 
+        * It can be used inside an Async block only.
+        *  The keyword Await makes JavaScript wait until the promise returns a result. 
+        * It has to be noted that it only makes the async function block wait and not the whole program execution.
+        ```js
+            async function firstAsync() {
+                let promise = new Promise((res, rej) => {
+                    setTimeout(() => res("Now it's done!"), 1000)
+                });
+                // wait until the promise returns us a value
+                let result = await promise; 
+                // "Now it's done!"
+                alert(result); 
+                }
+            };
+            firstAsync();
+        ```
+### 3.4 VanillaJS (=== JavaScript)
 Using "VanillaJS" means **using plain JavaScript without any additional libraries like jQuery**.
 
 People use it as a **joke** to remind other developers that many things can be done nowadays without the need for additional JavaScript libraries.
@@ -406,6 +673,8 @@ People use it as a **joke** to remind other developers that many things can be d
 Here's a funny site that jokingly talks about this: http://vanilla-js.com/
 * Vanilla in slang means: unexciting, normal, conventional, boring
 * So VanillaJS is the same as pure Javascript.
+
+### 3.5 API, AJAX(XHR)
 
 ## 4. JQuery
 * [CDN](https://code.jquery.com/) to be included in **header**. Include your **`.js`** file in **body**
@@ -510,6 +779,22 @@ Here's a funny site that jokingly talks about this: http://vanilla-js.com/
 ## 5. JS Front-End Frameworks
 
 ### 1. React
+* Why React?
+    * To minimise DOM manipulation(which increases load on browser & makes app/website slow & increases bugs )
+    * **Structure:** Atoms->Molecules->Organisms->Template->Pages, maintains tree-like structure of keeping record of changes.i.e. if any component gets changed, only its children need to know.
+* **CLI**:
+    * `sudo npm install -g create-react-app`
+    * In project directory: `create-react-app appname`(name can't contain CAPITAL LETTERS)
+    * Run Server: `cd appname` -> `npm start`
+* Components
+* Props(Dumb-components): 
+    * props are simply things that come out of state.
+    * parent feeds state to its child component and for child comp, it becomes a prop
+* State
+* Children
+
+
+
 ### 2. Angular
 ### 3. Vue
 
@@ -590,6 +875,7 @@ A light, most popular NodeJS Web Development framework.
 ```
 ### B. JSON
 * Looks like Javascript objects
+* Fake Dummy Data(for testing): [json placeholder](https://jsonplaceholder.typicode.com/)
 * Everything is a string
 ```
 {
@@ -942,6 +1228,7 @@ app.post('/posts/:id/comments',(req,res)=>{
 # VII. DevOps
 ## 1. Deployment:linux,ssh,gitlab, server-software(Ngnix,Apache)
 ## 2. Platforms: AWS,Azure,Google cloud,Heroku
+    Heroku does free deployment for light-traffic websites.
 ## 3. Virtualization: docker
 ## 4. Testing
 ---
@@ -974,7 +1261,7 @@ app.post('/posts/:id/comments',(req,res)=>{
 # Self-Project Ideas:
 * [Personal Management System](https://github.com/Volmarg/personal-management-system): make recurrent/auto-tracking
 * unity app for auto daily booking cab/ordering food
-* Do Something about unsorted-but-important knowledge I'm gaining from HN, Quora etc.I don't know how & where to store it, but I'd sure as hell don't want it to go wasted.
+* Do Something about unsorted-but-important knowledge I'm gaining from HN,Youtube, Quora etc, terms & things I'm learning.I don't know how & where to store it, but I'd sure as hell don't want it to go wasted.
 
 
 
