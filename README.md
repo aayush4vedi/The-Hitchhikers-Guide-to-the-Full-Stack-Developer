@@ -252,6 +252,7 @@
         * `box-sizing: border-box;`
         * `margin: 10% auto;` is a life-savor: puts the div/id/class in centre
         * `::placeholder { color: blue;}`
+        * `* {margin:0; padding:0; box-sizing: border-box;}` // avoid inconsistencies across browsers
 
 
 * CSS3: 
@@ -369,7 +370,7 @@
         * Examples:
             * [Sidebar](https://codepen.io/Colt/pen/qXOqyN) | [Navbar](https://codepen.io/Colt/pen/WEQQwq) | [Polygon Widget](https://codepen.io/Colt/pen/oexwvb) | [Holy Grail Layout](https://codepen.io/Colt/pen/pryaJr?editors=1100) 
         * **Browser Support Articles:** [Flexbox-Mixing old & new](https://css-tricks.com/using-flexbox/) | [How to deal with older browsers](https://medium.com/css-mine/flexbox-how-to-deal-with-older-browsers-fbf6eb8c7a65)
-        * [Startup website-fullß](https://demo.tutorialzine.com/2016/06/freebie-landing-page-template-with-flexbox/)
+        * [Startup website-full](https://demo.tutorialzine.com/2016/06/freebie-landing-page-template-with-flexbox/) -using Flexbox
 * **Frameworks**
     * Bootstrap: {most popular}
         * [DOC](https://getbootstrap.com/docs/4.3/layout/overview/)
@@ -711,32 +712,94 @@
     ```
 ## ES9(2018)
 * **Promises:**
-    * Just like no Spider-man movie is complete without the dialogue With great power comes great responsibility. No article based on Promise is complete without stating that Promises save you from **callback hell**.
+    * Promises save you from **callback hell**.
     * JavaScript is a synchronous programming language, but because of callback functions we can make it work like an Asynchronous Programming language.
     * **Def:** The Promise object represents the eventual completion (or failure) of an asynchronous operation, and its resulting value.
-    * Playing with promises has 2 parts-
-        1. Creation of Promises
+    * Methods
+        1. Promise Creation 
             ```js
-            let promise = new Promise(function(resolve, reject) {
-                if(promise_kept)
+            let p1 = new Promise(function(resolve, reject) {
+                if({condition})
                 resolve("done");
                 else
-                reject(new Error("…"));
+                reject(new Error("…---…"));
             });
             ```
-        2. Handling of Promises
+        2. Handling( Callback)
+            * Resolve
+            ```js
+            p1.then((data)=>{
+                console.log(data); //done
+            })
+            ```
+            * Reject
+            ```js
+            p1.then((data)=>{
+                console.log(data)
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
+            ```
+        3. Wrapping `setTimeout` with Promise
         ```js
-         const isDone = new Promise()
-            const checkIfDone = () => {
-            isDone
-                .then(ok => {
-                console.log(ok)
-                })
-                .catch(err => {
-                console.error(error)
-                })
-            }
+        let p1 = new Promise((ressolve,reject)=>{
+            setTimeout(()=>{
+                console.log("2 seconds mei chalta ho toh chal!");
+            },2000);
+        })
         ```
+        4. Promise Chaining: `//pehle poora hone ke baad hi agla chalega`
+        ```js
+        p1.then(()=>{…})
+        .then(()=>{…})
+        .then(()=>{…})
+        .then(()=>{…})
+        ```
+        E.g. **Lesson**: `ek ki return values is passed on to the next.`
+        ```js
+        let p2 = Promise((resolve,reject)=>{
+            resolve(5);
+        })
+        p2.then((data)=>{
+            return data+1;
+        })
+        .then((data)=>{
+            return data+1;
+        })
+        .then((data)=>{
+            return data+1;
+        })
+        //returns 8
+        ```
+* **Async Foundation**
+    * **Callback Function** : that is passed into other function as parameter then invoked by other function.
+        * ```js   
+            function cb(){console.log('calling from cb');}
+            function higherOrder(g){
+                console.log('a');
+                g();
+                console.log('b');
+            }
+            higherOrder(cb);
+            //'a'
+            //'calling from cb'
+            //'b'
+            ```
+        * Higher order function:<br>
+            A fn that accepts a callback as its parameter (see above e.g. )
+        * Callbacks are used for:
+            * Code Reuse
+            * Advance Array Methods
+            * Browser Event
+            * AJAX Request
+            * React Development
+    * **setTimeout:** runs after t(*milliseconds*) time
+    ```js
+    let a = setTimeout(()={
+        console.log("I'll run after 2 sec");
+    },2000)
+    ```
 * **Async Await**
     * Async
         * enable us to write promise based code as if it were synchronous, but without blocking the execution thread. 
@@ -767,6 +830,7 @@
             };
             firstAsync();
         ```
+    
 ### 3.4 VanillaJS (=== JavaScript)
 Using "VanillaJS" means **using plain JavaScript without any additional libraries like jQuery**.
 
@@ -776,7 +840,7 @@ Here's a funny site that jokingly talks about this: http://vanilla-js.com/
 * Vanilla in slang means: unexciting, normal, conventional, boring
 * So VanillaJS is the same as pure Javascript.
 
-### 3.5 API, AJAX(XHR)
+### 3.5 AJAX(XHR)
 
 ## 4. JQuery
 * [CDN](https://code.jquery.com/) to be included in **header**. Include your **`.js`** file in **body**
