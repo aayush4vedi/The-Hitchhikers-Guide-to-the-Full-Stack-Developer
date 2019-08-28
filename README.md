@@ -258,6 +258,7 @@
     * box-model: [doc](https://cssreference.io/box-model/)
     * **grid**(2D & preferred): [@youtube](https://www.youtube.com/watch?v=jV8B24rSN5o), [doc](https://cssreference.io/css-grid/), [css-tricks:doc](https://css-tricks.com/snippets/css/complete-guide-grid/)
     * **flexbox**(1D): [@youtube](https://www.youtube.com/watch?v=JJSoEo8JSnc&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=23), [doc](https://cssreference.io/flexbox/)  >> aligh items man-makfik inside a div
+        * See down for more
     * **Other**
         * positioning: [doc](https://cssreference.io/positioning/)
         * transitions: [@youtube](https://www.youtube.com/watch?v=zHUpx90NerM&list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8&index=40), [doc](https://cssreference.io/transitions/)
@@ -268,6 +269,107 @@
 * CSS Preprocessor: SASS
     * Kaaafi cool [article](https://www.creativebloq.com/web-design/what-is-sass-111517618)
     * [@youtube: sass using gulp](https://www.youtube.com/watch?v=rmXVmfx3rNo)
+* **CSS: Animation**
+    * **Tricks:**
+        * `ease-in-out`: slow start & end
+        * `filter: grayscale(100%)` : make image BnW
+        * `animation: jiggle 4s;` is awesome
+    * Links:
+        * Cool Website built using css: [30species-30pieces](http://www.species-in-pieces.com/#)
+        * Why Animation is necessary: [Article](https://medium.com/bridge-collection/improve-the-payment-experience-with-animations-3d1b0a9b810e):Improve payment experience with animation
+    * **Pseudo-class**: is a keyword added to a selector that specifies a special state of the selected element
+        * [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) list 
+        * `:hover` 
+            ```css
+            button:hover {
+                color: blue;
+            }
+            ```
+        * `:focus` for input fields majorly
+            ```css
+            input:focus {
+                color: red;
+            }
+            ```
+        * `:active`
+            ```css
+            a:active {
+            color: red;
+            }
+            ```
+    * **Transform**: modifies the coordinate space of elemet: rotate, scale, skew, or translate
+        * Move: `transform: translate(120px, 50px);` //`(-50%, -50%)`: to bring it in center
+        * Scale: `transform: scale(2, 0.5);`
+        * Rotate: `transform: rotate(0.5turn);`
+        * Multiple: `transform: scale(0.5) translate(-100%, -100%);`
+    * **Transition:** is a shortcut property for `transition-property`, `transition-duration`, `transition-timing-function`, and `transition-delay`.
+        * [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transition)
+        ```css
+        /* property name | duration | timing function | delay */
+        transition: margin-right 4s ease-in-out 1s; 
+        ```
+    * [List](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties) of Animatable Properties in CSS.
+    * What should be Animated?(*for faster performance*)
+        * `transform:` `translate`. `scale`, `rotate`, `opacity`
+    * **Keyframe Animation** : 
+        * controls the intermediate steps in a CSS animation sequence by defining styles for keyframes along the animation sequence. 
+        * This gives more control over the intermediate steps of the animation sequence than *transitions*.
+        * [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes)
+        * `<p>HELLO!</p>`
+        ```css
+            p {
+                animation-name: rainbowtext;
+                animation-duration: 5s;
+                animation-timing-function: linear;
+                animation-delay: 0s;
+                animation-iteration-count: infinite;
+            }
+            @keyframes rainbowtext {
+                0%{
+                    color:red;
+                    font-size: 20px;
+                }
+                25%{
+                    color:orange;
+                }
+                50% {
+                    color:yellow;
+                    font-size: 40px;
+                    transform: translateX(200px);
+                }
+                75%{
+                    color: green;
+                }
+                100% {
+                    color: purple;
+                    font-size:20px;
+                }
+            }
+        ```
+        * Cool Animation Examples(**Must Get Inspiration**): [Walking Cat](https://codepen.io/SoyEva/full/LRjWzZ/) | [Xmas Tree](https://codepen.io/aayush4vedi/pen/QWLvOMy) | [Mr Jello](https://codepen.io/FabioG/full/QjLreK/) | [Clock](https://codepen.io/iliadraznin/full/JcqbE/) | [Loading Icons](https://codepen.io/RRoberts/pen/pEXWEp) | [Codepen-Home](https://codepen.io/): search yours
+    * **Flexbox:**
+        * Docs: [CSS-Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) | [CSS-Reference](https://cssreference.io/flexbox/) | [Find-froggy](http://flexboxfroggy.com/)
+        * **Flex-Container Properties:**
+            * `display: flexbox;`
+            * `flex-direction: ` `row`(default) | `row-reverse` | `column` | `column-reverse`
+            * `flex-wrap: wrap;` : makes each item go till max width/height, if reqd in multiple lines
+            * `justily-content: ` `flex-end` | `center` | `space-between` | `space around`
+                * justifies how space b/w items is distributed in flex container **along main axis**
+            * `align-items:` `flex-start` | `flex-end` | `center` | `baseline` | `stretch`(default value)
+                * justifies how space b/w items is distributed in flex container **along cross axis**
+            * `align-content:` `flex-start` | `flex-end` | `center` | `baseline` 
+                * defines space destributin b/w **rows** in flex-container **along cross axis**
+        * **Flex-Item Properties**
+            * `order` : making items  inside container in wanted order
+            * `flex`  : defines how a flex item will grow/shrink to fit the available space in containere
+                * `flex-grow:1\2\3; `  : how unused space should be spread among flex items
+                * `flex-shrink:1\2`: how item should shrink when there isn't enough space in container
+                * `flex-basis` : like width, but only for `flex-direction: row` (useless for `column`)
+            * `align-self` : override `align-items` on individual flex items
+        * Examples:
+            * [Sidebar](https://codepen.io/Colt/pen/qXOqyN) | [Navbar](https://codepen.io/Colt/pen/WEQQwq) | [Polygon Widget](https://codepen.io/Colt/pen/oexwvb) | [Holy Grail Layout](https://codepen.io/Colt/pen/pryaJr?editors=1100) 
+        * **Browser Support Articles:** [Flexbox-Mixing old & new](https://css-tricks.com/using-flexbox/) | [How to deal with older browsers](https://medium.com/css-mine/flexbox-how-to-deal-with-older-browsers-fbf6eb8c7a65)
+        * [Startup website-fullß](https://demo.tutorialzine.com/2016/06/freebie-landing-page-template-with-flexbox/)
 * **Frameworks**
     * Bootstrap: {most popular}
         * [DOC](https://getbootstrap.com/docs/4.3/layout/overview/)
