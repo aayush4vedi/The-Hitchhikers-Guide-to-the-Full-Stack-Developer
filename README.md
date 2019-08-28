@@ -348,7 +348,7 @@
             }
         ```
         * Cool Animation Examples(**Must Get Inspiration**): [Walking Cat](https://codepen.io/SoyEva/full/LRjWzZ/) | [Xmas Tree](https://codepen.io/aayush4vedi/pen/QWLvOMy) | [Mr Jello](https://codepen.io/FabioG/full/QjLreK/) | [Clock](https://codepen.io/iliadraznin/full/JcqbE/) | [Loading Icons](https://codepen.io/RRoberts/pen/pEXWEp) | [Codepen-Home](https://codepen.io/): search yours
-    * **Flexbox:**
+    * **Flexbox:**(`Abse flexbox hi use karna hai`)
         * Docs: [CSS-Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) | [CSS-Reference](https://cssreference.io/flexbox/) | [Find-froggy](http://flexboxfroggy.com/)
         * **Flex-Container Properties:**
             * `display: flexbox;`
@@ -680,6 +680,7 @@
         * `1=== '1'; //false`
     * Nice JS Equality table: [website](https://dorey.github.io/JavaScript-Equality-Table/) | [MDN Sameness Comparisons](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness)
 ## ES7(2016)
+* Includes `trailing comma` in objects: {a:'a'`  , ` }
 * `.includes()`
     * `'hello.includes('o')' ;//true`
 * Exponantial Operator: `x**2 //x*x `
@@ -838,10 +839,98 @@ People use it as a **joke** to remind other developers that many things can be d
 
 Here's a funny site that jokingly talks about this: http://vanilla-js.com/
 * Vanilla in slang means: unexciting, normal, conventional, boring
-* So VanillaJS is the same as pure Javascript.
 
-### 3.5 AJAX(XHR)
-
+### 3.5 AJAX: XHR, jQuer+AJAX, Axios
+## AJAX:
+* About:
+    * AJAX = **A**synchronous **JA**vaScript & **X**ML (not a great name)
+    * AJAX is not:
+        * A lib
+        * A framework
+        * A tech
+    * AJAX is...an **approach**(that's it)
+    * term was coined in 2005. [That historic article](https://immagic.com/eLibrary/ARCHIVES/GENERAL//ADTVPATH/A050218G.pdf)
+    * with AJAX we can build a website that loads w/o refreshing the page(send, receive req in background & update w/o disturbing current page )called=>**Single Page Apps**
+    * Can be seen on Facebook, Pinterest
+* Methods of making request with JS:
+    1. XHR
+    2. Fetch API
+    3. 3rd party lib: `jQuery` & `Axios`
+* **XHR**(XML Http Request):
+    * Can be seen in Chromes Dev Tool menu(Network > All | `XHR` | JS)
+    * Format: 
+    ```js
+    var XHR = new XMLHttpRequest();
+    XHR.onreadystatechange = function(){
+        if(XHR.readyState ==4 && XHR.status == 200 ){
+            console.log(XHR.responseText); //"Random Zen Quote"
+        }
+    };
+    XHR.open("GET","https://api.github.com/zen"); //Fun Fact: this api gives new random **ZEN** quote each time.
+    XHR.send();
+    ```
+    * CodeExample: [Random Image Generator](https://codepen.io/Colt/pen/PKbVxM) | [Bitcoin Price Exercise](https://api.coindesk.com/v1/bpi/currentprice.json)
+    * **Problems with XHR**
+        * Ugly, bulky syntax
+        * created 16 years ago
+        * No streaming(large data)
+        * Returns string(not JSON), so need to run `JSONParse()` every time
+    * **Solution:** Fetch API
+* **Fetch API**: Upgraded XHR
+    * General Method:(default method: `GET`)
+        ```js
+        fetch(url)
+        .then((res)=>{.
+            return res.json(); //returns json obj
+        })
+        .then((data)=>{...})
+        .catch((err)=>{...});
+        ```
+    * `POST` in fetch:
+        ```js
+        fetch(url, {
+            method: POST,
+            body: JSON.stringify{
+                name: 'meep',
+                age : 24,
+            }
+        })
+        .then((data)=>{...})
+        .cathc((err)=>{...})
+        ```
+    * [MDN doc](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch) for other things: `header`, `credentials` etc
+    * **Problems with Fetch:**
+        * Support compatibility with multiple browsers for diff things
+        * IE doesn't support Fetch *at all.*
+* **jQuery with AJAX:**
+    * **Methods:**
+        * `.$.ajax`
+            * rest 3 methods are shorthand methods for this one
+            * ```js
+                $.ajax({
+                    method   : 'GET',
+                    url      :  'some.api.com',
+                    dataType : 'json'
+                })
+                .done((res)=>{..log(res)..})
+                .fail((err)=>{console.log(err)})
+              ```
+            * [Doc](https://api.jquery.com/jQuery.ajax/)
+        * Shorthand methods for `.$.ajax`:
+            * `.$.get`
+            * `.$.post`
+            * `.$.getJSON` 
+* **Axios:** A lightweight HTTP request lib
+    * [Doc-github](https://github.com/axios/axios)
+    * ```js
+        axios.get(url)
+        .then(function(res){
+        console.log(res.data.results[0].question);
+        })
+        .catch(function(){
+        console.log("ERR");
+        })
+      ```
 ## 4. JQuery
 * [CDN](https://code.jquery.com/) to be included in **header**. Include your **`.js`** file in **body**
 * **About**
