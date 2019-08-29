@@ -462,6 +462,77 @@
 * netify(from github, gitlab), also free, comes with *npm-cli* : [@youtube](https://www.youtube.com/watch?v=bjVUqvcCnxM)
 * github(**gh-pages**): [@youtube](https://www.youtube.com/watch?v=SKXkC4SqtRk)
 
+## 3. Testing
+* Jasmine(JS) -BDD
+    * [Starter Code](https://codepen.io/eschoppik/pen/ZybNdo) for Jasmine
+    * Essential Keywords:
+        * **describe** : "let me describe ______ to you."
+        * **it**       : "let me tell you about _____."
+        * **expect**   : "here is what I expect."
+    * Demo:
+        ```js
+            var earth = {
+                isRound: true,
+                numberFromSun: 3
+            }
+            describe("Earth", function(){
+                it("is round", function(){
+                    expect(earth.isRound).toBe(true)
+                });
+                it("is the third planet from the sun", function(){
+                    expect(earth.numberFromSun).toBe(3)
+                });
+            });
+                //2 specs, 0 failures
+        ```
+    * **Matchers:** are the functions we attach to the result of expect function
+        * `toBe`/`not.toBe`, `toBeCloseTo`, `toBeDefined`,  `toBeFalsy/toBeTruthy` ,`toBeGreaterThan/toBeLessThan`, `toContain`, `toEqual` ,`jasmine.any()`
+        * Implementation:
+            ```js
+                describe("Jasmine Matchers", function() {
+                    it("allows for === and deep equality", function() {
+                        expect(1+1).toBe(2);
+                        expect([1,2,3]).toEqual([1,2,3]);
+                    });
+                    it("allows for easy precision checking", function() {
+                        expect(3.1415).toBeCloseTo(3.14,2);
+                    });
+                    it("allows for easy truthy / falsey checking", function() {
+                        expect(0).toBeFalsy();
+                        expect([]).toBeTruthy();
+                    });
+                    it("allows for easy type checking", function() {
+                        expect([]).toEqual(jasmine.any(Array));
+                        expect(function(){}).toEqual(jasmine.any(Function));
+                    });
+                    it("allows for checking contents of an object", function() {
+                        expect([1,2,3]).toContain(1);
+                        expect({name:'Elie', job:'Instructor'}).toEqual(jasmine.objectContaining({name:'Elie'}));
+                    });
+                });
+                //5 specs, 0 failures
+            ```
+    * Pending Specs: [code](https://codepen.io/eschoppik/pen/gRaNgg)
+    * Spies: [doc](https://blog.codeship.com/jasmine-spyon/)
+    * Clock: `jasmine.clock().install()`
+* **TDD**
+    * *Test Driven Development*
+    * Red -> Green -> Refactor -> Repeat
+    * Steps:
+        1. Write the tests 
+        2. See all the tests fail
+        3. Write code to pass the tests
+        4. Refactor code as necessary
+        5. Repeat
+* **BDD**
+    * *Behavior Driven Development*
+    * is a subset of TDD
+    * involves being verbose with our style & describing behavior of functionality
+* Other Types of Testing:
+    * Unit Tests
+    * Integration Tests(built on unit tests)
+    * Acceptance Tests
+    * Stress Tests
 ## 3. JS (Vanilla JS)
 ### 3.1. Basic syntax :ballot_box_with_check:
 * `slice()`
@@ -619,7 +690,7 @@
     ```js
     const filterArray = arr.filter( num =>{ return num<=2});
     ORRRR(shorter syntex)
-    const mapArray = arr.filter(num => num<=2;)
+    const filterArray = arr.filter(num => num<=2;)
     console.log(filterArray); //(2)[1,2];
     ```
     * **`reduce`** is map+accumulater(`i`):
@@ -1070,6 +1141,17 @@ To run JS on server-side(up until now, we were running JS on browser only).
 * Start a project: `mkdir <project_name>` -> `cd->` -> `npm init`
 * Export a variable: `module.exports = x;`
 * Import a variable: `var x = require('./models/file_containing_x')`
+* Making Request in node: Install package: `npm install request`, then:
+    ```
+    var request = require('request');
+    request('http://www.google.com', function (error, response, body) {
+    console.log('error:', error); // Print the error if one occurred
+    console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+    if(!error && response.statusCode==200){
+        console.log('body:', body); // Print the HTML for the Google homepage.
+    }
+    });
+    ```
 ## 2. Frameworks
 ### 1. **Express**
 A light, most popular NodeJS Web Development framework.
@@ -1140,18 +1222,6 @@ A light, most popular NodeJS Web Development framework.
         'gender':'Male'
     }
 }
-```
-## 3.2
-* Making Request in node: Install package: `npm install request`, then:
-```
-var request = require('request');
-request('http://www.google.com', function (error, response, body) {
-  console.log('error:', error); // Print the error if one occurred
-  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-  if(!error && response.statusCode==200){
-    console.log('body:', body); // Print the HTML for the Google homepage.
-  }
-});
 ```
 
 ## 4. Server Rendered Pages
