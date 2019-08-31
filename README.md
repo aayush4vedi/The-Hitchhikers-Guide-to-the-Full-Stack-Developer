@@ -463,7 +463,7 @@
 * github(**gh-pages**): [@youtube](https://www.youtube.com/watch?v=SKXkC4SqtRk)
 
 ## 3. Testing
-* Jasmine(JS) -BDD
+* Jasmine(JS) -BDD, Unit Testing
     * [Starter Code](https://codepen.io/eschoppik/pen/ZybNdo) for Jasmine
     * Essential Keywords:
         * **describe** : "let me describe ______ to you."
@@ -529,7 +529,7 @@
     * is a subset of TDD
     * involves being verbose with our style & describing behavior of functionality
 * Other Types of Testing:
-    * Unit Tests
+    * Unit Tests - testing pieces of functionality: **what Jasmine Does**
     * Integration Tests(built on unit tests)
     * Acceptance Tests
     * Stress Tests
@@ -642,18 +642,18 @@
     * New way of writing: `const c = (a,b)=> a+b`
     * **Closure:** 
         * A function ran.The function executed.It's never going to execute again.
-        * BUT it's never going to remember that there are refrences to those variables.
+        * BUT it's going to remember that there are refrences to those variables.
         * SO, the child scope always has access to the parent scope.
+        * Closures don't remember everything from outer function- just the *variables they need.*
     ```js
+        // see how second() has access to var greet
         const first() => {
             const greet = 'hi';
-            const second() => {
-                console.log(greet);
+            return function second(){
+                console.log(greet + ' there ');
             }
-            return second;
         }
-        const newFunc = first();
-        newFunc(); //'hi'
+        first()(); //'hi there'
     ```
     * **Currying Fn:**
     ```js
@@ -666,6 +666,26 @@
     const sum = (num) => num+1;
     fOg(sum, num)(5); //7
     ```
+* Keyword **this**
+    * a reversed keyword in JS
+    * usually determined by *execution context*
+    * Can be determined using 4 rules:
+        * **Global** : when `this` is not inside declared object.<br>
+            =====> returns *window* object
+            ```js
+             console.log(this);  // window
+            ```
+            ```js
+            function f(){
+                return this;
+            }
+            f(); // window
+            ```
+            * To avoid this, use: `"use strict"` in begining
+        * **Object/Implicit Binding** : when `this` is inside declared object<br>
+            =====> Returns value obj of *the closest parent*
+        * **Explicit Binding:** Choose what we want the context of `this` using `call`, `apply` or `bind`
+        * **New**
 
 * **Advance Arrays:**
     * **`forEach`** iterates & just performs some action 
@@ -1100,9 +1120,86 @@ Here's a funny site that jokingly talks about this: http://vanilla-js.com/
 **ACHIEVED:: Basic Front-End Developer**
 
 ---
+## 5. D3 
+* (*Data-Driven Documents*) is a JS library for producing dynamic, interactive **data visualizations** in web browsers.
+* Include in HTML-body bottom: `<script src="https://d3js.org/d3.v4.js"></script>`
+### D3 Methods For DOM Manipulation
+- *if nothings is paased in, these methods will act as GETTERS*
+* Select Elements
+    * `d3.select(x)`    - single element
+    * `d3.selectAll(x)` - multiple elements
+    * `d3.node(x)` / `d3.nodes(x)` - returns *array* of matching HTML elements
+* Set attr, prop, styles
+    * `.style()` - set on existing elements
+    ```js
+    d3.select('#title')
+        .style('color','#ffffff')
+        .attr('class', 'new-class')
+        .text('new title');
+    ```
+    * `.append(tagName)` - adds a new element of type `tagName` on every element in selection
+* Get attr, prop on selections
+    * same as above
+* Chain D3 methods
+    * shown in the above example
+* Passing callback functions
+    * Format: `function(_, index){//.......}`
+    * E.g.
+    ```js
+    d3.selectAll('li')
+        .style('background-color',(_,index)=>{
+            return index % 2 == 0 ? 'white' : 'black';
+        })
+    ```
+* Add Event Listerners
+    * Format: `selection.on(eventType, callback)`
+    * E.g.(**Adding** Event Listener):   `d3.select('h1).on('click',()=>{console.log('you have been clicked')})`
+    * E.g.(**Removing** Event Listener):   `d3.select('h1).on('click',null)`
+* Access event object inside listerners
+    * Format: `selection.property(name, newValue)` 
+        * Access a property(e.g. input value) which is not accessible as element attr
+* Add & Remove DOM elements
+* **Data Joins**: Appending all moivies as li(`id='#quotes'`)
+    ```js
+    let data = [
+        {
+            quote: "fsaf",
+            movie: "efwaef",
+            rating: "efs",
+        },
+        {....}
+    ]
+    d3.select('#quotes')
+        .style('list-style', 'none')
+        .selectAll('li')
+        .data(data)
+        .enter()
+        .append('li')
+            .text(d => '"' + d.quote + '" = '+d.movie)
+            .style('margin', '20px')
+            .style('padding', '20px')
 
-
-## 5. JS Front-End Frameworks
+    ```
+* Remove DOM elements:
+**e.g.** Delete all 'R' rated movies from list
+```js
+    let nonRQuotes = quotes.filter(movie=> movie.rating != 'R');
+    d3.selectAll('li')
+        .data(nonRQuotes, (d)=>{
+            return d.quote;
+        })
+        .exit()
+        .remove()
+```
+* General Update Pattern in D3
+### SVG & D3
+* **SVG**:
+    * Scalable Vector Graphics(SVG) -> scalable images(unlike .jpg/.png)
+    * Vector vs Raster graphics: [GfG](https://www.geeksforgeeks.org/vector-vs-raster-graphics/)
+    * E.g.: [Rectangle](https://codepen.io/mmmaaatttttt/pen/MoJKQr?editors=1100) , [Smiley-Star](https://codepen.io/mmmaaatttttt/pen/jLLbPJ?editors=1100), [Flags](https://codepen.io/mmmaaatttttt/pen/GvMZMq?editors=1100)
+//TODO: not liking & getting D3 right now.**TBDL**
+//TODO: get this project: [D3-emission](https://github.com/aayush4vedi/Emission-Data)
+## 6. JS Front-End Frameworks
 
 ### 1. React
 * Why React?
@@ -1124,7 +1221,7 @@ Here's a funny site that jokingly talks about this: http://vanilla-js.com/
 ### 2. Angular
 ### 3. Vue
 
-## 6. JS-State Management
+## 7. JS-State Management
 ### 1.1. Redux
 ### 1.2. State API
 ### 2.1. NgRx
