@@ -576,7 +576,9 @@
 
 ### 3.3. ES5++
 ## ES5(2015)
-* **BABEL:** ES6+  => older ES(supported by all browsers)
+* **BABEL:** :is a *transpiler*,  Tasks:
+    * (older)ES6+  => older ES5(supported by all browsers)
+    * (curr) JSX   => VanillaJS
 * **~~var~~ let+const:**
     * `let`    : declares a local variable in a block scope(between `{ }`)(even in `if`)
     * `const`  :  values can be assigned once and they cannot be reassigned<br>
@@ -1200,32 +1202,197 @@ Here's a funny site that jokingly talks about this: http://vanilla-js.com/
 //TODO: not liking & getting D3 right now.**TBDL**
 //TODO: get this project: [D3-emission](https://github.com/aayush4vedi/Emission-Data)
 ## 6. JS Front-End Frameworks
-
-### 1. React
+* What & How:
+    * is (JS) lib that handles DOM manipulation.
+    * Handles navigation(using HTML5 push state): allows to  change address bar w/o refreshing the page
+    * State Management:
+        * in *jQuery*, we have to keep track of all data either in DOM or in some object
+        * *Front-End Framework*: provides tools for it
+    * is always run on **client side**, back-end mei NodeJS
+### 6.1. React
+* About:
+    * Released by Facebook in 2013
+    * is a view lib that uses *composable components*
+    * other libs used with React:
+        * **React Router** - deals with navigation in app
+        * **Redux** - single place to store states in app 
 * Why React?
     * To minimise DOM manipulation(which increases load on browser & makes app/website slow & increases bugs )
-    * **Structure:** Atoms->Molecules->Organisms->Template->Pages, maintains tree-like structure of keeping record of changes.i.e. if any component gets changed, only its children need to know.
+    * **Structure:** Atoms->Molecules->Organisms->Template->Pages
+    * Maintains tree-like structure of keeping record of changes.i.e. if any component gets changed, only its children need to know.
 * **CLI**:
     * `sudo npm install -g create-react-app`
     * In project directory: `create-react-app appname`(name can't contain CAPITAL LETTERS)
     * Run Server: `cd appname` -> `npm start`
-* Components
-* Props(Dumb-components): 
+* **Components**
+    * Format:
+        ```js
+            import React, {Component} from 'react'; //React is default export & Component isn't(hence got {})
+            ...
+            class Xxx extends Component{
+                render(){
+                    return(
+                        <div className= 'xxx-class'>
+                            <h1>XXX</h1>
+                            <h3 style = {{fontSize: '3em', margin: '2px'}}>Nobody Does it better!</h3>
+                        </div>
+                    )
+                }
+            }
+            export default Xxx;
+        ```
+* **Props**(Dumb-components): 
+    * Def:
+        * are immutable data passed to a component **from its parent**
+        * are accessible in your component as an object called: `this.props`
     * props are simply things that come out of state.
     * parent feeds state to its child component and for child comp, it becomes a prop
+    * E.g.
+        ```js
+        //parent
+        class RecipeApp extends Component {
+        render() {
+            return (
+            <div className="App">
+                <Recipe
+                    title="pasta"
+                    ingredients={['flour', 'water']}
+                    instructions="Mix ingredients"
+                    img="spaghetti.jpg"
+                />
+            </div>
+            );
+          }
+        }
+        ```
+        ```js
+        //child component
+        class Recipe extends Component {
+            render() {
+                const {title, img, instructions} = this.props;
+                const ingredients = this.props.ingredients.map((ing, index) => (
+                     <li key={index}>{ing}</li> 
+                ));
+                return (
+                <div className="recipe-card">
+                    <div className="recipe-card-img">
+                        <img src={img} alt={title} />
+                    </div>
+                    <div className="recipe-card-content">
+                        <h3 className="recipe-title">{title}</h3>
+                        <h4>Ingredients:</h4>
+                        <ul>
+                            {ingredients}
+                        </ul>
+                        <h4>Instructions:</h4>
+                        <p>{instructions}</p>
+                    </div>
+                    
+                </div>
+                );
+            }
+        }
+        ```
+    * **defaultProps:** to give props a default value
+        ```js
+        //parent
+            class RecipeApp extends Component {
+                static defaultProps = [
+                    {
+                        title: 'pasta';
+                        ingredients : ['flour', 'water']
+                        instructions : "Mix ingredients"
+                        img : "spaghetti.jpg"
+                    },
+                    {...}
+                ];
+                render() {
+                    return (
+                    <div className="App">
+                        {this.props.recipes.map((r, index)=>{
+                            <Recipe
+                                key             = {index} 
+                                //--->
+                                title           = {r.title}
+                                ingredients     = {r.ingredients}
+                                instructions    = {r.instructions}
+                                img             = {r.img}
+                                //<--
+                                //OR
+                                {...r} // will pass all properties of r
+                            />
+                        })}
+                        />
+                    </div>
+                    );
+                }
+            }
+            ```
+    * **propType:** to specify what props a component is expecting
+        * are used only in *development mode*
+        * **Installation:** `npm install --save prop-types`
+        * E.g.:
+            ```js
+                import PropTypes from 'prop-types';
+                ...
+                class IngredientList extends Component {
+                    static propTypes = {
+                        ingredients: PropTypes.arrayOf(PropTypes.string)
+                                              .isRequired
+                    }
+                    render() {
+                        return (
+                        <ul>
+                            {this.props.ingredients.map((ing, index) => (
+                            <li key={index}>{ing}</li>
+                            ))}
+                        </ul>
+                        );
+                    }
+                }
+            ```
+    * **props.children**
+        * is a collection of children inside a component
+        * E.g. Make a `Row` component
+        ```js
+        class App extends Component {
+            render() {
+                return (
+                <Row>
+                    <p>Timothy</p>
+                    <div>Moxie</div>
+                    <h1>React</h1>
+                </Row>
+                );
+            }
+        }
+        class Row extends Component {
+            render() {
+                return (
+                <div style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-around',
+                }}>
+                    {this.props.children}
+                </div>
+                )
+            }
+        }
+        ```
 * State
 * Children
 
 
 
-### 2. Angular
-### 3. Vue
+### 6.2. Angular
+### 6.3. VueJS
 
 ## 7. JS-State Management
-### 1.1. Redux
-### 1.2. State API
-### 2.1. NgRx
-### 3.1. VueX
+### 7.1. Redux
+### 7.2. State API
+### 7.1. NgRx
+### 7.1. VueX
 
 --- 
 
