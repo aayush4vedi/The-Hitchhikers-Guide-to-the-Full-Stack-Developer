@@ -1224,6 +1224,7 @@ Here's a funny site that jokingly talks about this: http://vanilla-js.com/
     * `sudo npm install -g create-react-app`
     * In project directory: `create-react-app appname`(name can't contain CAPITAL LETTERS)
     * Run Server: `cd appname` -> `npm start`
+    * Chrome Extension: [React Dev Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
 * **Components**
     * Format:
         ```js
@@ -1380,8 +1381,64 @@ Here's a funny site that jokingly talks about this: http://vanilla-js.com/
             }
         }
         ```
-* State
-* Children
+* **State**
+    * Stateful data
+    * Data in our application that can change
+    * **Passing:**
+        * Passed from *parent to child* as **prop** : downwards
+        * Should not be passed to parent(~~upwards~~) or sibling(~~lateral~~)
+        * State should be owned by one component
+    * Format:
+    ```js
+        class App extends Component {
+            constructor(props) {
+                super(props);
+                this.state = { favColor: 'red' };
+            }
+            render() {
+                return (
+                <div>
+                    My favorite color:
+                    {this.state.favColor}
+                </div>
+                );
+           }
+        }
+    ```
+    * **setState** : The correct way to change state in your application
+        * accepts an object with new properties and values for `this.state`
+        * E.g.:
+        ```js
+        class App extends Component {
+            constructor(props) {
+                super(props);
+                this.state = { favColor: 'red' };
+
+                setTimeout(() => {
+                this.setState({favColor: 'blue'})
+                }, 3000);
+            }
+            render() {
+                return (
+                <div>
+                    My favorite color:
+                    {this.state.favColor}
+                </div>
+                );
+            }
+        }
+        ```
+        * setState that depends on *previous* state: use a function parameter
+        ```js
+        this.setState((prevState, props) => {
+            return {
+                counter: prevState.counter + 1
+            };
+        });
+        ```
+    * Purity: All changes to `this.state` should be pure(see [pure functions](https://hackernoon.com/javascript-and-functional-programming-pt-3-pure-functions-d572bb52e21c))
+    
+* **React Component Architecture**
 
 
 
@@ -1850,7 +1907,13 @@ app.post('/posts/:id/comments',(req,res)=>{
 # Self-Project Ideas:
 * [Personal Management System](https://github.com/Volmarg/personal-management-system): make recurrent/auto-tracking
 * unity app for auto daily booking cab/ordering food
-* Do Something about unsorted-but-important knowledge I'm gaining from HN,Youtube, Quora etc, terms & things I'm learning.I don't know how & where to store it, but I'd sure as hell don't want it to go wasted.
+* **PKMS** (Personal Knowledge Management System)Do Something about unsorted-but-important knowledge I'm gaining from HN,Youtube, Quora etc, terms & things I'm learning.I don't know how & where to store it, but I'd sure as hell don't want it to go wasted.
+    * Temporary Fix: [Evernote](https://www.evernote.com/client/web?login=true#?anb=true&b=c0d68e64-d147-44ee-bf87-5619bf7a2821&n=9f12bf86-0009-4a76-bc83-df23282a0be7&s=s381&)
+    * [Article](https://medium.com/@axtonliu/how-to-build-an-efficient-personal-knowledge-management-system-355332ae5991) listing the problem statement good, no solution
+    * [Article](https://medium.com/@stangarfield/personal-knowledge-management-how-to-do-it-with-25-resources-and-10-books-on-pkm-2adce0e1d05c) listing resources
+    * [askHN](https://news.ycombinator.com/item?id=20819478)
+    * [askHN-2](https://news.ycombinator.com/item?id=17892731)
+    * [This](https://dnote.io/blog/how-i-built-personal-knowledge-base-for-myself/) guy has build *something*
 
 
 
