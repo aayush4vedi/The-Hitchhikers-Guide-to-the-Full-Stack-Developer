@@ -1917,7 +1917,7 @@ app.post('/posts/:id/comments',(req,res)=>{
 
 
 
-![picture alt](./Media/spongeisready.jpg)
+![picture alt](./Media/imready.gif)
 
 
 
