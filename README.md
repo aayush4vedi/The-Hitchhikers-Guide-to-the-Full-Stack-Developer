@@ -3,6 +3,7 @@
 
 # Useful Things:
 * **DRY**: Don't Repeat Yourself
+* [This](https://studywebdevelopment.com/freelancing.html) guy is selling *Freelancing bundle.*
 * 16k APIs [ProgrammableWeb](https://www.programmableweb.com/category/all/news?articletypes=howto&source_code=0)
 * Motivation for Side project: [TraversyMedia](https://www.youtube.com/watch?v=eCAj3mWFpNM)
 * Status of popular language on github: [github](https://github.blog/2018-11-15-state-of-the-octoverse-top-programming-languages/)
@@ -198,6 +199,9 @@
     * when you write a commit message you are writing it as if it’s **about to be applied**, rather than *about what you just did*.
     * Provide as much context as you can: the 6 months rule-will you get it after 6 months? If no, it's not a good commit message.
     * For long commits: use [templates](https://medium.com/sitewards/git-tips-template-your-commit-messages-187d8a2051b8)
+* **Markdown**
+    * Add Badges: `<a href="url"><img src="https://img.shields.io/badge/<label>-<text>-<hexcolor(f39f37)>" alt="label"></a>`
+    * Align to center: `<p align="center"></p>`
  ## 7. Postman
 
 ---
@@ -242,6 +246,8 @@
     * **Icons** : Font Awesome
         * [CDN](https://mdbootstrap.com/md-bootstrap-cdn/)
         * [Resizing](https://fontawesome.com/how-to-use/on-the-web/styling/sizing-icons)
+    * **@media** : [Article](https://medium.com/@banuriwick/min-width-max-width-media-queries-994e2ec5fca3)
+    
     <hr>
 
      * **Notes:** 
@@ -1122,10 +1128,12 @@ Here's a funny site that jokingly talks about this: http://vanilla-js.com/
 **ACHIEVED:: Basic Front-End Developer**
 
 ---
-## 5. D3 
+## 5 Data Visualisation Libraries(JS)
+
+### 5.1 D3js 
 * (*Data-Driven Documents*) is a JS library for producing dynamic, interactive **data visualizations** in web browsers.
 * Include in HTML-body bottom: `<script src="https://d3js.org/d3.v4.js"></script>`
-### D3 Methods For DOM Manipulation
+#### D3 Methods For DOM Manipulation
 - *if nothings is paased in, these methods will act as GETTERS*
 * Select Elements
     * `d3.select(x)`    - single element
@@ -1194,13 +1202,17 @@ Here's a funny site that jokingly talks about this: http://vanilla-js.com/
         .remove()
 ```
 * General Update Pattern in D3
-### SVG & D3
+#### SVG & D3
 * **SVG**:
     * Scalable Vector Graphics(SVG) -> scalable images(unlike .jpg/.png)
     * Vector vs Raster graphics: [GfG](https://www.geeksforgeeks.org/vector-vs-raster-graphics/)
     * E.g.: [Rectangle](https://codepen.io/mmmaaatttttt/pen/MoJKQr?editors=1100) , [Smiley-Star](https://codepen.io/mmmaaatttttt/pen/jLLbPJ?editors=1100), [Flags](https://codepen.io/mmmaaatttttt/pen/GvMZMq?editors=1100)
 //TODO: not liking & getting D3 right now.**TBDL**
 //TODO: get this project: [D3-emission](https://github.com/aayush4vedi/Emission-Data)
+
+## 5.2 
+
+
 ## 6. JS Front-End Frameworks
 * What & How:
     * is (JS) lib that handles DOM manipulation.
@@ -1870,8 +1882,16 @@ app.post('/posts/:id/comments',(req,res)=>{
         ```
 
 ---
+# VII. Python
+# 1. Basics
+# 2. Data Analysis
+# 3. Web Scraping
+# 4. Task Automation
 
-# VII. DevOps
+
+---
+
+# VIII. DevOps
 ## 1. Deployment:linux,ssh,gitlab, server-software(Ngnix,Apache)
 ## 2. Platforms: AWS,Azure,Google cloud,Heroku
     Heroku does free deployment for light-traffic websites.
@@ -1880,7 +1900,7 @@ app.post('/posts/:id/comments',(req,res)=>{
 ---
 
 
-# VIII. Beyond Stack
+# IX. Beyond Stack
 
 ## 0. GraphQL
 ## 0. TypeScript
