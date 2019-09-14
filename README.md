@@ -1884,6 +1884,101 @@ app.post('/posts/:id/comments',(req,res)=>{
 ---
 # VII. Python
 # 1. Basics
+* IDE options: 
+    * CLI: `$terminal: python3`
+    * IDLE: `$terminal: idle3`
+    * 3rd party IDEs : PyCharm
+    * IPython
+    * Jupyter Notebook
+* Basic I/O:
+    * `print(value: , val)`
+    * `x = input('enter the value of x')`
+* Built-in data types:
+    * Booleans: `and`, `or`, `not`
+    * Numeric Types: `int, float, complex`
+    * Iterator Type: 
+        * `container.__iter__()` - Return an iterator object
+        * `iterator.__iter__()` - Return the iterator object itself
+        * `iterator.__next__()` - Return the next item from the container
+    * Sequence Types:
+        * Common Sequence Operations:
+            * `x in s`: True if an item of s is equal to x, else False
+            * `x not in s`
+            * `s + t` : the concatenation of s and t
+            * `s * n` or `n * s`: equivalent to adding s to itself n times
+            * `s[i]`: ith item of s, origin 0
+            * `s[i:j]` : slice of s from i to j
+            * `s[i:j:k]` : slice of s from i to j with step k
+            * `len(s)` : length of s
+            * `min(s)` : smallest item of s
+            * `max(s)` : largest item of s
+            * `s.index(x[, i[, j]])` : index of the first occurrence of x in s (at or after index i and before index j)
+            * `s.count(x)` : total number of occurrences of x in s
+            * `s[i] = x` : item i of s is replaced by x
+            * `s[i:j] = t` : slice of s from i to j is replaced by the contents of the iterable t
+            * `del s[i:j]` : same as `s[i:j] = []`
+            * `s[i:j:k] = t` : the elements of `s[i:j:k]` are replaced by those of t
+            * `del s[i:j:k]` : removes the elements of `s[i:j:k]` from the list
+            * `s.append(x)` : appends x to the end of the sequence (same as `s[len(s):len(s)] = [x]`)
+            * `s.clear()` : removes all items from s (same as `del s[:]`)
+            * `s.copy()` : creates a shallow copy of s (same as `s[:]`)
+            * `s.extend(t)` or `s += t` : extends s with the contents of t (for the most part the same as `s[len(s):len(s)] = t`)
+            * `s *= n` : updates s with its contents repeated n times
+            * `s.insert(i, x)` : inserts x into s at the index given by i (same as `s[i:i] = [x]`)
+            * `s.pop([i])` : retrieves the item at i and also removes it from s
+            * `s.remove(x)` : remove the first item from s where `s[i]` is equal to x
+            * `s.reverse()` : reverses the items of s in place
+        * list
+            * a collection which is ordered and *changeable*. Allows duplicate members.
+            * `my_list = ["mouse", [8, 4, 6], ['a']]`
+            * `print(my_list[-3])  #"mouse"`
+            * list methods:
+                * append() - Add an element to the end of the list
+                * extend() - Add all elements of a list to the another list
+                * insert() - Insert an item at the defined index
+                * remove() - Removes an item from the list
+                * pop() - Removes and returns an element at the given index
+                * clear() - Removes all items from the list
+                * index() - Returns the index of the first matched item
+                * count() - Returns the count of number of items passed as an argument
+                * sort() - Sort items in a list in ascending order
+                * reverse() - Reverse the order of items in the list
+                * copy() - Returns a shallow copy of the list
+        * tuple
+            * a collection which is ordered and *unchangeable*. Allows duplicate members.
+            * tuples cannot be changed unlike lists. 
+            * Tuples use parentheses, whereas lists use square brackets
+            * `tup1 = ('physics', 'chemistry', 1997, 2000)`
+        * range
+            * represents an immutable sequence of numbers and is commonly used for looping a specific number of times in for loops.
+            * `class range(stop)` `class range(start, stop[, step])`
+            * `list(range(0, 30, 5)) #[0, 5, 10, 15, 20, 25]`
+    * Text Sequence Type : `str`
+        * String literals are written in a variety of ways:
+            * Single quotes: `'allows embedded "double" quotes'`
+            * Double quotes: `"allows embedded 'single' quotes"`
+            * Triple quoted: `'''Three single quotes''', """Three double quotes"""` (span multiple lines)
+    * Binary Sequence Types : 
+        * bytes
+        * bytearray
+        * memoryview
+    * Set Types:
+        * set
+            * a collection which is unordered and unindexed. No duplicate members.
+        * frozenset
+    * Mapping Types: dict
+        * a collection which is unordered, changeable and indexed. No duplicate members.
+        * comma-separated list of key: value pairs within braces
+        * ```py
+            a = dict(one=1, two=2, three=3)
+            b = {'one': 1, 'two': 2, 'three': 3}
+            c = dict(zip(['one', 'two', 'three'], [1, 2, 3]))
+            d = dict([('two', 2), ('one', 1), ('three', 3)])
+            e = dict({'three': 3, 'one': 1, 'two': 2})
+            a == b == c == d == e
+            #True
+           ```
+
 # 2. Data Analysis
 # 3. Web Scraping
 # 4. Task Automation
