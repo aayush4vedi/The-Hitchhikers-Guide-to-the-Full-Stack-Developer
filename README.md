@@ -2140,6 +2140,235 @@ app.post('/posts/:id/comments',(req,res)=>{
         >>> f.readlines()
         ['This is my first file\n', 'This file\n', 'contains three lines\n']
         ````
+    * Directories
+        * Get Current Directory - `getcwd()`
+            ```py
+            >>> import os
+            >>> os.getcwd()
+            'C:\\Program Files\\PyScripter'
+            ```
+        * Changing Directory - `chdir()`
+            ```py
+            >>> os.chdir('C:\\Python33')
+            ```
+        * Making New Directory  `mkdir()`
+            ```py
+            >>> os.mkdir('test')
+            >>> os.listdir()
+            ['test']
+            ```
+* **Exception Handling**
+    * Catching Specefic Exceptions
+        ```py
+        try:
+        # do something
+        pass
+        except ValueError:
+        # handle ValueError exception
+        pass
+        except (TypeError, ZeroDivisionError):
+        # handle multiple exceptions
+        # TypeError and ZeroDivisionError
+        pass
+        except:
+        # handle all other exceptions
+        pass
+        ```
+    * try...finally
+        * is executed no matter what, and is generally used to release external resources.
+        * ```py
+            try:
+                f = open("test.txt",encoding = 'utf-8')
+                # perform file operations
+            finally:
+                f.close()
+            ``` 
+* **Python OOPs**
+    * Class & Object
+        ```py
+        class Parrot:
+            # class attribute
+            species = "bird"
+            # instance attribute
+            def __init__(self, name, age):
+                self.name = name
+                self.age = age
+             # instance method
+            def sing(self, song):
+                return "{} sings {}".format(self.name, song)
+
+        # instantiate the Parrot class
+        blu = Parrot("Blu", 10)
+        woo = Parrot("Woo", 15)
+
+        # access the class attributes
+        print("Blu is a {}".format(blu.__class__.species)) #Blu is a bird
+
+        # access the instance attributes
+        print("{} is {} years old".format( blu.name, blu.age)) #Blu is 10 years old
+        print(blu.sing("'Happy'")) # Blu sings 'Happy'
+        ```
+    * Inheritence
+        ```py
+        # parent class
+        class Bird:
+            def __init__(self):
+                print("Bird is ready")
+            def whoisThis(self):
+                print("Bird")
+            def swim(self):
+                print("Swim faster")
+        # child class
+        class Penguin(Bird):
+            def __init__(self):
+                # call super() function
+                super().__init__()
+                print("Penguin is ready")
+            def whoisThis(self):
+                print("Penguin")
+            def run(self):
+                print("Run faster")
+        peggy = Penguin()
+        #Bird is ready
+        #Penguin is ready
+        peggy.whoisThis() #Penguin
+        peggy.swim() #Swim faster
+        peggy.run() #Run faster
+        ```
+    * Encapsulation
+        * Restricting access to methods and variables to prevent data from direct modification is called *encapsulation*.
+        * In Python, we denote private attribute using underscore as prefix i.e single `“ _ “` or double `“ __“`
+        * E.g.:
+            ```py
+            class Computer:
+                def __init__(self):
+                    self.__maxprice = 900
+                def sell(self):
+                    print("Selling Price: {}".format(self.__maxprice))
+                # using setter function to access private variable
+                def setMaxPrice(self, price):
+                    self.__maxprice = price
+            c = Computer()
+            c.sell() #Selling Price: 900
+            # change the price
+            c.__maxprice = 1000
+            c.sell() #Selling Price: 900
+            # using setter function
+            c.setMaxPrice(1000)
+            c.sell() #Selling Price: 1000
+            ```
+    * Polymorphism
+        * is an ability to use common interface for multiple form (data types)
+        * E.g.
+            ```py
+            class Parrot:
+                def fly(self):
+                    print("Parrot can fly")
+                def swim(self):
+                    print("Parrot can't swim")
+            class Penguin:
+                def fly(self):
+                    print("Penguin can't fly")
+                def swim(self):
+                    print("Penguin can swim")
+            # common interface
+            def flying_test(bird):
+                bird.fly()
+            #instantiate objects
+            blu = Parrot()
+            peggy = Penguin()
+            # passing the object
+            flying_test(blu) #Parrot can fly
+            flying_test(peggy) #Penguin can't fly
+            ```
+    * Operator Overloading: [link](https://www.programiz.com/python-programming/operator-overloading)
+* **Adv Topics**
+    * Iterators:
+        * Python iterator object must implement 2 methods,` __iter__()` and `__next__()`, collectively called the *iterator protocol*
+        * The `iter()` function (which in turn calls the `__iter__()` method) returns an iterator from them
+        * E.g.:
+            ```py
+            # define a list
+            my_list = [4, 7, 0, 3]
+            # get an iterator using iter()
+            my_iter = iter(my_list)
+            ## iterate through it using next() 
+            #prints 4
+            print(next(my_iter))
+            #prints 7
+            print(next(my_iter))
+            ## next(obj) is same as obj.__next__()
+            #prints 0
+            print(my_iter.__next__())
+            #prints 3
+            print(my_iter.__next__())
+            ## This will raise error, no items left
+            next(my_iter)
+            ```
+        * Building Your Own Iterator 
+            ```py
+            class PowTwo:
+                """Class to implement an iterator
+                of powers of two"""
+
+                def __init__(self, max = 0):
+                    self.max = max
+
+                def __iter__(self):
+                    self.n = 0
+                    return self
+
+                def __next__(self):
+                    if self.n <= self.max:
+                        result = 2 ** self.n
+                        self.n += 1
+                        return result
+                    else:
+                        raise StopIteration
+            ```
+            ```py
+            >>> a = PowTwo(4)
+            >>> i = iter(a)
+            >>> next(i)
+            1
+            >>> next(i)
+            2
+            ```
+    * Generators
+        * is a function that returns an object (iterator) which we can iterate over 
+        * Generators are created using `yield` methods:
+            ```py
+            # A simple generator function
+            def my_gen():
+                n = 1
+                print('This is printed first')
+                # Generator function contains yield statements
+                yield n
+
+                n += 1
+                print('This is printed second')
+                yield n
+
+                n += 1
+                print('This is printed at last')
+                yield n
+
+            # Using for loop
+            for item in my_gen():
+                print(item)   
+
+            #This is printed first
+            #1
+            #This is printed second
+            #2
+            #This is printed at last
+            #3
+            ```
+    * Closures: [link](https://www.programiz.com/python-programming/closure)
+    * Decorators: [link](https://www.programiz.com/python-programming/decorator)
+    * Property: [link](https://www.programiz.com/python-programming/property)
+    * Regex: [link](https://www.programiz.com/python-programming/regex)
+    * DateTime: [link](https://www.programiz.com/python-programming/datetime)
 # 2. Data Analysis
 # 3. Web Scraping
 # 4. Task Automation
