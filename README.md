@@ -1893,7 +1893,7 @@ app.post('/posts/:id/comments',(req,res)=>{
 * Basic I/O:
     * `print(value: , val)`
     * `x = input('enter the value of x')`
-* Built-in data types:
+* **Data Types**:
     * Booleans: `and`, `or`, `not`
     * Numeric Types: `int, float, complex`
     * Iterator Type: 
@@ -1978,7 +1978,168 @@ app.post('/posts/:id/comments',(req,res)=>{
             a == b == c == d == e
             #True
            ```
-
+* **Flow Control**:
+    * Conditional:
+        * if/elif/else:
+            ```py
+            if b > a:
+                print("b is greater than a")
+            elif a == b:
+                print("a and b are equal")
+            else:
+                print("a is greater than b")
+            ```
+        * Shorthand:
+        ```py 
+            print("A") if a > b else print("=") if a == b else print("B")
+        ```
+    * Loops:
+        * While
+            ```py
+            i = 1
+            while i < 6:
+                print(i)
+                if i == 3:
+                    break
+                i += 1
+            ```
+        * For
+            ```py
+            fruits = ["apple", "banana", "cherry"]
+            for x in fruits:
+                print(x) 
+                if x == "banana":
+                    break
+            ```
+* **Functions**:
+    * Syntax
+        ```py
+        def function_name(parameters):
+            """docstring"""
+            statement(s)
+        ```
+    * e.g.
+        ```py
+        def greet(name):
+            """This function greets to the person passed in as parameter"""
+            print("Hello, " + name + ". Good morning!")
+        ```
+        * Calling Function:
+            ```py
+            >>> greet('Paul')
+            #Hello, Paul. Good morning!
+            ```
+        * Docstring:
+            ```py
+            >>> print(greet.__doc__)
+            #This function greets to the person passed into the name parameter
+            ```
+        * Return:
+            ```py
+            >>> print(greet("May"))
+            #Hello, May. Good morning!
+            None
+            ```
+    * Anonymous/Lambda Function:
+        * defined without a name
+        * defined using ~~def~~ `lambda` keyword
+        * Syntax:  `lambda arguments: expression`
+        * E.g.:
+            ```py
+            double = lambda x: x * 2
+            print(double(5)) # 10
+            ```
+            is nearly same as:
+            ```py
+            def double(x):
+              return x * 2
+            ```
+        * Lambda with Filter
+            ```py
+            my_list = [1, 5, 4, 6, 8, 11, 3, 12]
+            new_list = list(filter(lambda x: (x%2 == 0) , my_list))
+            print(new_list)
+            # Output: [4, 6, 8, 12]
+            ```
+        * Lambda with Map
+            ```py
+            my_list = [1, 5, 4, 6, 8, 11, 3, 12]
+            new_list = list(map(lambda x: x * 2 , my_list))
+            print(new_list)
+            # Output: [2, 10, 8, 12, 16, 22, 6, 24]
+            ```
+    * Modules:
+        * Modules refer to a file containing Python statements and definitions.
+        * A file containing Python code, for e.g.: `example.py`, is called a module and its module name would be `example`
+        * We use modules to break down large programs into small manageable and organized files. Furthermore, modules provide reusability of code.
+        * E.g.
+            ```py
+            import math as m
+            print("The value of pi is", m.pi)
+            ```
+* **File**:
+    * Open/Close:
+        * Method1:
+            ```py
+            try:
+                f = open("test.txt",encoding = 'utf-8')
+                # perform file operations
+            finally:
+                f.close()
+            ```
+        * Method2:
+            ```py
+            with open("test.txt",encoding = 'utf-8') as f:
+                # perform file operations
+            ```
+    * Write
+        ```py
+        with open("test.txt",'w',encoding = 'utf-8') as f:
+            f.write("my first file\n")
+            f.write("This file\n\n")
+            f.write("contains three lines\n")
+        ```
+    * Read
+        * `read(size)` Method:
+            * read in size number of data
+            * If `size` is not specified, it reads and returns up to the end of the file
+            * ```py
+                >>> f = open("test.txt",'r',encoding = 'utf-8')
+                >>> f.read(4)    # read the first 4 data
+                'This'
+                >>> f.read(4)    # read the next 4 data
+                ' is '
+                >>> f.read()     # read in the rest till end of file
+                'my first file\nThis file\ncontains three lines\n'
+                >>> f.read()  # further reading returns empty sting
+                ''
+              ```
+        * Change cursor position usring `seek` & `tell` method
+            ```py
+            >>> f.tell()    # get the current file position
+            56
+            >>> f.seek(0)   # bring file cursor to initial position
+            0
+            >>> print(f.read())  # read the entire file
+            This is my first file
+            This file
+            contains three lines
+            ```
+        * read a file line-by-line using a `for loop`
+            * This is both efficient and fast
+            * ```py
+                >>> for line in f:
+                ...     print(line, end = '')
+                ...
+                This is my first file
+                This file
+                contains three lines
+               ```
+        * `readlines()` method
+        ```py
+        >>> f.readlines()
+        ['This is my first file\n', 'This file\n', 'contains three lines\n']
+        ````
 # 2. Data Analysis
 # 3. Web Scraping
 # 4. Task Automation
