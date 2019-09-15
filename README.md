@@ -2499,9 +2499,19 @@ app.post('/posts/:id/comments',(req,res)=>{
         djson.drop(djson.columns[3:5], 1)
         ```
 
-# 3. Web Scraping
-# 4. Task Automation
-## 4.1 Excel:
+
+# 3. Data Visualization
+* Good to use lib:
+    * `matplotlib`
+    * `seaborn`
+    * `plotly`
+* Used here: `bokeh`
+    * Quickstart [doc](https://bokeh.pydata.org/en/latest/docs/user_guide/quickstart.html#)
+    * [Gallery](https://bokeh.pydata.org/en/latest/docs/gallery.html)
+    * [Styling Visual Attributes](https://bokeh.pydata.org/en/latest/docs/user_guide/styling.html)
+# 4. Web Scraping
+# 5. Task Automation
+## 5.1 Excel:
 * Use lib [`openpyxl`](https://openpyxl.readthedocs.io/en/stable/index.html)
 * Load workbook: `workbook = openpyxl.load_workbook("<full path to file>")`
 * View File details:
@@ -2625,7 +2635,7 @@ app.post('/posts/:id/comments',(req,res)=>{
     text_file.close()
     workbook.close()
     ```
-## 4.2 Database Tasks:
+## 5.2 Database Tasks:
 * Best adaptar for `postgresql` is [`psycopg2`](https://pypi.org/project/psycopg2/)
 * Psycopg2 commands list:
     ```py
