@@ -1,5 +1,12 @@
 ![picture alt](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Media/wallpaper.jpg)
-
+<p align="center">
+My Essential List of Everything that is Essential<br>
+<a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#i-basic-tools"><img src="https://img.shields.io/badge/@-Tools-f39f37" alt="Downloads"></a>
+<a href="https://github.com/aayush4vedi/Aeroplot"><img src="https://img.shields.io/badge/Made With-python-1abc9c" alt="Downloads"></a>
+<br>
+<a href="https://github.com/aayush4vedi/Aeroplot"><img src="https://img.shields.io/badge/Made With-javascript-yellow" alt="Downloads"></a>
+<a href="https://github.com/aayush4vedi/Aeroplot"><img src="https://img.shields.io/badge/Made With-<3-red" alt="Downloads"></a>
+</p>
 
 # Useful Things:
 * **DRY**: Don't Repeat Yourself
@@ -1884,6 +1891,7 @@ app.post('/posts/:id/comments',(req,res)=>{
 ---
 # VII. Python
 # 1. Basics
+**Always install packages with pip & pip3: both**
 * IDE options: 
     * CLI: `$terminal: python3`
     * IPython: better data formatting(in-terminal tool like cli)
@@ -2498,8 +2506,6 @@ app.post('/posts/:id/comments',(req,res)=>{
         #Deleting columns by slices
         djson.drop(djson.columns[3:5], 1)
         ```
-
-
 # 3. Data Visualization
 * Good to use lib:
     * `matplotlib`
@@ -2510,6 +2516,12 @@ app.post('/posts/:id/comments',(req,res)=>{
     * [Gallery](https://bokeh.pydata.org/en/latest/docs/gallery.html)
     * [Styling Visual Attributes](https://bokeh.pydata.org/en/latest/docs/user_guide/styling.html)
 # 4. Web Scraping
+* Useful lib:
+    * `requests`
+    * `beautifulsoup4`
+* **Implimentation**
+    * Simple web scraping: [my-github](https://github.com/aayush4vedi/IlearnPy/blob/master/web_scraping_101.py)
+    * Web scraping with pagination: [my-github](https://github.com/aayush4vedi/IlearnPy/blob/master/web_scraping_pagination.py)
 # 5. Task Automation
 ## 5.1 Excel:
 * Use lib [`openpyxl`](https://openpyxl.readthedocs.io/en/stable/index.html)
