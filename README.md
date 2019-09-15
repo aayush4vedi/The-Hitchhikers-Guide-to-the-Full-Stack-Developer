@@ -1,11 +1,16 @@
 ![picture alt](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Media/wallpaper.jpg)
 <p align="center">
 My Essential List of Everything that is Essential<br>
-<a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#i-basic-tools"><img src="https://img.shields.io/badge/@-Tools-f39f37" alt="Downloads"></a>
-<a href="https://github.com/aayush4vedi/Aeroplot"><img src="https://img.shields.io/badge/Made With-python-1abc9c" alt="Downloads"></a>
+<a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#i-basic-tools"><img src="https://img.shields.io/badge/Tools-f39f37" alt="Tools"></a>
+<a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#ii-front-end"><img src="https://img.shields.io/badge/Front End-8FD400" alt="Front End"></a>
+<a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#iii-back-end"><img src="https://img.shields.io/badge/Back End-FF5050" alt="Back End"></a>
+<a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#iv-database"><img src="https://img.shields.io/badge/Database-0081AB" alt=Database"></a>
+<a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#v-rest"><img src="https://img.shields.io/badge/REST-FD5240" alt="REST"></a>
+<a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#v-rest"><img src="https://img.shields.io/badge/Model & DA-614051" alt="Model & DA"></a>
+<a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#v-rest"><img src="https://img.shields.io/badge/Auth-253529" alt="Auth"></a>
+<a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#v-rest"><img src="https://img.shields.io/badge/Python-4997D0" alt="Python"></a>
+<a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#v-rest"><img src="https://img.shields.io/badge/Dev Ops-4570E6" alt="Dev Ops"></a>
 <br>
-<a href="https://github.com/aayush4vedi/Aeroplot"><img src="https://img.shields.io/badge/Made With-javascript-yellow" alt="Downloads"></a>
-<a href="https://github.com/aayush4vedi/Aeroplot"><img src="https://img.shields.io/badge/Made With-<3-red" alt="Downloads"></a>
 </p>
 
 # Useful Things:
