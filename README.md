@@ -1,6 +1,9 @@
 <!-- ![picture alt](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Media/wallpaper.jpg) -->
 <p align="center">
-<h1 style="font-family:"Comic Sans MS", cursive, sans-serif;">My Essential List of Everything that is Essential</h1>
+<h1 
+    style="@import url('https://fonts.googleapis.com/css?family=Cedarville+Cursive&display=swap');                  font-family: 'Cedarville Cursive', cursive;">
+    My Essential List of Everything that is Essential
+</h1>
 <br>
 <img src="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Media/wallpaper.jpg" data-canonical-src="Dont panic" />
 <br>
