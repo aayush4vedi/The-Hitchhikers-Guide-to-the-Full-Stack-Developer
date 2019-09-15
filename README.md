@@ -1886,10 +1886,12 @@ app.post('/posts/:id/comments',(req,res)=>{
 # 1. Basics
 * IDE options: 
     * CLI: `$terminal: python3`
+    * IPython: better data formatting(in-terminal tool like cli)
     * IDLE: `$terminal: idle3`
     * 3rd party IDEs : PyCharm
-    * IPython
-    * Jupyter Notebook
+    * Jupyter Notebook: 
+        * To start: `jupyter notebook` # opens that dir in browser
+        * Jupyter themes: [doc](https://github.com/dunovank/jupyter-themes)
 * Basic I/O:
     * `print(value: , val)`
     * `x = input('enter the value of x')`
@@ -2371,6 +2373,132 @@ app.post('/posts/:id/comments',(req,res)=>{
     * DateTime: [link](https://www.programiz.com/python-programming/datetime)
 # 2. Data Analysis
 
+**Learning `pandas`**
+<p align="center">
+<img src="https://miro.medium.com/max/3840/1*T9IizDMxRB5Z3iSj50XYsg.jpeg" data-canonical-src="po" width="1000" height="500"/>
+</p>
+
+* Beginner:
+    * Importing module: `import pandas`
+    * Creating a data frame (the object holding the data)
+        ```py
+        d = pandas.DataFrame([['Andy', 46, 'Engineer'], 
+                              ['Jane', 33, 'Nurse'],
+                              ['Robert', 21, 'Student'],
+                              ['Maria', 30, 'Student']], 
+                            columns = ['Name', 'Age', 'Occupation'], 
+                            index = ['ID1', 'ID2', 'ID3', 'ID4'])
+        ```
+    * Min/max: `d.min()`  `d.Age.min()`
+* [Handling TXT, CSV, JSON, XLSX Files with Pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html)
+    * TXT:
+        ```py
+        dtxt = pandas.read_csv("Employees.txt")
+        #Loading and parsing the TXT file using a certain delimiter
+        dtxt2 = pandas.read_csv("Employees2.txt", delimiter = "|")
+        #In addition, separators longer than 1 character and different from ``'\s+'`` will be interpreted as regular expressions
+        dtxt2 = pandas.read_csv("Employees2.txt", sep = "|")
+        ```
+    * CSV:
+        ```py
+        dcsv = pandas.read_csv("Employees.csv")
+        #Ignoring the column names in the file (on row 1) by removing the header and setting alternative names
+        dcsv = pandas.read_csv("Employees.csv", header = None, names = ["A", "B", "C", "D", "E", "F", "G", "H"])
+        #Number of rows of file to read. Useful for reading pieces of large files
+        dcsv = pandas.read_csv("Employees.csv", nrows = 5)
+        #Getting all the available optional parameters of the read_csv() method
+        help(pandas.read_csv)
+        ```
+    * JSON:
+        ```py
+        djson = pandas.read_json("Employees.json")
+        ```
+    * XLSX:
+        ```py
+        #XLSX:
+        pip install xlrd
+        #Loading an Excel file from the current directory
+        dxlsx = pandas.read_excel("Employees.xlsx")
+        #Loading a certain sheet from an Excel file, by its index (first sheet is index 0)
+        dxlsx = pandas.read_excel("Employees.xlsx", sheet_name = 0)
+        ```
+* [Reading tables from HTML content](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#html):
+    * Package: `lxml`
+    * ```py
+        url = 'https://en.wikipedia.org/wiki/Python_(programming_language)'
+        d = pandas.read_html(url) # displays all the tables
+        d = pandas.read_html(url)[0] # Read 1st table only
+      ```
+* [Indexing and Slicing Tables](https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html)
+    ```py
+    djson = pandas.read_json("D:\\sample_data\\Employees.json")
+    #Returning the table entry at index label 5
+    djson.loc[5]
+    #Returning the table entries at index labels 2, 4 and 7
+    djson.loc[[2,4,7]]
+    #Returning the table entries at index labels in the range 3:5, meaning labels 3, 4 and 5
+    djson.loc[3:5]
+    #Returning only the specified columns (after the comma) for the index label range (before the comma)
+    djson.loc[0:2,["Phone","Skills"]]
+    #Returning all the entries/rows with a salary less than 50000
+    djson[djson.loc[:, "Salary"] < 50000]
+    #Returning all the entries/rows with a salary less than 50000 OR greater than 56000
+    djson[(djson.loc[:, "Salary"] < 50000) | (djson.loc[:, "Salary"] >= 56000)]
+    ```
+* Adding, Updating, Deleting Table Rows and Columns
+    * Adding:
+        ```py
+        #Adding a column to a DataFrame
+        djson["Badge ID"] = ["0010", "0011", "0012", "0013", "0014", "0015", "0016", "0017", "0018", "0019"]
+        #Adding a row / multiple rows to a DataFrame
+        djson = djson.append([{"Address": "11th Address, Miami", 
+                            "Department": "IT", 
+                            "FirstName": "John", 
+                            "ID": 11, 
+                            "LastName": "Doe", 
+                            "Phone": "09090977", 
+                            "Salary": "60000", 
+                            "Skills": "Java", 
+                            "Badge ID": "0020"}], ignore_index = True)
+        #...or using Series and append()
+        djson = djson.append(pandas.Series(["14th Address, Miami", "Marketing", "Alice", 14, "Donovan", "88899901", "54000", "Instagram", "0023"], 
+                            index = djson.columns), 
+                            ignore_index = True)
+        ```
+    * Updating:
+        ```py
+        djson["Badge ID"] = djson["FirstName"] + "2019"
+        djson["FirstName"] = djson.shape[0] * ["Jack"]
+        #Updating a column with string concatenation and list comprehensions
+        djson["Badge ID"] = [("00" + str(i)) for i in range(djson.shape[0])]
+        #...or, being more granular and using multiple conditions:
+        djson.loc[(djson["Department"] == "IT") & (djson["Skills"] == "Networking"), "Salary"] = "100000"
+        ```
+    * Deleting:
+        ```py
+        #Deleting a row by its name; by default, this command removes a row, if it is found
+        djson.drop("label")
+        #Deleting a row explicitly, by passing 0 or 'index' as an argument; drop labels from the index (0 or 'index')
+        djson.drop("label", 0)
+        #Deleting a column explicitly, by passing 1 or 'column' as an argument; drop labels from the columns (1 or 'columns'); modifying the DataFrame in place
+        djson.drop("label", 1, inplace = True)
+        djson.drop("label", "columns", inplace = True)
+        
+        #Deleting rows by indexes
+        djson.drop(djson.index[4])
+        djson.drop(djson.index[4], 0)
+        
+        #Deleting rows by slices
+        djson.drop(djson.index[4:8])
+        djson.drop(djson.index[4:8], 0)
+        
+        #Deleting columns by indexes
+        djson.drop(djson.columns[5], 1)
+        
+        #Deleting columns by slices
+        djson.drop(djson.columns[3:5], 1)
+        ```
+
 # 3. Web Scraping
 # 4. Task Automation
 ## 4.1 Excel:
@@ -2596,9 +2724,9 @@ app.post('/posts/:id/comments',(req,res)=>{
     * [This](https://dnote.io/blog/how-i-built-personal-knowledge-base-for-myself/) guy has build *something*
 
 
-
-![picture alt](./Media/imready.gif)
-
+<p align="center">
+<img src="./Media/imready.gif" data-canonical-src="po" width="600" height="500"  />
+</p>
 
 
 
