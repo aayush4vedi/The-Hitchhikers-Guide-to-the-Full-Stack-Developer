@@ -2533,10 +2533,11 @@ app.post('/posts/:id/comments',(req,res)=>{
     * Simple web scraping: [my-github](https://github.com/aayush4vedi/IlearnPy/blob/master/web_scraping_101.py)
     * Web scraping with pagination: [my-github](https://github.com/aayush4vedi/IlearnPy/blob/master/web_scraping_pagination.py)
 # 5. Task Automation
+
 ![The Sorcerer's Apprentice](http://media.nbcbayarea.com/images/Fantasia1waltdisneystudios.jpg)
->The Sorcerer's Apprentice
-<br>
-**Automate-the-boring-stuff [Book](https://automatetheboringstuff.com/)**. It has:
+@The Sorcerer's Apprentice.
+
+Automate-the-boring-stuff [Book](https://automatetheboringstuff.com/). It has:
 * Files
 * Regex
 * Excel, CSV, Word, JSON
