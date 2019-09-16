@@ -2533,6 +2533,13 @@ app.post('/posts/:id/comments',(req,res)=>{
     * Simple web scraping: [my-github](https://github.com/aayush4vedi/IlearnPy/blob/master/web_scraping_101.py)
     * Web scraping with pagination: [my-github](https://github.com/aayush4vedi/IlearnPy/blob/master/web_scraping_pagination.py)
 # 5. Task Automation
+Automate-the-boring-stuff [Book](https://automatetheboringstuff.com/). It has:
+* Files
+* Regex
+* Excel, CSV, Word, JSON
+* Emailing
+* GUI- Keyboard, mouse
+* Image Recognition
 ## 5.1 Excel:
 * Use lib [`openpyxl`](https://openpyxl.readthedocs.io/en/stable/index.html)
 * Load workbook: `workbook = openpyxl.load_workbook("<full path to file>")`
@@ -2754,7 +2761,17 @@ app.post('/posts/:id/comments',(req,res)=>{
     * [askHN](https://news.ycombinator.com/item?id=20819478)
     * [askHN-2](https://news.ycombinator.com/item?id=17892731)
     * [This](https://dnote.io/blog/how-i-built-personal-knowledge-base-for-myself/) guy has build *something*
-
+    * **Suggested Name:** Brain-2.0
+    * Features:
+        * Can put on/off(learning mode)
+        * Full privacy
+        * Cover all learning sources: screens for now(phone+laptop)
+        * record every text/link opened, speech-to-text for every video watched.Do we search using words only?
+        * Smart searching:
+            * Synonym/*like query as our mind doesn't always recall exact word
+            * How to search something I've SEEN in a video/movie/song?
+        * Futuristic design: fit in the eyeball(Black mirror: The entire history of you)
+* Automate the chrome offlne diansaure game in python
 
 <p align="center">
 <img src="./Media/imready.gif" data-canonical-src="po" width="600" height="500"  />
