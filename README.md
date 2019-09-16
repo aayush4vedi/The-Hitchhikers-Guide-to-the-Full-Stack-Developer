@@ -2535,6 +2535,7 @@ app.post('/posts/:id/comments',(req,res)=>{
 # 5. Task Automation
 ![The Sorcerer's Apprentice](http://media.nbcbayarea.com/images/Fantasia1waltdisneystudios.jpg)
 >The Sorcerer's Apprentice
+<br>
 **Automate-the-boring-stuff [Book](https://automatetheboringstuff.com/)**. It has:
 * Files
 * Regex
