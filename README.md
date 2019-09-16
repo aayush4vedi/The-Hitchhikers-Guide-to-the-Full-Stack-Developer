@@ -1,6 +1,5 @@
-<!-- ![picture alt](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Media/wallpaper.jpg) -->
 <p align="center">
-My Essential List of Everything that is Essential
+"My Essential List of Everything that is Essential"
 <br>
 <img src="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Media/wallpaper.jpg" data-canonical-src="Dont panic" />
 <br>
@@ -2534,7 +2533,9 @@ app.post('/posts/:id/comments',(req,res)=>{
     * Simple web scraping: [my-github](https://github.com/aayush4vedi/IlearnPy/blob/master/web_scraping_101.py)
     * Web scraping with pagination: [my-github](https://github.com/aayush4vedi/IlearnPy/blob/master/web_scraping_pagination.py)
 # 5. Task Automation
-Automate-the-boring-stuff [Book](https://automatetheboringstuff.com/). It has:
+![The Sorcerer's Apprentice](http://media.nbcbayarea.com/images/Fantasia1waltdisneystudios.jpg)
+>The Sorcerer's Apprentice
+**Automate-the-boring-stuff [Book](https://automatetheboringstuff.com/)**. It has:
 * Files
 * Regex
 * Excel, CSV, Word, JSON
