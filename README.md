@@ -1239,7 +1239,17 @@ Here's a funny site that jokingly talks about this: http://vanilla-js.com/
 * Access event object inside listerners
     * Format: `selection.property(name, newValue)` 
         * Access a property(e.g. input value) which is not accessible as element attr
-* Add & Remove DOM elements
+* Remove DOM elements:
+e.g. Delete all 'R' rated movies from list
+```js
+    let nonRQuotes = quotes.filter(movie=> movie.rating != 'R');
+    d3.selectAll('li')
+        .data(nonRQuotes, (d)=>{
+            return d.quote;
+        })
+        .exit()
+        .remove()
+```
 * **Data**
     * Loading External Data:
         * csv
@@ -1329,17 +1339,72 @@ Here's a funny site that jokingly talks about this: http://vanilla-js.com/
             })
 
             ```
-* Remove DOM elements:
-**e.g.** Delete all 'R' rated movies from list
-```js
-    let nonRQuotes = quotes.filter(movie=> movie.rating != 'R');
-    d3.selectAll('li')
-        .data(nonRQuotes, (d)=>{
-            return d.quote;
-        })
-        .exit()
-        .remove()
-```
+    * **Scales**:
+        * "Scales are function that map from **input domain** to **output range**."
+        * **Y-scale:**
+            * Linear scales:
+                ```js
+                var Yscale = d3.scaleLinear()
+                    .domain([0,100]) //[min_input, max_input]
+                    .range([0,10])  //[min_scale, max_scale]
+                console.log(scale(85)) //8.5
+                console.log(Yscale.invert(8.5)) //85
+                ...
+                .attr("r", function(d){
+                            return Yscale(d.age);
+                        })
+                ...
+                ```
+            * Time Scale:
+                ```js
+                var Yscale = d3.scaleTime()
+                    .domain([new Date(201,0,1),
+                            new Date(2019,0,1)]) 
+                    .range([0,10])  
+                ```
+            * Ordinal Data(categorical data -> colors)
+                ```js
+                var Yscale = d3.scaleOrdinal()
+                    .domain(["UP","MH","DL","KA"])
+                    .range(["RED","BLUE","GREEN","BLACK"])
+                    OR
+                    .range(<schema_name_from_d3>) 
+                ```
+                * [themes by d3](https://github.com/d3/d3-scale-chromatic)
+        * **X-scale**
+            * Band Scales: to control the X-axis scalability
+                ```js
+                var XScale = d3.scaleBand()
+                    .domain(["A","B","C","D"])
+                    .range([0,10])
+                    .paddingInner(0.3)
+                    .paddingOuter(0.3);
+                ```
+        * **Min,Max,Extent** - with use
+            ```js
+                var data = {
+                    {grade: "A", value: 10},
+                    {grade: "B", value: 9},
+                    {grade: "G", value: 4},
+                }
+                var y = d3.scaleLinear()
+                    .domain([
+                        d3.min(data, (d)=>{return d.value;}),  //4
+                        d3.max(data, (d)=>{return d.value;})   //10
+                                    OR
+                        d3.extent(data, (d)=>{return d.value;}) //[4,10]
+                    ])
+                    .range([0,100])
+                var x = d3.scaleBand()
+                    .domain(data.map((d)=>{return d.grade;}))
+                    .range([0,100])
+                    .paddingInner(0.3)
+                    .paddingOuter(0.3);
+            ```
+
+
+
+
 * General Update Pattern in D3
 
 ## 6. JS Front-End Frameworks
