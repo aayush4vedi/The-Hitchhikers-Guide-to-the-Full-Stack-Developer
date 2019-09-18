@@ -1201,6 +1201,10 @@ Here's a funny site that jokingly talks about this: http://vanilla-js.com/
 
 
 ### 5.2 D3.js 
+* **Websites for boilerplate codes**:
+    * [bl.ocks](https://bl.ocks.org)
+    * [blockbuilder](https://blockbuilder.org/) - change someone's code & see how it looks here
+    * [blockbuilder-search](https://blockbuilder.org/search?d3version=v5) - search for templates here
 * (*Data-Driven Documents*) is a JS library for producing dynamic, interactive **data visualizations** in web browsers.
 * Include in HTML-body bottom: `<script src="https://d3js.org/d3.v4.js"></script>`
 #### D3 Methods For DOM Manipulation
@@ -1401,8 +1405,100 @@ e.g. Delete all 'R' rated movies from list
                     .paddingInner(0.3)
                     .paddingOuter(0.3);
             ```
+        * Scale, **Margins**, **Groups**, **Axis**, **Lables**, **Transform**, **Translate** :all in one example
+        > Bar chart of heighest buildings
+            ```js
+            //Margin
+            var margin = { left:100, right:10, top:10, bottom:150 };
+            var width = 600 - margin.left - margin.right,
+                height = 400 - margin.top - margin.bottom;
 
+            var g = d3.select("#chart-area")
+                .append("svg")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                    .attr("transform", "translate(" + margin.left  //Transform, Translate
+                        + ", " + margin.top + ")");
+            // X Label
+            g.append("text")
+                .attr("class", "x axis-label")
+                .attr("x", width / 2)
+                .attr("y", height + 140)
+                .attr("font-size", "20px")
+                .attr("text-anchor", "middle")
+                .text("The word's tallest buildings");
 
+            // Y Label
+            g.append("text")
+                .attr("class", "y axis-label")
+                .attr("x", - (height / 2))
+                .attr("y", -60)
+                .attr("font-size", "20px")
+                .attr("text-anchor", "middle")
+                .attr("transform", "rotate(-90)")
+                .text("Height (m)");
+
+            d3.json("data/buildings.json").then(function(data){
+                console.log(data);
+
+                data.forEach(function(d){
+                    d.height = +d.height;
+                });
+
+                var x = d3.scaleBand()
+                    .domain(data.map(function(d){ return d.name; }))
+                    .range([0, width])
+                    .paddingInner(0.3)
+                    .paddingOuter(0.3);
+
+                var y = d3.scaleLinear()
+                    .domain([0, d3.max(data, function(d){
+                        return d.height;
+                    })])
+                    .range([height, 0]);
+
+                var xAxisCall = d3.axisBottom(x);
+                g.append("g")
+                    .attr("class", "x axis")
+                    .attr("transform", "translate(0, " + height + ")")
+                    .call(xAxisCall)
+                    .selectAll("text")
+                        .attr("y", "10")
+                        .attr("x", "-5")
+                        .attr("text-anchor", "end")
+                        .attr("transform", "rotate(-40)");
+
+                var yAxisCall = d3.axisLeft(y)
+                    .ticks(3)
+                    .tickFormat(function(d){
+                        return d + "m";
+                    });
+                g.append("g")
+                    .attr("class", "y-axis")
+                    .call(yAxisCall);
+
+                var rects = g.selectAll("rect")
+                    .data(data)
+                
+                rects.enter()
+                    .append("rect")
+                        .attr("y", function(d){ return y(d.height); })
+                        .attr("x", function(d){ return x(d.name); })
+                        .attr("width", x.bandwidth)
+                        .attr("height", function(d){ return height - y(d.height); })
+                        .attr("fill", "grey");
+
+            })
+            ```
+        * Dynamic:
+            * Update()
+            * Transitions
+        * Project Links:
+            * [project](https://github.com/adamjanes/udemy-d3/blob/master/05/5.07/js/main.js)- dynamic bar graph
+            * [project](https://github.com/adamjanes/udemy-d3/blob/master/05/5.08/js/main.js)- dynamic scatter plot
+        * **Interactions**
+            * Legends: [project](https://github.com/adamjanes/udemy-d3/blob/master/06/6.02/js/main.js)
 
 
 * General Update Pattern in D3
