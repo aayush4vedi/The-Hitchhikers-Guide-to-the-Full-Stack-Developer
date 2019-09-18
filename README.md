@@ -1147,28 +1147,82 @@ Here's a funny site that jokingly talks about this: http://vanilla-js.com/
 ---
 ## 5 Data Visualisation Libraries(JS)
 
-### 5.1 D3js 
+### 5.1 SVG 
+* **SVG**:
+    * Scalable Vector Graphics(SVG) -> scalable images(unlike .jpg/.png)
+    * Vector vs Raster graphics: [GfG](https://www.geeksforgeeks.org/vector-vs-raster-graphics/)
+    * E.g.: [Rectangle](https://codepen.io/mmmaaatttttt/pen/MoJKQr?editors=1100) , [Smiley-Star](https://codepen.io/mmmaaatttttt/pen/jLLbPJ?editors=1100), [Flags](https://codepen.io/mmmaaatttttt/pen/GvMZMq?editors=1100)
+    * Basic Shapes:
+        ```css
+        <style>
+            svg
+            {
+                background: pink;
+            }
+            rect, circle, ellipse
+            {
+                stroke:red;
+                opacity:.5;
+                stroke-width:5;
+                fill:blue;
+            }
+        </style>
+        <svg width="600" height="600">
+            <line x1="0" y1="0" x2="100" y2="100" stroke = "red" stroke-width = "15"/>
+            <rect x="120" y="120" width="100" height="50"></rect>
+            <circle cx="350" cy="150" r="50"></circle>
+            <ellipse cx="350" cy="350" rx="100" ry="50"></ellipse>
+            <text x="100" y="20" fill="green">SVG Basics</text>
+            <polygon points="450,100 550,100 500,200"></polygon>
+            <path d="M50 100 h100 v100 L50 200"></path>
+        </svg>
+        ```
+* **D3 Methods**:
+    * **D3 select**
+        * `d3.selectAll("rect")`
+        * `var svg = d3.select("#canvas")`
+        * `d3.node(x)` / `d3.nodes(x)` - returns *array* of matching HTML elements
+    * **D3 Append**
+        * `var rect = svg.append("rect")`
+    * **D3 Attr**
+        * `rect.attr("x",25);`
+        * `rect.attr("y",0);`
+        * `rect.attr("fill","blue");`
+    * Method Chaining
+        ```js
+        var rect = d3.select("#canvas")
+            .append("rect")
+                .attr("x",25)
+                .attr("y",0)
+                .attr("fill","blue")
+        ```
+
+//TODO: get this project: [D3-emission](https://github.com/aayush4vedi/Emission-Data)
+
+
+### 5.2 D3.js 
 * (*Data-Driven Documents*) is a JS library for producing dynamic, interactive **data visualizations** in web browsers.
 * Include in HTML-body bottom: `<script src="https://d3js.org/d3.v4.js"></script>`
 #### D3 Methods For DOM Manipulation
 - *if nothings is paased in, these methods will act as GETTERS*
-* Select Elements
-    * `d3.select(x)`    - single element
-    * `d3.selectAll(x)` - multiple elements
+* **D3 select**
+    * `d3.selectAll("rect")`
+    * `var svg = d3.select("#canvas")`
     * `d3.node(x)` / `d3.nodes(x)` - returns *array* of matching HTML elements
-* Set attr, prop, styles
-    * `.style()` - set on existing elements
+* **D3 Append**
+    * `var rect = svg.append("rect")`
+* **D3 Attr**
+    * `rect.attr("x",25);`
+    * `rect.attr("y",0);`
+    * `rect.attr("fill","blue");`
+* Method Chaining
     ```js
-    d3.select('#title')
-        .style('color','#ffffff')
-        .attr('class', 'new-class')
-        .text('new title');
+    var rect = d3.select("#canvas")
+        .append("rect")
+            .attr("x",25)
+            .attr("y",0)
+            .attr("fill","blue")
     ```
-    * `.append(tagName)` - adds a new element of type `tagName` on every element in selection
-* Get attr, prop on selections
-    * same as above
-* Chain D3 methods
-    * shown in the above example
 * Passing callback functions
     * Format: `function(_, index){//.......}`
     * E.g.
@@ -1186,27 +1240,95 @@ Here's a funny site that jokingly talks about this: http://vanilla-js.com/
     * Format: `selection.property(name, newValue)` 
         * Access a property(e.g. input value) which is not accessible as element attr
 * Add & Remove DOM elements
-* **Data Joins**: Appending all moivies as li(`id='#quotes'`)
-    ```js
-    let data = [
-        {
-            quote: "fsaf",
-            movie: "efwaef",
-            rating: "efs",
-        },
-        {....}
-    ]
-    d3.select('#quotes')
-        .style('list-style', 'none')
-        .selectAll('li')
-        .data(data)
-        .enter()
-        .append('li')
-            .text(d => '"' + d.quote + '" = '+d.movie)
-            .style('margin', '20px')
-            .style('padding', '20px')
+* **Data**
+    * Loading External Data:
+        * csv
+            ```js
+            d3.csv("path/file.csv").then(function(data){
+                //code
+            });
+            ```
+        * tsv: `d3.tsv(..),.then(...)`
+        * json: `d3.json(..),.then(...)`
+    * **Data Joins**: 
+        * E.g.1: Displaying circles:
+            ```js
+            var data = [25, 20, 10, 12, 15];
+            var svg = d3.select("#chart-area").append("svg")
+                .attr("width", 400)
+                .attr("height", 400);
 
-    ```
+            var circles = svg.selectAll("circle")
+                .data(data);
+                .enter()
+                .append("circle")
+                    .attr("cx", function(d, i){ //d is value in data array
+                        return (i * 50) + 25;
+                    })
+                    .attr("cy", 25)
+                    .attr("r", function(d){
+                        return d;
+                    })
+                    .attr("fill", "red");
+            ```
+        * E.g.2: Appending all moivies as li(`id='#quotes'`)
+            ```js
+            let data = [
+                {
+                    quote: "fsaf",
+                    movie: "efwaef",
+                    rating: "efs",
+                },
+                {....}
+            ]
+            d3.select('#quotes')
+                .style('list-style', 'none')
+                .selectAll('li')
+                .data(data)
+                .enter()
+                .append('li')
+                    .text(d => '"' + d.quote + '" = '+d.movie)
+                    .style('margin', '20px')
+                    .style('padding', '20px')
+
+            ```
+    * **Data Visualization**:
+        * E.g. data: {name, age} // returns adj circles with radius proportion to age & color ->name
+            ```js
+            d3.tsv("data/ages.tsv").then(function(data){
+                data.forEach(function(d){
+                    d.age = +d.age;
+                });
+
+                var svg = d3.select("#chart-area").append("svg")
+                    .attr("width", 400)
+                    .attr("height", 400);
+
+                var circles = svg.selectAll("circle")
+                    .data(data);
+                    .enter()
+                    .append("circle")
+                        .attr("cx", function(d, i){
+                            console.log(d);
+                            return (i * 50) + 25;
+                        })
+                        .attr("cy", 25)
+                        .attr("r", function(d){
+                            return d.age * 2;
+                        })
+                        .attr("fill", function(d){
+                            if (d.name == "Tony") {
+                                return "blue";
+                            }
+                            else {
+                                return "red";
+                            }
+                        });
+            }).catch(function(error){
+                console.log(error);
+            })
+
+            ```
 * Remove DOM elements:
 **e.g.** Delete all 'R' rated movies from list
 ```js
@@ -1219,16 +1341,6 @@ Here's a funny site that jokingly talks about this: http://vanilla-js.com/
         .remove()
 ```
 * General Update Pattern in D3
-#### SVG & D3
-* **SVG**:
-    * Scalable Vector Graphics(SVG) -> scalable images(unlike .jpg/.png)
-    * Vector vs Raster graphics: [GfG](https://www.geeksforgeeks.org/vector-vs-raster-graphics/)
-    * E.g.: [Rectangle](https://codepen.io/mmmaaatttttt/pen/MoJKQr?editors=1100) , [Smiley-Star](https://codepen.io/mmmaaatttttt/pen/jLLbPJ?editors=1100), [Flags](https://codepen.io/mmmaaatttttt/pen/GvMZMq?editors=1100)
-//TODO: not liking & getting D3 right now.**TBDL**
-//TODO: get this project: [D3-emission](https://github.com/aayush4vedi/Emission-Data)
-
-## 5.2 
-
 
 ## 6. JS Front-End Frameworks
 * What & How:
