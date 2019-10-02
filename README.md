@@ -2799,9 +2799,14 @@ app.post('/posts/:id/comments',(req,res)=>{
     * [Gallery](https://bokeh.pydata.org/en/latest/docs/gallery.html)
     * [Styling Visual Attributes](https://bokeh.pydata.org/en/latest/docs/user_guide/styling.html)
 # 4. Web Scraping
+* Implimentation:
+    * [Simple Scraper](https://github.com/aayush4vedi/IlearnPy/blob/master/simpleScraper.py)
+    * [dynamic Scraping.py](https://github.com/aayush4vedi/IlearnPy/blob/master/dynamicscraper.py)
 * Useful lib:
     * `requests`
     * `beautifulsoup4`
+    * `from selenium import webdriver`
+    * `chrontab` :for job schdeduling - [article](https://medium.com/@gavinwiener/how-to-schedule-a-python-script-cron-job-dea6cbf69f4e), [article(1)](https://stackabuse.com/scheduling-jobs-with-python-crontab/)
 * **Implimentation**
     * Simple web scraping: [my-github](https://github.com/aayush4vedi/IlearnPy/blob/master/web_scraping_101.py)
     * Web scraping with pagination: [my-github](https://github.com/aayush4vedi/IlearnPy/blob/master/web_scraping_pagination.py)
@@ -2819,6 +2824,8 @@ Automate-the-boring-stuff [Book](https://automatetheboringstuff.com/). It has:
 * Image Recognition
 ## 5.1 Excel:
 * Use lib [`openpyxl`](https://openpyxl.readthedocs.io/en/stable/index.html)
+* CRUD: [article](https://www.freecodecamp.org/news/how-to-create-read-update-and-search-through-excel-files-using-python-c70680d811d4/) , [gfg](https://www.geeksforgeeks.org/python-writing-excel-file-using-openpyxl-module/)
+* **Project**: Text to excel: [autopilot](https://github.com/aayush4vedi/Aeroplot/blob/master/autopilot.py)- my git
 * Load workbook: `workbook = openpyxl.load_workbook("<full path to file>")`
 * View File details:
     * `workbook.properties`
@@ -3047,13 +3054,14 @@ Automate-the-boring-stuff [Book](https://automatetheboringstuff.com/). It has:
         * Smart searching:
             * Synonym/*like query as our mind doesn't always recall exact word
             * How to search something I've SEEN in a video/movie/song?
+        * Some sort of summarizing tool.
+        * Highlight and store quotes separately.
         * Futuristic design: fit in the eyeball(Black mirror: The entire history of you)
 * Automate the chrome offlne diansaure game in python
 
 <p align="center">
 <img src="./Media/imready.gif" data-canonical-src="po" width="600" height="500"  />
 </p>
-
 
 
 
