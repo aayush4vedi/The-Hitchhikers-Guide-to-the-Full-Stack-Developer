@@ -59,7 +59,7 @@
          * Rename all instances: <kbd>command</kbd> +<kbd>F2</kbd>
         * Reverse Search?
 
-    * Useful Extensions
+    * Useful Extensions(Use <kbd>command</kbd> + <kbd>,</kbd> to configure each extension)
 
         **>> Style:**
         * My fav theme: `One Dark Pro` > `Gruvbox Dark(medium)` > `Material Dark(with high contrast)`
@@ -76,17 +76,24 @@
         * Beautify css/sacss
         * Color Highlight
         * CSS Peek
-        * IntelliSense for CSS class names 
+        * IntelliSense for CSS class names
+        * Debugger for Chrome
         
         **>> REST:**
         * REST Client(inbuilt Postman)
+
+        **>> React:**
+        * ES7 React/Redux/GraphQL/React-Native snippets
+
 
         **>> Others**
         * Live Server
         * Live Share(git)
         * [Fira Code](https://medium.com/@qjli/daily-dev-tips-96-visual-studio-code-how-to-enable-this-new-sexy-fira-code-font-89bafbfa245f) : fonts with ligatures
         * Git Lense
-        * Multiple clipboards for VSCode: TODO: learn it's commands 
+        * Multiple clipboards for VSCode: TODO: learn it's commands
+        * Prettier - Code formatter : (<kbd>command</kbd>/<kbd>ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> ) => format the selected code
+
 
 
 
@@ -181,6 +188,7 @@
     * [Crash Course @Youtube](https://www.youtube.com/watch?v=x4q86IjJFag) :Kafi cool intro to all tabs
     * [for CSS @Youtube](https://www.youtube.com/watch?v=Z3HGJsNLQ1E): Steal other website's styles
     * ~~crossed~~ styles are disabled because of lower priority
+* Extension for React: `react-dev-tools` : apprears as tab in chrome dev tools
 
 
 ## 6. Git
@@ -1505,29 +1513,38 @@ e.g. Delete all 'R' rated movies from list
 
 ## 6. JS Front-End Frameworks
 * What & How:
-    * is (JS) lib that handles DOM manipulation.
+    * is (JS) **lib** that handles DOM manipulation.
     * Handles navigation(using HTML5 push state): allows to  change address bar w/o refreshing the page
     * State Management:
         * in *jQuery*, we have to keep track of all data either in DOM or in some object
         * *Front-End Framework*: provides tools for it
     * is always run on **client side**, back-end mei NodeJS
 ### 6.1. React
-* About:
-    * Released by Facebook in 2013
-    * is a view lib that uses *composable components*
-    * other libs used with React:
-        * **React Router** - deals with navigation in app
-        * **Redux** - single place to store states in app 
-* Why React?
-    * To minimise DOM manipulation(which increases load on browser & makes app/website slow & increases bugs )
-    * **Structure:** Atoms->Molecules->Organisms->Template->Pages
-    * Maintains tree-like structure of keeping record of changes.i.e. if any component gets changed, only its children need to know.
+* **Intro**
+    * About:
+        * Released by Facebook in 2013
+        * is a view lib that uses *composable components*
+        * other libs used with React:
+            * **React Router** - deals with navigation in app
+            * **Redux** - single place to store states in app 
+    * Why React?
+        * To minimise DOM manipulation(which increases load on browser & makes app/website slow & increases bugs )
+        * **Structure:** Atoms->Molecules->Organisms->Template->Pages
+        * Maintains tree-like structure of keeping record of changes.i.e. if any component gets changed, only its children need to know.
+    * It's just a libraray, not framework.Meaning, it doesn't come with an openion(i.e. is `unopenionated`) on:
+        - Forms
+        - validations
+        - HTTP API calls
+        - State Management
+    * react doesn't take decisions, so there are multiple ways to do the same thing.
+    * Thinking In React - [doc](https://reactjs.org/docs/thinking-in-react.html)
 * **CLI**:
     * `sudo npm install -g create-react-app`
     * In project directory: `create-react-app appname`(name can't contain CAPITAL LETTERS)
     * Run Server: `cd appname` -> `npm start`
     * Chrome Extension: [React Dev Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
 * **Components**
+TODO: <insert pic here> react-component.png
     * Format:
         ```js
             import React, {Component} from 'react'; //React is default export & Component isn't(hence got {})
@@ -1748,7 +1765,14 @@ e.g. Delete all 'R' rated movies from list
 ### 6.3. VueJS
 
 ## 7. JS-State Management
+
 ### 7.1. Redux
+- State management lib for React
+- Provides state management at *central level* (Plain react does at *component level*)
+
+
+
+
 ### 7.2. State API
 ### 7.1. NgRx
 ### 7.1. VueX
@@ -3058,6 +3082,7 @@ Automate-the-boring-stuff [Book](https://automatetheboringstuff.com/). It has:
         * Highlight and store quotes separately.
         * Futuristic design: fit in the eyeball(Black mirror: The entire history of you)
 * Automate the chrome offlne diansaure game in python
+* Make a VS Code extension to pull all boilerplates on fly.
 
 <p align="center">
 <img src="./Media/imready.gif" data-canonical-src="po" width="600" height="500"  />
