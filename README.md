@@ -83,7 +83,7 @@
         * REST Client(inbuilt Postman)
 
         **>> React:**
-        * ES7 React/Redux/GraphQL/React-Native snippets
+        * ES7 React/Redux/GraphQL/React-Native snippets : just type `rcc` for boilerplate
 
 
         **>> Others**
@@ -1543,6 +1543,7 @@ e.g. Delete all 'R' rated movies from list
     * In project directory: `create-react-app appname`(name can't contain CAPITAL LETTERS)
     * Run Server: `cd appname` -> `npm start`
     * Chrome Extension: [React Dev Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
+    * **VSCode boilerplate:** `rcc`
 * **Components**
 TODO: <insert pic here> react-component.png
     * Format:
@@ -1703,6 +1704,10 @@ TODO: <insert pic here> react-component.png
 * **State**
     * Stateful data
     * Data in our application that can change
+    * **How to find if it's state or not:**
+        - Is it passed in from parents as props?  => Not state
+        - Does it change over time?               => Not state
+        - Can You compute it based on other states or props? => Not state
     * **Passing:**
         * Passed from *parent to child* as **prop** : downwards
         * Should not be passed to parent(~~upwards~~) or sibling(~~lateral~~)
@@ -1841,10 +1846,22 @@ A light, most popular NodeJS Web Development framework.
         * `app.use(bodyParser.urlencoded({extended: true})); `
     * **Redirecting**: `res.redirect('/route');`
     * **Error Handling:** `connect-flash `
+* Middlewares:
+    * is a general term for software that serves to "glue together" separate, often complex and already existing, programs
+    * Greate stackoverflow [explanation](https://stackoverflow.com/questions/2904854/what-is-middleware-exactly)
+    * Writing middlewares in Express: [doc](https://expressjs.com/en/guide/writing-middleware.html), should have `(req, res, next)`
 
 ### 2. **Koa**
-
-### 3. APIs
+### 3. **Fastify JS**
+* [Doc](https://www.fastify.io/)
+* Similar to express, but faster.
+* [Comaprison study wala article](https://medium.com/@onufrienkos/express-vs-fastify-performance-4dd5d73e08e2), which says:
+    * Fastify is around 20% faster than Express in almost every request. The only exception is a request with an empty response (possible due to an issue with a code)
+* **Hooks**
+    * allow you to listen to specific events in the application or request/response lifecycle.
+    * You have to register a hook before the event is triggered, otherwise the event is lost
+### 4. APIs
+* **Wrapper** ??????????????????
 ## Data Formats
 ### A. XML
 * Extended Markup Language
