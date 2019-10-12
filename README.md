@@ -6,7 +6,7 @@
 <br>
 <a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#i-basic-tools"><img src="https://img.shields.io/badge/Tools-f39f37" alt="Tools"></a>
 <a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#ii-front-end"><img src="https://img.shields.io/badge/Front End-8FD400" alt="Front End"></a>
-<a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#iii-back-end"><img src="https://img.shields.io/badge/Back End-FF5050" alt="Back End"></a>
+<a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#iii--back-end"><img src="https://img.shields.io/badge/Back End-FF5050" alt="Back End"></a>
 <a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#iv-database"><img src="https://img.shields.io/badge/Database-0081AB" alt=Database"></a>
 <a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#v-rest"><img src="https://img.shields.io/badge/REST-FD5240" alt="REST"></a>
 <a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#v-rest"><img src="https://img.shields.io/badge/Model & DA-614051" alt="Model & DA"></a>
@@ -25,10 +25,14 @@
 * Motivation for Side project: [TraversyMedia](https://www.youtube.com/watch?v=eCAj3mWFpNM)
 * Status of popular language on github: [github](https://github.blog/2018-11-15-state-of-the-octoverse-top-programming-languages/)
 * Stackshare: Why do people like [NodeJs](https://stackshare.io/nodejs) | [Php](https://stackshare.io/php) | [Python](https://stackshare.io/python) | [Golang](https://stackshare.io/go)
+* NodeJS vs Golang: [article](https://www.peerbits.com/blog/nodejs-vs-golang.html)
 * Framework vs Library vs Toolkit: [stackoverflow](https://stackoverflow.com/questions/3057526/framework-vs-toolkit-vs-library)
-* Cool IoT-APIs [IFTTT](https://ifttt.com/discover)
+* Cool IoT-APIs [IFTTT](https://platform.ifttt.com/docs)
 * A $100 freelanced portfolio-website [@youtube](https://www.youtube.com/watch?v=k152ovSOR74)
 * **REST** is an useful convention/architecture for mapping http routes to CRUD functionalities 
+
+
+
 # I. Basic Tools
 ## 1. IDE
 * **VSCode**<br/>
@@ -65,7 +69,6 @@
         * My fav theme: `One Dark Pro` > `Gruvbox Dark(medium)` > `Material Dark(with high contrast)`
         * Material Icon Theme
         * vscode-pdf
-        * Markdown Emoji [cheat-sheet](https://gist.github.com/rxaviers/7360908)
         * Bracket Pair Colorizer 2
         * Indenticator
         * Auto close tag
@@ -130,10 +133,10 @@
 * **Windows** >> :thumbsup:
 * **Useful Commands:**
     * **tar :**(tape archive)
-        * Compress: `cvf`    : tar cvf newName.tar folderToBeCompressed
-        * Extracting: `xvf`  : tar xvf compressedFile.tar
+        * Compress: `cvf`    : `$ tar cvf newName.tar folderToBeCompressed`
+        * Extracting: `xvf`  : `$ tar xvf compressedFile.tar`
     * **grep**(Globally search for REgular expression and Print-out)
-        * Search for the given string in a filename begining with file: `grep "string" file*`
+        * Search for the given string in a filename begining with file: `$ grep "string" file*`
         * `grep -x`, where `x` is :
             * `i` : case insensitive
             * `w` : matches the whole word
@@ -152,7 +155,7 @@
         * Recursive removal(delete all what's inside): `rm -r folder`
     * **cp** : copy 
         * `cp Src_file Dest_file`
-        * `cp - Src_directory Dest_directory` : recursive
+        * `cp -r Src_directory Dest_directory` : recursive
     * **mv** : move
         * `mv src dest`
         * `mv oldName newName` : renaming a folder/file
@@ -228,6 +231,7 @@
     * Add Badges: `<a href="url"><img src="https://img.shields.io/badge/<label>-<text>-<hexcolor(f39f37)>" alt="label"></a>`
     * Align to center: `<p align="center"></p>`
     * Code for `|` :  `&#124;`
+    * Markdown Emoji [cheat-sheet](https://gist.github.com/rxaviers/7360908)
  ## 7. Regex
 * Helpful links:
     * [Easy Way- github](https://github.com/ziishaned/learn-regex)
@@ -1832,9 +1836,10 @@ TODO: <insert pic here> react-component.png
 --- 
 
 # III.  Back-End
+Simply put, it is about writing code to create APIs, libraries, and working with components that don’t have user interfaces.
 
 ## 1. NodeJS
-To run JS on server-side(up until now, we were running JS on browser only).
+is an open-source JavaScript framework to run JS on server-side(up until now, we were running JS on browser only).
 * Install a package: `npm install <package_name>`
 * Include a pacakge: `var pkg = require('package_name');`
 * Start a project: `mkdir <project_name>` -> `cd->` -> `npm init`
