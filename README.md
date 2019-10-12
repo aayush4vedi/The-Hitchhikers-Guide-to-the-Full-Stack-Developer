@@ -227,9 +227,56 @@
 * **Markdown**
     * Add Badges: `<a href="url"><img src="https://img.shields.io/badge/<label>-<text>-<hexcolor(f39f37)>" alt="label"></a>`
     * Align to center: `<p align="center"></p>`
- ## 7. Postman
-
----
+    * Code for `|` :  `&#124;`
+ ## 7. Regex
+* Helpful links:
+    * [Easy Way- github](https://github.com/ziishaned/learn-regex)
+    * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
+* Cheatsheet:
+    * Meta Characters
+        |Meta character|Description|Example|
+        |:----:|----|---|
+        |.|Period matches any single character except a line break|".ar" => The <a href="#learn-regex"><strong>car</strong></a> <a href="#learn-regex"><strong>par</strong></a>ked in the <a href="#learn-regex"><strong>gar</strong></a>age|
+        |[ ]|Character class. Matches any character contained between the square brackets.|<pre>"[Tt]he" => <a href="#learn-regex"><strong>The</strong></a> car parked in <a href="#learn-regex"><strong>the</strong></a> garage.</pre>|
+        |[^ ]|Negated character class. Matches any character that is not contained between the square brackets|<pre>"[^c]ar" => The car <a href="#learn-regex"><strong>par</strong></a>ked in the <a href="#learn-regex"><strong>gar</strong></a>age.</pre>|
+        |* |Repetitions1: Matches 0 or more repetitions of the preceding symbol.|<pre>"[a-z]*" => T<a href="#learn-regex"><strong>he</strong></a> <a href="#learn-regex"><strong>car</strong></a> <a href="#learn-regex"><strong>parked</strong></a> <a href="#learn-regex"><strong>in</strong></a> <a href="#learn-regex"><strong>the</strong></a> <a href="#learn-regex"><strong>garage</strong></a> #21.<br>"\s*cat\s*" => The fat<a href="#learn-regex"><strong> cat </strong></a>sat on the con<a href="#learn-regex"><strong>cat</strong></a>enation.</pre>|
+        |+|Repetitions2: Matches 1 or more repetitions of the preceding symbol.|<pre>"c.+t" => The fat <a href="#learn-regex"><strong>cat sat on the mat</strong></a>.</pre>|
+        |?|Repetitions3: Makes the preceding symbol optional.|<pre>"[T]he" => <a href="#learn-regex"><strong>The</strong></a> car is parked in the garage.</pre>|
+        |{n,m}|Braces. Matches at least "n" but not more than "m" repetitions of the preceding symbol.|<pre>"[0-9]{2,3}" => The number was 9.<a href="#learn-regex"><strong>999</strong></a>7 but we rounded it off to <a href="#learn-regex"><strong>10</strong></a>.0.<br>"[0-9]{2,}" => The number was 9.<a href="#learn-regex"><strong>9997</strong></a> but we rounded it off to <a href="#learn-regex"><strong>10</strong></a>.0.<br>"[0-9]{3}" => The number was 9.<a href="#learn-regex"><strong>999</strong></a>7 but we rounded it off to 10.0.</pre>|
+        |(xyz)|Character group. Matches the characters xyz in that exact order.|<pre>"(c&#124;g&#124;p)ar" => The <a href="#learn-regex"><strong>car</strong></a> is <a href="#learn-regex"><strong>par</strong></a>ked in the <a href="#learn-regex"><strong>gar</strong></a>age.</pre>|
+        |&#124;|Alternation. Matches either the characters before or the characters after the symbol.|<pre>"(T&#124;t)he&#124;car" => <a href="#learn-regex"><strong>The</strong></a> <a href="#learn-regex"><strong>car</strong></a> is parked in <a href="#learn-regex"><strong>the</strong></a> garage.</pre>|
+        |&#92;|Escapes the next character. This allows you to match reserved characters <code>[ ] ( ) { } . * + ? ^ $ \ &#124;</code>|<pre>"(f&#124;c&#124;m)at\.?" => The <a href="#learn-regex"><strong>fat</strong></a> <a href="#learn-regex"><strong>cat</strong></a> sat on the <a href="#learn-regex"><strong>mat.</strong></a></pre>|
+        |^|Anchor1: Matches the beginning of the input.|<pre>"^(T&#124;t)he" => <a href="#learn-regex"><strong>The</strong></a> car is parked in the garage.</pre>|
+        |$|Anchor2: Matches the end of the input.|<pre>"(at\.)$" => The fat cat. sat. on the m<a href="#learn-regex"><strong>at.</strong></a><br>"(at\.)" => The fat c<a href="#learn-regex"><strong>at.</strong></a> s<a href="#learn-regex"><strong>at.</strong></a> on the m<a href="#learn-regex"><strong>at.</strong></a></pre>|
+    * Shorthand Character Set
+        |Shorthand|Description|
+        |:----:|----|
+        |.|Any character except new line|
+        |\w|Matches alphanumeric characters: `[a-zA-Z0-9_]`|
+        |\W|Matches non-alphanumeric characters: `[^\w]`|
+        |\d|Matches digit: `[0-9]`|
+        |\D|Matches non-digit: `[^\d]`|
+        |\s|Matches whitespace character: `[\t\n\f\r\p{Z}]`|
+        |\S|Matches non-whitespace character: `[^\s]`|
+    * Lookaround
+        |Symbol|Description|E.g.|
+        |:----:|----|------|
+        |?=|Positive Lookahead|<pre>"(T&#124;t)he(?=\sfat)" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on the mat.</pre>|
+        |?!|Negative Lookahead|<pre>"(T&#124;t)he(?!\sfat)" => The fat cat sat on <a href="#learn-regex"><strong>the</strong></a> mat.</pre>|
+        |?<=|Positive Lookbehind|<pre>"(?<=(T&#124;t)he\s)(fat|mat)" => The <a href="#learn-regex"><strong>fat</strong></a> cat sat on the <a href="#learn-regex"><strong>mat</strong></a>.</pre>|
+        |?<!|Negative Lookbehind|<pre>"(?&lt;!(T&#124;t)he\s)(cat)" => The cat sat on <a href="#learn-regex"><strong>cat</strong></a>.</pre>|
+    * Flags
+        |Flag|Description|E.g.|
+        |:----:|----|----|
+        |i|Case insensitive: Sets matching to be case-insensitive.|<pre>"The" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on the mat.<br>"/The/gi" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on <a href="#learn-regex"><strong>the</strong></a> mat.</pre>|
+        |g|Global Search: Search for a pattern throughout the input string.|<pre>"/.(at)/" => The <a href="#learn-regex"><strong>fat</strong></a> cat sat on the mat.<br>"/.(at)/g" => The <a href="#learn-regex"><strong>fat</strong></a> <a href="#learn-regex"><strong>cat</strong></a> <a href="#learn-regex"><strong>sat</strong></a> on the <a href="#learn-regex"><strong>mat</strong></a>.</pre>|
+        |m|Multiline: Anchor meta character works on each line.|<pre>"/.at(.)?$/" => The fat<br>cat sat<br>on the <a href="#learn-regex"><strong>mat.</strong></a><br>"/.at(.)?$/gm" => The <a href="#learn-regex"><strong>fat</strong></a><br>cat <a href="#learn-regex"><strong>sat</strong></a><br>on the <a href="#learn-regex"><strong>mat.</strong></a></pre>|
+    * Greedy vs lazy matching
+        - By default regex will do greedy matching , means it will match as long as possible. we can use `?` to match in lazy way means as short as possible
+        * Greedy: 
+            <pre>"/(.*at)/" => <a href="#learn-regex"><strong>The fat cat sat on the mat</strong></a>. </pre>
+        * Lazy: 
+            <pre>"/(.*?at)/" => <a href="#learn-regex"><strong>The fat</strong></a> cat sat on the mat. </pre>
 
 # II. Front-End 
 
@@ -1804,6 +1851,18 @@ To run JS on server-side(up until now, we were running JS on browser only).
     }
     });
     ```
+
+### Node Libraries:
+* [Puppeteer](https://pptr.dev/)
+    -  provides API to control Chrome or Chromium over the DevTools Protocol. 
+    - runs headless by default, but can be configured to run full (non-headless).
+* [Fast.js](https://www.javascripting.com/view/fast-js) 
+    - is a collection of micro-optimisations aimed at making writing very fast JavaScript programs easier. 
+    - It includes fast replacements for several built-in native methods such as`.forEach`, `.map`, `.reduce` etc as well as common utility methods such as `.clone`.
+    - i.e. if used, make you look very cool
+
+
+
 ## 2. Frameworks
 ### 1. **Express**
 A light, most popular NodeJS Web Development framework.
