@@ -1626,11 +1626,12 @@ e.g. Delete all 'R' rated movies from list
         ```
     * 2 Types of component:
         1. UI Component(stateless)
-            - No need to extend `Component` in declaring them:
+            - No need to extend `Component` in declaring them.
+            - `props` are passed as parameters(can't use `this.props` in here)
             ```js
             //this is a child component
-            const Basket = () => {
-                const {fruits} = this.props;
+            const Basket = (props ) => {
+                const {fruits} = props;
                 const fruitsInBasket = fruits.map(f=>{
                     return(
                         <div className= "fruit" key={fruit.id}>
@@ -1848,7 +1849,84 @@ e.g. Delete all 'R' rated movies from list
         ```
     * Purity: All changes to `this.state` should be pure(see [pure functions](https://hackernoon.com/javascript-and-functional-programming-pt-3-pure-functions-d572bb52e21c))
     
-* **React Component Architecture**
+* **Forms**
+    1. Writing forms: as Child Component
+    ```js
+    //filename: AddNinja.js
+    class AddNinja extends Component {
+        state = {
+            name: null,
+            age: null,
+            belt: null
+        }
+        //saving data in local state
+        handleChange = (e) => {
+            this.setState({
+                [e.target.id]: e.target.value
+            });
+        }
+        handleSubmit = (e) => {
+            e.preventDefault();// default action of a form submission in reload the page
+            console.log(this.state);// will log the inputted object from form i.e. ninja
+        }
+        render() {
+            return (
+            <div>
+                <form onSubmit={this.handleSubmit}>
+                <label htmlFor="name">Name:</label>
+                <input type="text" id="name" onChange={this.handleChange} />
+                <label htmlFor="age">Age:</label>
+                <input type="text" id="age" onChange={this.handleChange} />
+                <label htmlFor="belt">Belt:</label>
+                <input type="text"id="belt" onChange={this.handleChange} />
+                <button>Submit</button>
+                </form>
+            </div>
+            )
+        }
+    }
+    export default AddNinja
+    ```
+    2. Adding form data to parent component(*passing functions from parents as props*)
+    ```js
+    //in child component(AddNinja.js)
+    ...
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.addNinja(this.state);//addNinja is a function declared in parent & passed down as prop here
+    }
+    ...
+    ```
+    ```js
+    //in parent component(App.js)
+    import AddNinja from './AddNinja'
+    class App extends Component {
+    state = {
+        ninjas: [
+            { name: 'Ryu', age: 30, belt: 'black', id: 1 },
+            { name: 'Yoshi', age: 20, belt: 'green', id: 2 }
+        ]
+    }
+    //this function is passed to child
+    addNinja = (ninja) => {
+        ninja.id = Math.random();
+        // this.ninjas.push(ninja) ; can't do this because we can't directly change the states : bad practice
+        let ninjas = [...this.state.ninjas, ninja];
+        this.setState({
+            ninjas: ninjas //state has to be newly created every time it's changed, using setState
+        });
+    }
+    render() {
+        return (
+        <div className="App">
+            <h1>My first React app</h1>
+            <Ninjas ninjas={this.state.ninjas}/>
+            <AddNinja addNinja={this.addNinja} />
+        </div>
+        );
+    }
+    }
+    ```
 
 
 
