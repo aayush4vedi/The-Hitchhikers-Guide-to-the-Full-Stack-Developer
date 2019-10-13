@@ -172,7 +172,7 @@
     * `history` :lists all prev commands
     * **reverse-i-search**: Reverse Incremental Search. <kbd>control</kbd>+ <kbd>r</kbd> 
 * Notes:
-    * `-` is for letter, `--` for words : `la -a`, `ls --all
+    * `-` is for letter, `--` for words : `la -a`, `ls --all`
     * Rename folder: `mv old new`
     * Run B only if A works: `A && B`
     * `*` if sort-of auto-complete
@@ -238,43 +238,53 @@
     * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
 * Cheatsheet:
     * Meta Characters
-        |Meta character|Description|Example|
-        |:----:|----|---|
-        |.|Period matches any single character except a line break|".ar" => The <a href="#learn-regex"><strong>car</strong></a> <a href="#learn-regex"><strong>par</strong></a>ked in the <a href="#learn-regex"><strong>gar</strong></a>age|
-        |[ ]|Character class. Matches any character contained between the square brackets.|<pre>"[Tt]he" => <a href="#learn-regex"><strong>The</strong></a> car parked in <a href="#learn-regex"><strong>the</strong></a> garage.</pre>|
-        |[^ ]|Negated character class. Matches any character that is not contained between the square brackets|<pre>"[^c]ar" => The car <a href="#learn-regex"><strong>par</strong></a>ked in the <a href="#learn-regex"><strong>gar</strong></a>age.</pre>|
-        |* |Repetitions1: Matches 0 or more repetitions of the preceding symbol.|<pre>"[a-z]*" => T<a href="#learn-regex"><strong>he</strong></a> <a href="#learn-regex"><strong>car</strong></a> <a href="#learn-regex"><strong>parked</strong></a> <a href="#learn-regex"><strong>in</strong></a> <a href="#learn-regex"><strong>the</strong></a> <a href="#learn-regex"><strong>garage</strong></a> #21.<br>"\s*cat\s*" => The fat<a href="#learn-regex"><strong> cat </strong></a>sat on the con<a href="#learn-regex"><strong>cat</strong></a>enation.</pre>|
-        |+|Repetitions2: Matches 1 or more repetitions of the preceding symbol.|<pre>"c.+t" => The fat <a href="#learn-regex"><strong>cat sat on the mat</strong></a>.</pre>|
-        |?|Repetitions3: Makes the preceding symbol optional.|<pre>"[T]he" => <a href="#learn-regex"><strong>The</strong></a> car is parked in the garage.</pre>|
-        |{n,m}|Braces. Matches at least "n" but not more than "m" repetitions of the preceding symbol.|<pre>"[0-9]{2,3}" => The number was 9.<a href="#learn-regex"><strong>999</strong></a>7 but we rounded it off to <a href="#learn-regex"><strong>10</strong></a>.0.<br>"[0-9]{2,}" => The number was 9.<a href="#learn-regex"><strong>9997</strong></a> but we rounded it off to <a href="#learn-regex"><strong>10</strong></a>.0.<br>"[0-9]{3}" => The number was 9.<a href="#learn-regex"><strong>999</strong></a>7 but we rounded it off to 10.0.</pre>|
-        |(xyz)|Character group. Matches the characters xyz in that exact order.|<pre>"(c&#124;g&#124;p)ar" => The <a href="#learn-regex"><strong>car</strong></a> is <a href="#learn-regex"><strong>par</strong></a>ked in the <a href="#learn-regex"><strong>gar</strong></a>age.</pre>|
-        |&#124;|Alternation. Matches either the characters before or the characters after the symbol.|<pre>"(T&#124;t)he&#124;car" => <a href="#learn-regex"><strong>The</strong></a> <a href="#learn-regex"><strong>car</strong></a> is parked in <a href="#learn-regex"><strong>the</strong></a> garage.</pre>|
-        |&#92;|Escapes the next character. This allows you to match reserved characters <code>[ ] ( ) { } . * + ? ^ $ \ &#124;</code>|<pre>"(f&#124;c&#124;m)at\.?" => The <a href="#learn-regex"><strong>fat</strong></a> <a href="#learn-regex"><strong>cat</strong></a> sat on the <a href="#learn-regex"><strong>mat.</strong></a></pre>|
-        |^|Anchor1: Matches the beginning of the input.|<pre>"^(T&#124;t)he" => <a href="#learn-regex"><strong>The</strong></a> car is parked in the garage.</pre>|
-        |$|Anchor2: Matches the end of the input.|<pre>"(at\.)$" => The fat cat. sat. on the m<a href="#learn-regex"><strong>at.</strong></a><br>"(at\.)" => The fat c<a href="#learn-regex"><strong>at.</strong></a> s<a href="#learn-regex"><strong>at.</strong></a> on the m<a href="#learn-regex"><strong>at.</strong></a></pre>|
+        * `.` :Period matches any single character except a line break
+            ".ar" => The <a href="#learn-regex"><strong>car</strong></a> <a href="#learn-regex"><strong>par</strong></a>ked in the <a href="#learn-regex"><strong>gar</strong></a>age
+        * `[ ]` : Character class. Matches any character contained between the square brackets.
+            <pre>"[Tt]he" => <a href="#learn-regex"><strong>The</strong></a> car parked in <a href="#learn-regex"><strong>the</strong></a> garage.</pre>
+        * `[^ ]` : Negated character class. Matches any character that is not contained between the square brackets
+            <pre>"[^c]ar" => The car <a href="#learn-regex"><strong>par</strong></a>ked in the <a href="#learn-regex"><strong>gar</strong></a>age.</pre>
+        * `*` : Repetitions1: Matches 0 or more repetitions of the preceding symbol.
+            <pre>"[a-z]*" => T<a href="#learn-regex"><strong>he</strong></a> <a href="#learn-regex"><strong>car</strong></a> <a href="#learn-regex"><strong>parked</strong></a> <a href="#learn-regex"><strong>in</strong></a> <a href="#learn-regex"><strong>the</strong></a> <a href="#learn-regex"><strong>garage</strong></a> #21.<br>"\s*cat\s*" => The fat<a href="#learn-regex"><strong> cat </strong></a>sat on the con<a href="#learn-regex"><strong>cat</strong></a>enation.</pre>
+        * `+` : Repetitions2: Matches 1 or more repetitions of the preceding symbol.
+            <pre>"c.+t" => The fat <a href="#learn-regex"><strong>cat sat on the mat</strong></a>.</pre>
+        * `?` : Repetitions3: Makes the preceding symbol optional.
+            <pre>"[T]he" => <a href="#learn-regex"><strong>The</strong></a> car is parked in the garage.</pre>
+        * `{n,m}` : Braces. Matches at least "n" but not more than "m" repetitions of the preceding symbol.
+            <pre>"[0-9]{2,3}" => The number was 9.<a href="#learn-regex"><strong>999</strong></a>7 but we rounded it off to <a href="#learn-regex"><strong>10</strong></a>.0.<br>"[0-9]{2,}" => The number was 9.<a href="#learn-regex"><strong>9997</strong></a> but we rounded it off to <a href="#learn-regex"><strong>10</strong></a>.0.<br>"[0-9]{3}" => The number was 9.<a href="#learn-regex"><strong>999</strong></a>7 but we rounded it off to 10.0.</pre>
+        * `(xyz)` : Character group. Matches the characters xyz in that exact order.
+            <pre>"(c&#124;g&#124;p)ar" => The <a href="#learn-regex"><strong>car</strong></a> is <a href="#learn-regex"><strong>par</strong></a>ked in the <a href="#learn-regex"><strong>gar</strong></a>age.</pre>
+        * `|` : Alternation. Matches either the characters before or the characters after the symbol.
+            <pre>"(T&#124;t)he&#124;car" => <a href="#learn-regex"><strong>The</strong></a> <a href="#learn-regex"><strong>car</strong></a> is parked in <a href="#learn-regex"><strong>the</strong></a> garage.</pre>
+        * `\` : Escapes the next character. This allows you to match reserved characters <code>[ ] ( ) { } . * + ? ^ $ \ &#124;</code>
+            <pre>"(f&#124;c&#124;m)at\.?" => The <a href="#learn-regex"><strong>fat</strong></a> <a href="#learn-regex"><strong>cat</strong></a> sat on the <a href="#learn-regex"><strong>mat.</strong></a></pre>
+        * `^` : Anchor1: Matches the beginning of the input.
+            <pre>"^(T&#124;t)he" => <a href="#learn-regex"><strong>The</strong></a> car is parked in the garage.</pre>
+        * `$` : Anchor2: Matches the end of the input.
+            <pre>"(at\.)$" => The fat cat. sat. on the m<a href="#learn-regex"><strong>at.</strong></a><br>"(at\.)" => The fat c<a href="#learn-regex"><strong>at.</strong></a> s<a href="#learn-regex"><strong>at.</strong></a> on the m<a href="#learn-regex"><strong>at.</strong></a></pre>
     * Shorthand Character Set
-        |Shorthand|Description|
-        |:----:|----|
-        |.|Any character except new line|
-        |\w|Matches alphanumeric characters: `[a-zA-Z0-9_]`|
-        |\W|Matches non-alphanumeric characters: `[^\w]`|
-        |\d|Matches digit: `[0-9]`|
-        |\D|Matches non-digit: `[^\d]`|
-        |\s|Matches whitespace character: `[\t\n\f\r\p{Z}]`|
-        |\S|Matches non-whitespace character: `[^\s]`|
+        * `\w` : Matches alphanumeric characters: `[a-zA-Z0-9_]`|
+        * `\W` : Matches non-alphanumeric characters: `[^\w]`|
+        * `\d` : Matches digit: `[0-9]`|
+        * `\D` : Matches non-digit: `[^\d]`|
+        * `\s` : Matches whitespace character: `[\t\n\f\r\p{Z}]`|
+        * `\S` : Matches non-whitespace character: `[^\s]`|
     * Lookaround
-        |Symbol|Description|E.g.|
-        |:----:|----|------|
-        |?=|Positive Lookahead|<pre>"(T&#124;t)he(?=\sfat)" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on the mat.</pre>|
-        |?!|Negative Lookahead|<pre>"(T&#124;t)he(?!\sfat)" => The fat cat sat on <a href="#learn-regex"><strong>the</strong></a> mat.</pre>|
-        |?<=|Positive Lookbehind|<pre>"(?<=(T&#124;t)he\s)(fat|mat)" => The <a href="#learn-regex"><strong>fat</strong></a> cat sat on the <a href="#learn-regex"><strong>mat</strong></a>.</pre>|
-        |?<!|Negative Lookbehind|<pre>"(?&lt;!(T&#124;t)he\s)(cat)" => The cat sat on <a href="#learn-regex"><strong>cat</strong></a>.</pre>|
+        * `?=` : Positive Lookahead.
+            <pre>"(T&#124;t)he(?=\sfat)" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on the mat.</pre>
+        * `?!` : Negative Lookahead
+            <pre>"(T&#124;t)he(?!\sfat)" => The fat cat sat on <a href="#learn-regex"><strong>the</strong></a> mat.</pre>
+        * `?<=` : Positive Lookbehind
+            <pre>"(?<=(T&#124;t)he\s)(fat|mat)" => The <a href="#learn-regex"><strong>fat</strong></a> cat sat on the <a href="#learn-regex"><strong>mat</strong></a>.</pre>
+        * `?<!` : Negative Lookbehind
+            <pre>"(?&lt;!(T&#124;t)he\s)(cat)" => The cat sat on <a href="#learn-regex"><strong>cat</strong></a>.</pre>
     * Flags
-        |Flag|Description|E.g.|
-        |:----:|----|----|
-        |i|Case insensitive: Sets matching to be case-insensitive.|<pre>"The" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on the mat.<br>"/The/gi" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on <a href="#learn-regex"><strong>the</strong></a> mat.</pre>|
-        |g|Global Search: Search for a pattern throughout the input string.|<pre>"/.(at)/" => The <a href="#learn-regex"><strong>fat</strong></a> cat sat on the mat.<br>"/.(at)/g" => The <a href="#learn-regex"><strong>fat</strong></a> <a href="#learn-regex"><strong>cat</strong></a> <a href="#learn-regex"><strong>sat</strong></a> on the <a href="#learn-regex"><strong>mat</strong></a>.</pre>|
-        |m|Multiline: Anchor meta character works on each line.|<pre>"/.at(.)?$/" => The fat<br>cat sat<br>on the <a href="#learn-regex"><strong>mat.</strong></a><br>"/.at(.)?$/gm" => The <a href="#learn-regex"><strong>fat</strong></a><br>cat <a href="#learn-regex"><strong>sat</strong></a><br>on the <a href="#learn-regex"><strong>mat.</strong></a></pre>|
+        * `i` : Case insensitive: Sets matching to be case-insensitive
+            <pre>"The" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on the mat.<br>"/The/gi" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on <a href="#learn-regex"><strong>the</strong></a> mat.</pre>
+        * `g` : Global Search: Search for a pattern throughout the input string.
+            <pre>"/.(at)/" => The <a href="#learn-regex"><strong>fat</strong></a> cat sat on the mat.<br>"/.(at)/g" => The <a href="#learn-regex"><strong>fat</strong></a> <a href="#learn-regex"><strong>cat</strong></a> <a href="#learn-regex"><strong>sat</strong></a> on the <a href="#learn-regex"><strong>mat</strong></a>.</pre>
+        * `m` : Multiline: Anchor meta character works on each line.
+            <pre>"/.at(.)?$/" => The fat<br>cat sat<br>on the <a href="#learn-regex"><strong>mat.</strong></a><br>"/.at(.)?$/gm" => The <a href="#learn-regex"><strong>fat</strong></a><br>cat <a href="#learn-regex"><strong>sat</strong></a><br>on the <a href="#learn-regex"><strong>mat.</strong></a></pre>
     * Greedy vs lazy matching
         - By default regex will do greedy matching , means it will match as long as possible. we can use `?` to match in lazy way means as short as possible
         * Greedy: 
@@ -1596,7 +1606,8 @@ e.g. Delete all 'R' rated movies from list
     * Chrome Extension: [React Dev Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
     * **VSCode boilerplate:** `rcc`
 * **Components**
-TODO: <insert pic here> react-component.png
+    <br>
+    <img src="./Media/react-component.png" width="500em">
     * Format:
         ```js
             import React, {Component} from 'react'; //React is default export & Component isn't(hence got {})
@@ -1613,10 +1624,34 @@ TODO: <insert pic here> react-component.png
             }
             export default Xxx;
         ```
+    * 2 Types of component:
+        1. UI Component(stateless)
+            - No need to extend `Component` in declaring them:
+            ```js
+            //this is a child component
+            const Basket = () => {
+                const {fruits} = this.props;
+                const fruitsInBasket = fruits.map(f=>{
+                    return(
+                        <div className= "fruit" key={fruit.id}>
+                            <div className = "name">Name: {f.name}</divc>
+                            <div className = "color">Color: {f.color}</divc>
+                        </div>
+                    )
+                })
+                return(
+                    <div className="basket">
+                        {fruitsInBasket}
+                    </div>
+                )
+            }
+            export default Basket
+            ```
+        2. Container Component(have state)
+            - Write them in usual way you write a component, duh!
 * **Props**(Dumb-components): 
-    * Def:
-        * are immutable data passed to a component **from its parent**
-        * are accessible in your component as an object called: `this.props`
+    * are immutable data passed to a component **from its parent**
+    * are accessible in your component as an object called: `this.props`
     * props are simply things that come out of state.
     * parent feeds state to its child component and for child comp, it becomes a prop
     * E.g.
@@ -3164,6 +3199,7 @@ Automate-the-boring-stuff [Book](https://automatetheboringstuff.com/). It has:
         * Futuristic design: fit in the eyeball(Black mirror: The entire history of you)
 * Automate the chrome offlne diansaure game in python
 * Make a VS Code extension to pull all boilerplates on fly.
+* Need to write an awesome CV(super customisable) template as online ones are either crap or not free.
 
 <p align="center">
 <img src="./Media/imready.gif" data-canonical-src="po" width="600" height="500"  />
