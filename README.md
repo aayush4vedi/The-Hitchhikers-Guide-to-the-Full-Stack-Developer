@@ -1927,6 +1927,55 @@ e.g. Delete all 'R' rated movies from list
     }
     }
     ```
+    3. Delete data from parent component(this segment doesn't belong to `forms` but anyways...)
+    - Parent Component: App.js
+        ```js
+        ...
+        import Ninjas from './Ninjas'
+        ...
+        deleteNinja = (id) => {
+            let ninjas = this.state.ninjas.filter(ninja => {
+                return ninja.id !== id
+            });
+            this.setState({
+                ninjas: ninjas
+            });
+        }
+        render() {
+            return (
+            <div className="App">
+                <h1>My first React app</h1>
+                <Ninjas ninjas={this.state.ninjas} deleteNinja={this.deleteNinja} />
+                <AddNinja addNinja={this.addNinja} />
+            </div>
+            );
+        }
+        ...
+        ```
+    - Child Component: Ninja.js
+        ```js 
+        const Ninjas = ({ninjas, deleteNinja}) => {
+            return (
+                <div className="ninja-list">
+                { 
+                    ninjas.map(ninja => {
+                    return (
+                        <div className="ninja" key={ninja.id}>
+                        <div>Name: { ninja.name }</div>
+                        <div>Age: { ninja.age }</div>
+                        <div>Belt: { ninja.belt }</div>
+                        <button onClick={() => {deleteNinja(ninja.id)}}>Delete ninja</button> // if written simply `onClick={deleteNinja(ninja.id)}` it will fire the instant form loads
+                        <hr />
+                        </div>
+                    )
+                    })
+                }
+                </div>
+            );
+        }
+
+        export default Ninjas
+        ```
 
 
 
