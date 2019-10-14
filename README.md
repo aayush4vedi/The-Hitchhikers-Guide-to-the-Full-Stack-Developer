@@ -2145,7 +2145,14 @@ e.g. Delete all 'R' rated movies from list
         }
     }
     ```
-
+* Adding images in React:
+    - images are added as a component
+    ```js
+    import Pokeball from '../pokeball.png';
+    ...
+    <img src={Pokeball} alt="A Pokeball" />
+    ...
+    ```
 
 
 
