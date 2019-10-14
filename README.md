@@ -1850,9 +1850,10 @@ e.g. Delete all 'R' rated movies from list
     * Purity: All changes to `this.state` should be pure(see [pure functions](https://hackernoon.com/javascript-and-functional-programming-pt-3-pure-functions-d572bb52e21c))
     
 * **Forms**
+    - Source: [nice youtube series](https://www.youtube.com/watch?v=NFYJZyZIa70&list=PL4cUxeGkcC9ij8CfkAY2RAGb-tmkNwQHG&index=20)
     1. Writing forms: as Child Component
+    filename: AddNinja.js(a **Container Component**)
     ```js
-    //filename: AddNinja.js
     class AddNinja extends Component {
         state = {
             name: null,
@@ -1952,7 +1953,7 @@ e.g. Delete all 'R' rated movies from list
         }
         ...
         ```
-    - Child Component: Ninja.js
+    - Child Component: Ninja.js( a **UI Component**)
         ```js 
         const Ninjas = ({ninjas, deleteNinja}) => {
             return (
@@ -1976,6 +1977,44 @@ e.g. Delete all 'R' rated movies from list
 
         export default Ninjas
         ```
+
+
+
+
+
+
+* Adding CSS in React:
+    - [Blogpost](https://blog.pusher.com/css-modules-react/)
+    - One way is to write all styling in `index.css` file only
+* React Lifecycle Methods: [doc](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) where you can click on any component to see its details
+    - [explainatory video](https://www.youtube.com/watch?v=iYz2OKWO09U&list=PL4cUxeGkcC9ij8CfkAY2RAGb-tmkNwQHG&index=22)
+    <p align= "center">
+    <img src="./Media/react-lifecycle-methods.png" height = "400px" >
+    </p>
+* **Routing**
+    * npm: `react-router-dom`
+    * E.g.(in `App.js`)
+    ```js
+    import { Route, BrowserRouter } from 'react-router-dom'
+    ...
+    class App extends Component {
+    render() {
+        return (
+        <BrowserRouter>
+            <div className="App">
+            <Navbar />
+            <Route exact path='/' component={Home}/> // if not used `exact`, Home page will load on every route(just like the error in ProfilePage project)
+            <Route path='/about' component={About} />
+            <Route path='/contact' component={Contact} />
+            </div>
+        </BrowserRouter>
+        );
+     }
+    }
+    ...
+    ```
+
+
 
 
 
