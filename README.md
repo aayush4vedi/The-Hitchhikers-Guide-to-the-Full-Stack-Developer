@@ -20,6 +20,7 @@
 
 # Useful Things:
 * **DRY**: Don't Repeat Yourself
+* Fake data APIs for all kind: [JSONPlaceholder](https://jsonplaceholder.typicode.com/) -veryvery useful
 * [This](https://studywebdevelopment.com/freelancing.html) guy is selling *Freelancing bundle.*
 * 16k APIs [ProgrammableWeb](https://www.programmableweb.com/category/all/news?articletypes=howto&source_code=0)
 * Motivation for Side project: [TraversyMedia](https://www.youtube.com/watch?v=eCAj3mWFpNM)
@@ -1991,11 +1992,107 @@ e.g. Delete all 'R' rated movies from list
     <p align= "center">
     <img src="./Media/react-lifecycle-methods.png" height = "400px" >
     </p>
-* **Routing**
+* **React Router**
     * npm: `react-router-dom`
-    * E.g.(in `App.js`)
+    1. Routing:
+        * E.g.(in `App.js`)
+        ```js
+        import { Route, BrowserRouter } from 'react-router-dom'
+        ...
+        class App extends Component {
+        render() {
+            return (
+            <BrowserRouter>
+                <div className="App">
+                <Navbar />
+                <Route exact path='/' component={Home}/> // if not used `exact`, Home page will load on every route(just like the error in ProfilePage project)
+                <Route path='/about' component={About} />
+                <Route path='/contact' component={Contact} />
+                </div>
+            </BrowserRouter>
+            );
+        }
+        }
+        ...
+        ```
+    2. Linking:
+        * React's  Link tags will stop the default behaviour of a request being made to the server.
+        * instead, ask react DOM to load that (already existing) component.
+        * As a result, page isn't reloaded everytime. => Quicker & Smoother rendering
+        * E.g. (in `Nav.js`: a child component to App.js)
+        ```js
+        ...
+        import { Link, NavLink } from 'react-router-dom'
+        const Navbar = () => {
+        return (
+            <nav className="nav-wrapper red darken-3"> //materailUI
+            <div className="container">
+                <Link className="brand-logo" to="/">Poke' Times</Link>
+                <ul className="right">
+                <li><NavLink exact to="/">Home</NavLink></li>
+                <li><NavLink to='/about'>About</NavLink></li>
+                <li><NavLink to='/contact'>Contact</NavLink></li>
+                </ul>
+            </div>
+            </nav> 
+        )
+        }
+        ```
+    * Using `axios`:
+        ```js
+        import axios from 'axios'
+
+        class Home extends Component {
+            state = {
+                posts: []
+            }
+            componentDidMount(){    //see react lifecycle for ref
+                axios.get('https://jsonplaceholder.typicode.com/posts/')
+                .then(res => {
+                    console.log(res);
+                    this.setState({
+                    posts: res.data.slice(0,10)
+                    });
+                })
+            }
+            render(){
+                const { posts } = this.state
+                const postList = posts.length ? (
+                posts.map(post => {
+                    return (
+                    <div className="post card" key={post.id}>
+                        <div className="card-content">
+                        <span className="card-title">{post.title}</span>
+                        <p>{post.body}</p>
+                        </div>
+                    </div>
+                    )
+                })
+                ) : (
+                <div className="center">No posts to show</div>
+                );
+
+                return (
+                <div>
+                    <div className="container">
+                    <h4 className="center">Home</h4>
+                    {postList}
+                    </div>
+                </div>
+                )
+            }
+        }
+
+        export default Home
+        ```
+    * Route Parameters(also the use of *Switch*):
+        - By using switch, it travers from top & redirects to only one route(not multiple as told in the comment below)
+    // in `App.js`
     ```js
     import { Route, BrowserRouter } from 'react-router-dom'
+    ...
+    import Post from './components/Post'
+    import { Route, BrowserRouter, Switch } from 'react-router-dom'
     ...
     class App extends Component {
     render() {
@@ -2003,15 +2100,50 @@ e.g. Delete all 'R' rated movies from list
         <BrowserRouter>
             <div className="App">
             <Navbar />
-            <Route exact path='/' component={Home}/> // if not used `exact`, Home page will load on every route(just like the error in ProfilePage project)
-            <Route path='/about' component={About} />
-            <Route path='/contact' component={Contact} />
+            <Switch>        // without switch, all routes(about, contact) will also render as a post_id
+                <Route exact path='/' component={Home}/>
+                <Route path='/about' component={About} />
+                <Route path='/contact' component={Contact} />
+                <Route path='/:post_id' component={Post} />
+            </Switch>
             </div>
         </BrowserRouter>
         );
-     }
     }
-    ...
+    ```
+    //in `Post.js` -the child component
+    ```js
+    import axios from 'axios'
+
+    class Post extends Component {
+        state = {
+          post: null
+        }
+        componentDidMount(){
+            let id = this.props.match.params.post_id;
+            axios.get('https://jsonplaceholder.typicode.com/posts/' + id) //get post content from API
+            .then(res => {
+                this.setState({
+                post: res.data
+                });
+            });
+        }
+        render() {
+            const post = this.state.post ? (
+            <div className="post">
+                <h4 className="center">{this.state.post.title}</h4>
+                <p>{this.state.post.body}</p>
+            </div>
+            ) : (
+            <div className="center">Loading post...</div>
+            );
+            return (
+            <div className="container">
+                {post}
+            </div>
+            )
+        }
+    }
     ```
 
 
@@ -2047,7 +2179,7 @@ is an open-source JavaScript framework to run JS on server-side(up until now, we
 * Export a variable: `module.exports = x;`
 * Import a variable: `var x = require('./models/file_containing_x')`
 * Making Request in node: Install package: `npm install request`, then:
-    ```
+    ```js
     var request = require('request');
     request('http://www.google.com', function (error, response, body) {
     console.log('error:', error); // Print the error if one occurred
@@ -2143,7 +2275,7 @@ A light, most popular NodeJS Web Development framework.
 * Looks like Javascript objects
 * Fake Dummy Data(for testing): [json placeholder](https://jsonplaceholder.typicode.com/)
 * Everything is a string
-```
+```json
 {
     'person': {
         'name': 'Me',
@@ -2332,7 +2464,7 @@ app.post('/posts/:id/comments',(req,res)=>{
         * `password-hash`
     * Handeling REGISTRATION:
         1.  In User-model:
-        ```
+        ```js
         var mongoose = require('mongoose');
             bcrypt   = require('bcrypt-nodejs');
 
@@ -2371,7 +2503,7 @@ app.post('/posts/:id/comments',(req,res)=>{
         module.exports =  mongoose.model('User', userSchema)
         ```
         2. Imports in `./config/passport.js`
-        ```
+        ```js
        var LocalStrategy   = require('passport-local').Strategy;
             User            = require('../models/User');
 
@@ -2443,7 +2575,7 @@ app.post('/posts/:id/comments',(req,res)=>{
 
         ``` 
         3. AUTH ROUTES & MIDDLEWARE in `index.js`:
-        ```
+        ```js
         //REGISTER
         app.get('/register',(req,res)=>{
             res.render('auth/register');
