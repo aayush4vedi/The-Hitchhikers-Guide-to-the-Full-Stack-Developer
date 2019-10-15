@@ -1582,6 +1582,7 @@ e.g. Delete all 'R' rated movies from list
         * *Front-End Framework*: provides tools for it
     * is always run on **client side**, back-end mei NodeJS
 ### 6.1. React
+- Jo koi na samjha paya, voh iss[ youtube series](https://www.youtube.com/watch?v=iuj86pSduu0&list=PL4cUxeGkcC9ij8CfkAY2RAGb-tmkNwQHG&index=44) ne kar dikhaya.Yayy me on finally getting the feel of React(+ little bit of redux).
 * **Intro**
     * About:
         * Released by Facebook in 2013
@@ -2200,6 +2201,7 @@ e.g. Delete all 'R' rated movies from list
         export default rootReducer
         ```
     3. Use it in components(by making that component Supercomponent(which has ability to connect to redux)):
+        * Updating listview component
         //(updating the `Home` component above, which was getting data from axios->APIs)
         //@`Home.js`
         ```js
@@ -2217,7 +2219,67 @@ e.g. Delete all 'R' rated movies from list
         }
         export default connect(mapStateToProps)(Home) //connect() returns a higher order component & then (Home) is wrapped around it
         ```
-
+        * Updating individual list component:
+        //@`Post.js`
+        ```js
+        import { connect } from 'react-redux'
+        class Post extends Component {
+        render() {
+            const post = this.props.post ? (
+            ...
+        }
+        const mapStateToProps = (state, ownProps) => {
+            let id = ownProps.match.params.post_id;
+            return {
+                post: state.posts.find(post => post.id === id)
+            }
+        }
+        export default connect(mapStateToProps)(Post)
+        ```
+    4. Mapping Dispatch Actions(Update/Delete)
+        * Inside component
+            //@`Post.js`
+            ```js
+            ...
+            class Post extends Component {
+                handleClick = () => {
+                    this.props.deletePost(this.props.post.id);
+                    this.props.history.push('/');
+                }
+                render() {
+                    const post = this.props.post ? (
+                        ...
+                        <button className="btn grey" onClick={this.handleClick}>
+                            Delete Post
+                        </button>
+                        ...
+            ...
+            const mapDispatchToProps = (dispatch) => {
+                return {
+                    deletePost: (id) => dispatch({type: 'DELETE_POST', id: id})
+                }
+            }
+            export default connect(mapStateToProps, mapDispatchToProps)(Post)
+            ```
+        * Update the Reducer
+            //@`rootReducer.js`
+            ```js
+            ...
+            const rootReducer = (state = initState, action) => {
+                console.log(action);
+                if(action.type === 'DELETE_POST'){
+                    let newPosts = state.posts.filter(post => {
+                        return post.id !== action.id
+                    });
+                    return {
+                    ...state,
+                    posts: newPosts
+                    }
+                }
+                return state;
+            }
+            ...
+            ```
 
 ### 7.2. State API
 ### 7.1. NgRx
