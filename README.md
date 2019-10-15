@@ -2038,7 +2038,7 @@ e.g. Delete all 'R' rated movies from list
         )
         }
         ```
-    * Using `axios`:
+    * Using `axios`: //@`Home.js`
         ```js
         import axios from 'axios'
 
@@ -2087,7 +2087,7 @@ e.g. Delete all 'R' rated movies from list
         ```
     * Route Parameters(also the use of *Switch*):
         - By using switch, it travers from top & redirects to only one route(not multiple as told in the comment below)
-    // in `App.js`
+    // @`App.js`
     ```js
     import { Route, BrowserRouter } from 'react-router-dom'
     ...
@@ -2111,7 +2111,7 @@ e.g. Delete all 'R' rated movies from list
         );
     }
     ```
-    //in `Post.js` -the child component
+    //@`Post.js` -the child component
     ```js
     import axios from 'axios'
 
@@ -2165,8 +2165,58 @@ e.g. Delete all 'R' rated movies from list
 ### 7.1. Redux
 - State management lib for React
 - Provides state management at *central level* (Plain react does at *component level*)
+- is a central data store for all app data
+- so, any component can access data from it
+    <p align = 'center'>
+        <img src = './Media/redux.png' width = '500px'>
+    </p>
+-  npm:
+    - `redux`
+    - `react-redux`
+* **Setting up Redux**:
+    1. create store in `index.js`(and connect with reducer after creating reducer):
+        ```js
+        import { createStore } from 'redux'
+        import { Provider } from 'react-redux'
+        import rootReducer from './reducers/rootReducer'
 
+        const store = createStore(rootReducer);
 
+        ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+        ```
+    2. Create a reducer: @`./reducers/rootReducer.js`
+        ```js
+        const initState = {
+            //populating with dummy data
+            posts: [
+                {id: '1', title: 'Squirtle Laid an Egg', body: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur voluptate laborum perferendis, enim repellendus ipsam sunt autem at odit dolorum, voluptatum suscipit iste harum cum magni itaque animi laudantium fugiat'},
+                {id: '2', title: 'Charmander Laid an Egg', body: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur voluptate laborum perferendis, enim repellendus ipsam sunt autem at odit dolorum, voluptatum suscipit iste harum cum magni itaque animi laudantium fugiat'},
+                {id: '3', title: 'a Helix Fossil was Found', body: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur voluptate laborum perferendis, enim repellendus ipsam sunt autem at odit dolorum, voluptatum suscipit iste harum cum magni itaque animi laudantium fugiat'}
+            ]
+        }
+        const rootReducer = (state = initState, action) => {
+            return state;
+        }
+        export default rootReducer
+        ```
+    3. Use it in components(by making that component Supercomponent(which has ability to connect to redux)):
+        //(updating the `Home` component above, which was getting data from axios->APIs)
+        //@`Home.js`
+        ```js
+        import { connect } from 'react-redux'
+        class Home extends Component {
+        render(){
+            const { posts } = this.props
+                ......
+        ...
+        //taking state from redux store & applying a posts property to props & setting it as state.posts in redux store
+        const mapStateToProps = (state) => {
+            return {
+                posts: state.posts
+            }
+        }
+        export default connect(mapStateToProps)(Home) //connect() returns a higher order component & then (Home) is wrapped around it
+        ```
 
 
 ### 7.2. State API
