@@ -87,7 +87,9 @@
         * REST Client(inbuilt Postman)
 
         **>> React:**
-        * ES7 React/Redux/GraphQL/React-Native snippets : just type `rcc` for boilerplate
+        * ES7 React/Redux/GraphQL/React-Native snippets : 
+            * `rce` for Container Component
+            * `rfc` for UI component
 
 
         **>> Others**
@@ -1606,7 +1608,9 @@ e.g. Delete all 'R' rated movies from list
     * In project directory: `create-react-app appname`(name can't contain CAPITAL LETTERS)
     * Run Server: `cd appname` -> `npm start`
     * Chrome Extension: [React Dev Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
-    * **VSCode boilerplate:** `rcc`
+    * **VSCode boilerplate:** 
+        * `rce` for Container Component
+        * `rfc` for UI component
 * **Components**
     <br>
     <img src="./Media/react-component.png" width="500em">
@@ -1636,7 +1640,7 @@ e.g. Delete all 'R' rated movies from list
                 const {fruits} = props;
                 const fruitsInBasket = fruits.map(f=>{
                     return(
-                        <div className= "fruit" key={fruit.id}>
+                        <div className= "fruit" key={f.id}>
                             <div className = "name">Name: {f.name}</divc>
                             <div className = "color">Color: {f.color}</divc>
                         </div>
@@ -1995,8 +1999,8 @@ e.g. Delete all 'R' rated movies from list
     </p>
 * **React Router**
     * npm: `react-router-dom`
-    1. Routing:
-        * E.g.(in `App.js`)
+    1. Routing: declaring all routes in `App.js`
+        * //@`App.js`
         ```js
         import { Route, BrowserRouter } from 'react-router-dom'
         ...
@@ -2016,7 +2020,7 @@ e.g. Delete all 'R' rated movies from list
         }
         ...
         ```
-    2. Linking:
+    2. Linking: using the above declared routes in components
         * React's  Link tags will stop the default behaviour of a request being made to the server.
         * instead, ask react DOM to load that (already existing) component.
         * As a result, page isn't reloaded everytime. => Quicker & Smoother rendering
@@ -2171,9 +2175,17 @@ e.g. Delete all 'R' rated movies from list
     <p align = 'center'>
         <img src = './Media/redux.png' width = '500px'>
     </p>
+    - you: component
+    - zomato: Dispatcher
+    - vallet: Reducer
 -  npm:
     - `redux`
     - `react-redux`
+    - `firebase` `react-redux-firebase` `redux-firestore`
+- //TODO: add updated redux pic here
+- Hooking up with firebase:
+    - `npm install firebase`
+    - Continue from [here](https://www.youtube.com/watch?v=DyavQ5Q015U&list=PL4cUxeGkcC9iWstfXntcj8f-dFZ4UtlN3&index=19) for auth, data, create etc.
 * **Setting up Redux**:
     1. create store in `index.js`(and connect with reducer after creating reducer):
         ```js
@@ -3593,6 +3605,7 @@ Automate-the-boring-stuff [Book](https://automatetheboringstuff.com/). It has:
 
 
 # Self-Project Ideas:
+- [] Make your own browser.
 * [Personal Management System](https://github.com/Volmarg/personal-management-system): make recurrent/auto-tracking
 * unity app for auto daily booking cab/ordering food
 * **PKMS** (Personal Knowledge Management System)Do Something about unsorted-but-important knowledge I'm gaining from HN,Youtube, Quora etc, terms & things I'm learning.I don't know how & where to store it, but I'd sure as hell don't want it to go wasted.
@@ -3617,7 +3630,7 @@ Automate-the-boring-stuff [Book](https://automatetheboringstuff.com/). It has:
 * Automate the chrome offlne diansaure game in python
 * Make a VS Code extension to pull all boilerplates on fly.
 * Need to write an awesome CV(super customisable) template as online ones are either crap or not free.
-
+* Scrape Amazon, Nasa for cool things.
 <p align="center">
 <img src="./Media/imready.gif" data-canonical-src="po" width="600" height="500"  />
 </p>
