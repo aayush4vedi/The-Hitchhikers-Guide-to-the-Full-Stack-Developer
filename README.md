@@ -3648,6 +3648,8 @@ Automate-the-boring-stuff [Book](https://automatetheboringstuff.com/). It has:
 * Need to write an awesome CV(super customisable) template as online ones are either crap or not free.
 * Scrape Amazon, Nasa for cool things.
 * Check who reads & uses our data & create hype. Similar to [this](https://twitter.com/vah_13/status/1187755829371555840) guy
+* Do something similar: [Rockstar](https://github.com/avinassh/rockstar) -automates filling your github contributions
+* Tool to write documentation in a specefic Design Principle: MVC/MVT, DDD etc
 <p align="center">
 <img src="./Media/imready.gif" data-canonical-src="po" width="600" height="500"  />
 </p>
