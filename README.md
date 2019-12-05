@@ -2525,55 +2525,145 @@ The Seven Deadly Routes every CRUD app has to have(in the same url fashion):
     * (3) `<form action="/blogs/<%= blog._id %>?_method=PUT" method="post" class="ui form">`
 
 # VI. Models & Data Association:
-Add comments to a post:
-1. Make `comments` model:
-```
-var commentSchema = mongoose.Schema({
-    text   : String,
-    author : String,
-});
-module.exports = mongoose.model('Comment', commentSchema);
-```
-2. Connect with post:
-```
-var hotelSchema = new mongoose.Schema({
-    name          : String,
-    image         : String,
-    description   : String,
-    comments      : [
+- E.g.1: Book-Author:
+    - `Author` model:
+    ```js
+    var mongoose = require('mongoose');
+    var Schema = mongoose.Schema;
+
+    var AuthorSchema = new Schema(
         {
-            type: mongoose.Schema.Types.ObjectId,
-            ref : "Comment"
+            first_name: {type: String, required: true, max: 100},
+            family_name: {type: String, required: true, max: 100},
+            date_of_birth: {type: Date},
+            date_of_death: {type: Date},
+        });
+
+    // Virtual for author's full name
+    AuthorSchema
+    .virtual('name')
+    .get(function () {
+        var fullname = '';
+        if (this.first_name && this.family_name) {
+            fullname = this.family_name + ', ' + this.first_name
         }
-    ]
-});
-```
-3. In `index.js`
-```
-app.post('/posts/:id/comments',(req,res)=>{
-    //lookup for post using id
-    //create new comment
-    //connect comment to post
-    //redirect to show page
-    Hotel.findById(req.params.id, (err, post)=>{
-        if(err){
-            console.log(err);
-            res.redirect('/posts/'+req.params.id);
-        }else{
-            Comment.create(req.body.comment, (err, comment)=>{
-                if(err){
-                    console.log(err);
-                }else{
-                    post.comments.push(comment);
-                    post.save();
-                    console.log('Created comment!',comment);
-                    res.redirect('/posts/' + post._id);
-                }
-            });
+        if (!this.first_name || !this.family_name) {
+            fullname = '';
         }
+    return fullname;
     });
-}); 
-```
+
+    // Virtual for author's lifespan
+    AuthorSchema
+    .virtual('lifespan')
+    .get(function () {
+    return (this.date_of_death.getYear() - this.date_of_birth.getYear()).toString();
+    });
+
+    // Virtual for author's URL
+    AuthorSchema
+    .virtual('url')
+    .get(function () {
+    return '/catalog/author/' + this._id;
+    });
+
+    //Export model
+    module.exports = mongoose.model('Author', AuthorSchema);
+    ```
+- `Book` model:
+    ```js
+    var BookSchema = new Schema(
+    {
+        title: {type: String, required: true},
+        author: {type: Schema.Types.ObjectId, ref: 'Author', required: true},
+        summary: {type: String, required: true},
+        isbn: {type: String, required: true},
+        genre: [{type: Schema.Types.ObjectId, ref: 'Genre'}]
+    });
+
+    // Virtual for book's URL
+    BookSchema
+    .virtual('url')
+    .get(function () {
+    return '/catalog/book/' + this._id;
+    });
+- `BookInstance` model: represents a specific copy of a book that someone might borrow and includes information about whether the copy is available or on what date it is expected back
+    ```js
+    var BookInstanceSchema = new Schema(
+    {
+        book: { type: Schema.Types.ObjectId, ref: 'Book', required: true }, //reference to the associated book
+        imprint: {type: String, required: true},
+        status: {type: String, required: true, enum: ['Available', 'Maintenance', 'Loaned', 'Reserved'], default: 'Maintenance'},
+        due_back: {type: Date, default: Date.now}
+    }
+    );
+
+    // Virtual for bookinstance's URL
+    BookInstanceSchema
+    .virtual('url')
+    .get(function () {
+    return '/catalog/bookinstance/' + this._id;
+    });
+
+    //Export model
+    module.exports = mongoose.model('BookInstance', BookInstanceSchema);
+    ```
+
+    //Export model
+    module.exports = mongoose.model('Book', BookSchema);
+    ```
+
+
+- E.g.2: Post-Comment:
+    - Add comments to a post:
+    1. Make `comments` model:
+    ```
+    var commentSchema = mongoose.Schema({
+        text   : String,
+        author : String,
+    });
+    module.exports = mongoose.model('Comment', commentSchema);
+    ```
+    2. Connect with post:
+    ```
+    var hotelSchema = new mongoose.Schema({
+        name          : String,
+        image         : String,
+        description   : String,
+        comments      : [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref : "Comment"
+            }
+        ]
+    });
+    ```
+    3. In `index.js`
+    ```
+    app.post('/posts/:id/comments',(req,res)=>{
+        //lookup for post using id
+        //create new comment
+        //connect comment to post
+        //redirect to show page
+        Hotel.findById(req.params.id, (err, post)=>{
+            if(err){
+                console.log(err);
+                res.redirect('/posts/'+req.params.id);
+            }else{
+                Comment.create(req.body.comment, (err, comment)=>{
+                    if(err){
+                        console.log(err);
+                    }else{
+                        post.comments.push(comment);
+                        post.save();
+                        console.log('Created comment!',comment);
+                        res.redirect('/posts/' + post._id);
+                    }
+                });
+            }
+        });
+    }); 
+    ```
 ---
 # VII. Authentication & Authorization
 * ## Learn from here: [article](https://scotch.io/tutorials/easy-node-authentication-setup-and-local)
