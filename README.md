@@ -13,7 +13,7 @@
 <a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#v-rest"><img src="https://img.shields.io/badge/Auth-253529" alt="Auth"></a>
 <a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#v-rest"><img src="https://img.shields.io/badge/Python-4997D0" alt="Python"></a>
 <a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#5-task-automation"><img src="https://img.shields.io/badge/Task Automation-719B6A" alt="Task Automation"></a>
-<a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#v-rest"><img src="https://img.shields.io/badge/Dev Ops-4570E6" alt="Dev Ops"></a>
+<a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#viii-devops"><img src="https://img.shields.io/badge/Dev Ops-4570E6" alt="Dev Ops"></a>
 <br>
 <br>
 </p>
@@ -2521,10 +2521,11 @@ The Seven Deadly Routes every CRUD app has to have(in the same url fashion):
 * npm install `express-sanitizer` => Allows good HTML(`<h1>`,`<p>`...) and removes bad HTML(`<script>`...) from input
 * HTML forms just support GET & POST req.No PUT/DELETE.
     * (1) `npm install method-override`
-    * (2) `var methodOverrid = require('method-override'); app.use(methodOverrid('_method'));`
+    * (2) `var methodOverride = require('method-override'); app.use(methodOverride('_method'));`
     * (3) `<form action="/blogs/<%= blog._id %>?_method=PUT" method="post" class="ui form">`
 
 # VI. Models & Data Association:
+- **virtuals** are getters&setters made easy. More on them [here](https://futurestud.io/tutorials/understanding-virtuals-in-mongoose)
 - E.g.1: Book-Author:
     - `Author` model:
     ```js
@@ -2539,7 +2540,8 @@ The Seven Deadly Routes every CRUD app has to have(in the same url fashion):
             date_of_death: {type: Date},
         });
 
-    // Virtual for author's full name
+    // Virtual for author's full name   =>allows to use console.log(Author.name); directly
+    //setter
     AuthorSchema
     .virtual('name')
     .get(function () {
@@ -2551,6 +2553,14 @@ The Seven Deadly Routes every CRUD app has to have(in the same url fashion):
             fullname = '';
         }
     return fullname;
+    });
+    //setter => allows Author.fullname = 'Kimball Cho';
+    AuthorSchema
+    .virtual('fullname')
+    .set(function (name) {  
+        var split = name.split(' ');
+        this.first = split[0];
+        this.last = split[1];
     });
 
     // Virtual for author's lifespan
@@ -2587,6 +2597,9 @@ The Seven Deadly Routes every CRUD app has to have(in the same url fashion):
     .get(function () {
     return '/catalog/book/' + this._id;
     });
+    //Export model
+    module.exports = mongoose.model('Book', BookSchema);
+    ```
 - `BookInstance` model: represents a specific copy of a book that someone might borrow and includes information about whether the copy is available or on what date it is expected back
     ```js
     var BookInstanceSchema = new Schema(
@@ -2607,10 +2620,6 @@ The Seven Deadly Routes every CRUD app has to have(in the same url fashion):
 
     //Export model
     module.exports = mongoose.model('BookInstance', BookInstanceSchema);
-    ```
-
-    //Export model
-    module.exports = mongoose.model('Book', BookSchema);
     ```
 
 
@@ -3663,6 +3672,21 @@ Automate-the-boring-stuff [Book](https://automatetheboringstuff.com/). It has:
 
 # VIII. DevOps
 ## 1. Deployment:linux,ssh,gitlab, server-software(Ngnix,Apache)
+- MDN guide on Deploying app on Heroku: [link](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/deployment)
+### 1.1 Security
+- *Terminologies:* All about Cyber-Security: [tutorials](https://www.cloudflare.com/learning/), gives basic idea about everything.
+- **NodeJS** guide on Security- Best Practices. [link](https://www.cloudflare.com/learning/) - very helpful & broad
+    - Helmet
+    - TLS in NodeJS: **OpenSSL**
+        - [Medium Article](https://blog.usejournal.com/securing-node-js-apps-with-ssl-tls-b3570dbf84a5)
+    - `app.disable('x-powered-by')`
+    - Cookies: `cookie-session`
+    - Sessions: `express-session`
+
+### 1.2 Performance
+- **NodeJS** guide on Security- Performance & Reliability. [link](https://expressjs.com/en/advanced/best-practice-performance.html) - very helpful & broad
+    - Compress
+    - Reverse Proxies middleware: **Nginx**
 ## 2. Platforms: AWS,Azure,Google cloud,Heroku
     Heroku does free deployment for light-traffic websites.
 ## 3. Virtualization: docker
