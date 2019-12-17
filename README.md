@@ -30,6 +30,7 @@
 * Framework vs Library vs Toolkit: [stackoverflow](https://stackoverflow.com/questions/3057526/framework-vs-toolkit-vs-library)
 * Cool IoT-APIs [IFTTT](https://platform.ifttt.com/docs)
 * A $100 freelanced portfolio-website [@youtube](https://www.youtube.com/watch?v=k152ovSOR74)
+* [HUGO](https://github.com/luizdepra/hugo-coder/) very cool & minimalistic framework to build portfolio website.DO CHECK.
 * **REST** is an useful convention/architecture for mapping http routes to CRUD functionalities 
 
 
