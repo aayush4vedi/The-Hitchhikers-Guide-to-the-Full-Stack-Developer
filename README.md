@@ -3699,7 +3699,6 @@ Automate-the-boring-stuff [Book](https://automatetheboringstuff.com/). It has:
 ## 0. GraphQL
 ## 0. TypeScript
 ## 0. App Dev: react-native, flutter,ionic
-    >>Project-idea: unity app for auto daily booking cab/ordering food(Hackathon@Rzp)
 ## 0. Desktop apps: electron
 ## 0. Progressive Web Aps(PWA)
 ## 0. AI, ML, Data Science
@@ -3718,90 +3717,6 @@ Automate-the-boring-stuff [Book](https://automatetheboringstuff.com/). It has:
 ![Devops](https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/Media/devops.png)
 
 
-# Self-Project Ideas:
-
-> Start living in the future, and build what's missing
-- [] Make your own browser.
-* [Personal Management System](https://github.com/Volmarg/personal-management-system): make recurrent/auto-tracking
-* unity app for auto daily booking cab/ordering food
-* **PKMS** (Personal Knowledge Management System)Do Something about unsorted-but-important knowledge I'm gaining from HN,Youtube, Quora etc, terms & things I'm learning.I don't know how & where to store it, but I'd sure as hell don't want it to go wasted.
-    * Temporary Fix: [Evernote](https://www.evernote.com/client/web?login=true#?anb=true&b=c0d68e64-d147-44ee-bf87-5619bf7a2821&n=9f12bf86-0009-4a76-bc83-df23282a0be7&s=s381&)
-    * [Article](https://medium.com/@axtonliu/how-to-build-an-efficient-personal-knowledge-management-system-355332ae5991) listing the problem statement good, no solution
-    * [Article](https://medium.com/@stangarfield/personal-knowledge-management-how-to-do-it-with-25-resources-and-10-books-on-pkm-2adce0e1d05c) listing resources
-    * [askHN](https://news.ycombinator.com/item?id=20819478)
-    * [askHN-2](https://news.ycombinator.com/item?id=17892731)
-    * [This](https://dnote.io/blog/how-i-built-personal-knowledge-base-for-myself/) guy has build *something*
-    * **Suggested Name:** Brain-2.0
-        - Similar to your brain, but smarter & faster with as you age(unlike you)
-        - Can:
-            - read & see faster
-            - process information faster(figures out what's crap, maybe)
-            - stores limitlessly
-            - form memory traces across all data & show you
-            - Just can't do one thing like brain: think new
-    * Who wants it:
-        - X axis: number of people who want
-        - Y axis: how much they want it now(in this era of information explosion)
-    * Features:
-        * Can put on/off(learning mode)
-        * Full privacy
-        * Cover all learning sources: screens for now(phone+laptop)
-        * record every text/link opened, speech-to-text for every video watched.Do we search using words only?
-        * Smart searching:
-            * Synonym/*like query as our mind doesn't always recall exact word
-            * How to search something I've SEEN in a video/movie/song?
-        * Some sort of summarizing tool.
-        * Highlight and store quotes separately.
-        * Futuristic design: fit in the eyeball(Black mirror: The entire history of you)
-        * Create a memory trace & notify when a user visits a page in trace sometime later
-        * need a hippocampus [read](https://human-memory.net/memory-encoding/) to process which type of data & direct it to its Encoding channel.
-    * Unclears:
-        - Recognition vs Recall vs Absurd-filtering
-* Automate the chrome offlne diansaure game in python
-* Make a VS Code extension to pull all boilerplates on fly.
-* Need to write an awesome CV(super customisable) template as online ones are either crap or not free.
-* Scrape Amazon, Nasa for cool things.
-* Check who reads & uses our data & create hype. Similar to [this](https://twitter.com/vah_13/status/1187755829371555840) guy
-* Do something similar: [Rockstar](https://github.com/avinassh/rockstar) -automates filling your github contributions
-* Tool to write documentation in a specefic Design Principle: MVC/MVT, DDD etc
-<p align="center">
-<img src="./Media/imready.gif" data-canonical-src="po" width="600" height="500"  />
-</p>
-
-* MEMEX(by WorldBrain):
-    * 4.5k+ commits, 100+ Open source contributers, tagdi funding, CEO(civil engg.) is working on it for 4+ years; but I can still beat it.
-    * links:
-        * [description on product hunt](https://www.producthunt.com/posts/memex-1-0?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-memex-1-0)
-        * HN comment [thread](https://news.ycombinator.com/item?id=21308296)
-    - Tareef:
-    >"It is a personal search engine. A personal digital memory extender for the Web. 
-    >The antidote to digital amnesia, a hope for the world. "
-    * Issues:
-        - Exists, duh!
-        - Not cross device & platform(sync is heavily promised everywhere)
-        - What about all the information I've collected before T? it just imports web-history of last 90 days & bookmarks i.e. your new brain is born today & you can't do anything about it.
-            - => I can feed it all of my browsing history, but is there any way I can feed it how much time I've spent on each page?
-        - Sidebar, annotation option & shortcut keys is annoying: poor UX
-        - Minor bugs:
-            - In order to make updated setting(like disable sidebar) work, reload the page
-        - Keeps track of grunt pages as well(youtube homepage, HN list pages)
-            - => Need to have a brain-wala-filter on which page to store
-    * What's good in it:
-        - Shows results on google search pages(form your own internet)
-        - Counts & displays notes I've taken on each page(implementation not good though)
-        - annotations
-    * What I could have done better:
-        - Much better searching & indexing: just like brain does
-            - (??figure out how brain recalls: TODO:)
-                - Movies: “Total Recall, Eternal Sunshine of the Spotless Mind, The Manchurian Candidate and Vanilla Sky
-            - Current idea: 
-                - Indexing: sort the visited urls in: %match_with_searched_pattern > #visits > avg_time_per_visit 
-                - Querying: synonym+NLP 
-        - Video+audio memex
-        - Better UX:
-            - web-extension: maybe?
-            - sidebar+ ugly popup on text selection: definitely not
-        - When the page is opened sometime after, some notification icon to show prev saved annotations
 
 <p align="center">
     <img src="./Media/paulGrahamIdea.png" width="500px">
@@ -3809,7 +3724,6 @@ Automate-the-boring-stuff [Book](https://automatetheboringstuff.com/). It has:
 <p align="center">
     <img src="./Media/pipilika.png" width="500px">
 </p>
-
 
 
 
