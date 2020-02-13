@@ -3671,6 +3671,17 @@ Automate-the-boring-stuff [Book](https://automatetheboringstuff.com/). It has:
 
 ---
 
+# VIII. Go 
+<p align="center">
+    <img src="./Media/paulGrahamIdea.png" width="500px">
+</p>
+Stepwise guide for developing a simple CRUD app, based on book: Let's Go by Alaex Edwards>> {here
+(https://github.com/aayush4vedi/gisty/blob/master/readme.md
+<p align="center">
+    <img src="./Media/paulGrahamIdea.png" width="500px">
+</p>
+---
+
 # VIII. DevOps
 ## 1. Deployment:linux,ssh,gitlab, server-software(Ngnix,Apache)
 - MDN guide on Deploying app on Heroku: [link](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/deployment)
