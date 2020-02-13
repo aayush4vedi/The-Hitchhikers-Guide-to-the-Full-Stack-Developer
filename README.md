@@ -9,9 +9,9 @@
 <a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#iii--back-end"><img src="https://img.shields.io/badge/Back End-FF5050" alt="Back End"></a>
 <a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#iv-database"><img src="https://img.shields.io/badge/Database-0081AB" alt=Database"></a>
 <a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#v-rest"><img src="https://img.shields.io/badge/REST-FD5240" alt="REST"></a>
-<a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#v-rest"><img src="https://img.shields.io/badge/Model & DA-614051" alt="Model & DA"></a>
-<a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#v-rest"><img src="https://img.shields.io/badge/Auth-253529" alt="Auth"></a>
-<a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#v-rest"><img src="https://img.shields.io/badge/Python-4997D0" alt="Python"></a>
+<a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#vi-models--data-association"><img src="https://img.shields.io/badge/Model & DA-614051" alt="Model & DA"></a>
+<a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#vii-authentication--authorization"><img src="https://img.shields.io/badge/Auth-253529" alt="Auth"></a>
+<a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#vii-python"><img src="https://img.shields.io/badge/Python-4997D0" alt="Python"></a>
 <a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#5-task-automation"><img src="https://img.shields.io/badge/Task Automation-719B6A" alt="Task Automation"></a>
 <a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#viii-devops"><img src="https://img.shields.io/badge/Dev Ops-4570E6" alt="Dev Ops"></a>
 <br>
@@ -3673,13 +3673,11 @@ Automate-the-boring-stuff [Book](https://automatetheboringstuff.com/). It has:
 
 # VIII. Go 
 <p align="center">
-    <img src="./Media/paulGrahamIdea.png" width="500px">
+    <img src="Media/gophick&gophorty.png" width="1000px">
 </p>
-Stepwise guide for developing a simple CRUD app, based on book: Let's Go by Alaex Edwards>> {here
-(https://github.com/aayush4vedi/gisty/blob/master/readme.md
-<p align="center">
-    <img src="./Media/paulGrahamIdea.png" width="500px">
-</p>
+
+Stepwise guide for developing a simple CRUD app, based on book: Let's Go by Alaex Edwards.>> [here](https://github.com/aayush4vedi/gisty/blob/master/readme.md)
+
 ---
 
 # VIII. DevOps
