@@ -13,6 +13,7 @@
 <a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#vii-authentication--authorization"><img src="https://img.shields.io/badge/Auth-253529" alt="Auth"></a>
 <a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#vii-python"><img src="https://img.shields.io/badge/Python-4997D0" alt="Python"></a>
 <a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#5-task-automation"><img src="https://img.shields.io/badge/Task Automation-719B6A" alt="Task Automation"></a>
+ <a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer/blob/master/README.md#viii-go"><img src="https://img.shields.io/badge/Task Automation-BADCE1" alt="Golang"></a>
 <a href="https://github.com/aayush4vedi/The-Hitchhikers-Guide-to-the-Full-Stack-Developer#viii-devops"><img src="https://img.shields.io/badge/Dev Ops-4570E6" alt="Dev Ops"></a>
 <br>
 <br>
