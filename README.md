@@ -2485,6 +2485,7 @@ A light, most popular NodeJS Web Development framework.
                 `else{cosole.log(car);}`<br>
             `})`
 * **Seeding** : See [here](https://github.com/aayush4vedi/YelpHotel/blob/master/seeds.js) in my **YelpHotel** project
+* MongoDB on cloud: [cloud|MongoDB](https://account.mongodb.com/account/login?n=%2Fv2%2F)
 
 ### 2.2. Memcached
 
